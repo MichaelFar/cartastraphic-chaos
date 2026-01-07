@@ -1,30 +1,168 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvl2xwykeekj3"]
+[gd_scene load_steps=12 format=3 uid="uid://dvl2xwykeekj3"]
 
 [ext_resource type="Script" uid="uid://boy7evgyjn6g7" path="res://scripts/player_scene.gd" id="1_f302p"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_4kqly"]
+size = Vector3(1.406189, 0.1, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_f302p"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_vdp4a"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4kqly"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hwioa"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3lb1s"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
 [sub_resource type="BoxMesh" id="BoxMesh_f302p"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_f302p"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f302p"]
 
-[node name="PlayerScene" type="CharacterBody3D" node_paths=PackedStringArray("rotationDirectionNode", "rotationParent", "head")]
-script = ExtResource("1_f302p")
-rotationRate = 20.0
-rotationDirectionNode = NodePath("RotationHandler/MeshInstance3D")
-rotationParent = NodePath("RotationHandler")
-head = NodePath("Head")
+[sub_resource type="BoxShape3D" id="BoxShape3D_f302p"]
+size = Vector3(1, 3.9555664, 1)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-mesh = SubResource("BoxMesh_f302p")
+[sub_resource type="BoxShape3D" id="BoxShape3D_vdp4a"]
+size = Vector3(2.1218262, 1, 1)
 
-[node name="Head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0611701, 0.85375077)
+[node name="PlayerSceneParent" type="Node3D"]
 
-[node name="Camera3D" type="Camera3D" parent="Head"]
+[node name="HeadContainer" type="Node3D" parent="."]
+
+[node name="Head" type="Node3D" parent="HeadContainer"]
+
+[node name="Camera3D" type="Camera3D" parent="HeadContainer/Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.44524097)
 
-[node name="RotationHandler" type="Node3D" parent="."]
+[node name="PlayerScene" type="CharacterBody3D" parent="." node_paths=PackedStringArray("head", "headContainer", "headMarker", "cartMeshContainer", "camera", "objectSpawnMarker")]
+script = ExtResource("1_f302p")
+rotationRate = 20.0
+head = NodePath("../HeadContainer/Head")
+headContainer = NodePath("../HeadContainer")
+headMarker = NodePath("HeadMarker")
+cartMeshContainer = NodePath("CartMeshParts")
+camera = NodePath("../HeadContainer/Head/Camera3D")
+objectSpawnMarker = NodePath("ObjectSpawnMarker")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RotationHandler"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
-mesh = SubResource("CylinderMesh_f302p")
+[node name="StaticBody3D" type="StaticBody3D" parent="PlayerScene"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6636128, 0)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="PlayerScene/StaticBody3D"]
+transform = Transform3D(0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0, 1, 1.1358576, -2.1911116, 0)
+shape = SubResource("BoxShape3D_4kqly")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="PlayerScene/StaticBody3D"]
+transform = Transform3D(-3.090862e-08, -3.090862e-08, -1, -0.70710677, 0.70710677, 0, 0.70710677, 0.70710677, -4.371139e-08, -0.051625013, -2.1911116, 1.0129515)
+shape = SubResource("BoxShape3D_4kqly")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="PlayerScene/StaticBody3D"]
+transform = Transform3D(-0.70710677, -0.70710677, 8.742278e-08, -0.70710677, 0.70710677, 0, -6.181723e-08, -6.181723e-08, -1, -1.1002424, -2.1911116, -0.04756725)
+shape = SubResource("BoxShape3D_4kqly")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="PlayerScene/StaticBody3D"]
+transform = Transform3D(-0.4921467, -0.4921467, -0.71804124, -0.70710677, 0.70710677, 0, 0.5077318, 0.5077318, -0.6960006, -0.7681807, -2.1911116, 0.6809454)
+shape = SubResource("BoxShape3D_4kqly")
+
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="PlayerScene/StaticBody3D"]
+transform = Transform3D(0.4903624, 0.4903624, -0.7204786, -0.70710677, 0.70710677, 0, 0.5094552, 0.5094552, 0.6934772, 0.84122133, -2.1911116, 0.74853945)
+shape = SubResource("BoxShape3D_4kqly")
+
+[node name="CollisionShape3D11" type="CollisionShape3D" parent="PlayerScene/StaticBody3D"]
+transform = Transform3D(-3.090862e-08, -3.090862e-08, 1.0000001, -0.70710677, 0.70710677, 0, -0.70710677, -0.70710677, -4.3711392e-08, -0.014321387, -2.1911116, -1.0891805)
+shape = SubResource("BoxShape3D_4kqly")
+
+[node name="CollisionShape3D12" type="CollisionShape3D" parent="PlayerScene/StaticBody3D"]
+transform = Transform3D(0.49999994, 0.49999994, 0.7071069, -0.70710677, 0.70710677, 0, -0.5, -0.5, 0.70710677, 0.78917474, -2.1911116, -0.79738533)
+shape = SubResource("BoxShape3D_4kqly")
+
+[node name="CollisionShape3D13" type="CollisionShape3D" parent="PlayerScene/StaticBody3D"]
+transform = Transform3D(-0.5, -0.5, 0.7071067, -0.70710677, 0.70710677, 0, -0.4999999, -0.4999999, -0.70710695, -0.8562442, -2.2323918, -0.8608451)
+shape = SubResource("BoxShape3D_4kqly")
+
+[node name="ObjectSpawnMarker" type="Marker3D" parent="PlayerScene"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6636128, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerScene"]
+transform = Transform3D(0.21951067, 0, 0, 0, 1, 0, 0, 0, 1, 0.55475396, 0.5, 0)
+shape = SubResource("ConvexPolygonShape3D_f302p")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="PlayerScene"]
+transform = Transform3D(-9.595117e-09, -1, 0, 0.21951067, -4.371139e-08, 0, 0, 0, 1, -0.035232604, 0.23403811, 0)
+shape = SubResource("ConvexPolygonShape3D_vdp4a")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="PlayerScene"]
+transform = Transform3D(-9.595117e-09, -1, 4.371139e-08, 0, -4.371139e-08, -1, 0.21951067, -4.371139e-08, 1.9106855e-15, -0.035232604, 0.5436765, -0.49534392)
+shape = SubResource("ConvexPolygonShape3D_4kqly")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="PlayerScene"]
+transform = Transform3D(0.21951067, 0, 0, 0, 1, 0, 0, 0, 1, -0.5887243, 0.51238596, 0)
+shape = SubResource("ConvexPolygonShape3D_hwioa")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="PlayerScene"]
+transform = Transform3D(-9.595117e-09, -1, 4.371139e-08, 0, -4.371139e-08, -1, 0.21951067, -4.371139e-08, 1.9106855e-15, -0.035232604, 0.5436765, 0.5046561)
+shape = SubResource("ConvexPolygonShape3D_3lb1s")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="PlayerScene"]
+transform = Transform3D(-9.595117e-09, -1, 4.371139e-08, 0, -4.371139e-08, -1, 0.21951067, -4.371139e-08, 1.9106855e-15, -0.035232604, 1.529748, 0.5046561)
+shape = SubResource("ConvexPolygonShape3D_3lb1s")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="PlayerScene"]
+transform = Transform3D(-9.595117e-09, -1, 4.371139e-08, 0, -4.371139e-08, -1, 0.21951067, -4.371139e-08, 1.9106855e-15, -0.035232604, 2.5218441, 0.5046561)
+shape = SubResource("ConvexPolygonShape3D_3lb1s")
+
+[node name="CartMeshParts" type="Node3D" parent="PlayerScene"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerScene/CartMeshParts"]
+transform = Transform3D(0.21951067, 0, 0, 0, 1, 0, 0, 0, 1, 0.55475396, 0.5, 0)
+mesh = SubResource("BoxMesh_f302p")
+skeleton = NodePath("../..")
+
+[node name="Floor" type="StaticBody3D" parent="PlayerScene/CartMeshParts"]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="PlayerScene/CartMeshParts/Floor"]
+transform = Transform3D(-9.595117e-09, -1, 0, 0.21951067, -4.371139e-08, 0, 0, 0, 1, -0.035232604, 0.23403811, 0)
+material_override = SubResource("StandardMaterial3D_f302p")
+mesh = SubResource("BoxMesh_f302p")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="PlayerScene/CartMeshParts"]
+transform = Transform3D(-9.595117e-09, -1, 0, -9.595117e-09, 5.463399e-15, -1, 0.21951067, -4.371139e-08, -4.371139e-08, -0.035232604, 0.5436765, -0.49534392)
+mesh = SubResource("BoxMesh_f302p")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="PlayerScene/CartMeshParts"]
+transform = Transform3D(0.21951067, 0, 0, 0, 1, 0, 0, 0, 1, -0.5887243, 0.51238596, 0)
+mesh = SubResource("BoxMesh_f302p")
+skeleton = NodePath("../..")
+
+[node name="HiddenCube" type="MeshInstance3D" parent="PlayerScene/CartMeshParts"]
+transform = Transform3D(-9.595117e-09, -1, 0, -9.595117e-09, 5.463399e-15, -1, 0.21951067, -4.371139e-08, -4.371139e-08, -0.035232604, 0.5436765, 0.5046561)
+visible = false
+mesh = SubResource("BoxMesh_f302p")
+skeleton = NodePath("../..")
+
+[node name="HeadMarker" type="Marker3D" parent="PlayerScene"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0611701, 0.85375077)
+
+[node name="ObjectContainer" type="Area3D" parent="PlayerScene"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerScene/ObjectContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0221252, 0)
+shape = SubResource("BoxShape3D_f302p")
+
+[node name="ObjectCollector" type="Area3D" parent="PlayerScene"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerScene/ObjectCollector"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.018526347, 0.5, -1.741333)
+shape = SubResource("BoxShape3D_vdp4a")
+
+[connection signal="body_entered" from="PlayerScene/ObjectContainer" to="PlayerScene" method="_on_object_container_body_entered"]
+[connection signal="body_exited" from="PlayerScene/ObjectContainer" to="PlayerScene" method="_on_object_container_body_exited"]
+[connection signal="body_entered" from="PlayerScene/ObjectCollector" to="PlayerScene" method="_on_object_collector_body_entered"]

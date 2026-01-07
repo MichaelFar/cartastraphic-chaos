@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bv1ls4eki6ob8"]
+[gd_scene load_steps=9 format=3 uid="uid://bv1ls4eki6ob8"]
 
 [ext_resource type="PackedScene" uid="uid://dvl2xwykeekj3" path="res://scenes/PlayerScene.tscn" id="1_ni3o6"]
+[ext_resource type="PackedScene" uid="uid://bqbv472bseb5b" path="res://scenes/ShoppingObject.tscn" id="2_a0vgv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kpdrb"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -43,4 +44,22 @@ mesh = SubResource("PlaneMesh_ni3o6")
 skeleton = NodePath("../..")
 
 [node name="PlayerScene" parent="." instance=ExtResource("1_ni3o6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14809394, 1, 2.4409165)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14809394, 0.13275242, 2.4409165)
+
+[node name="ShoppingObject" parent="." instance=ExtResource("2_a0vgv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3290951, 0.62444633, 2.2565084)
+
+[node name="ShoppingObject2" parent="." instance=ExtResource("2_a0vgv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.597461, 0.15, -0.2562003)
+
+[node name="ShoppingObject3" parent="." instance=ExtResource("2_a0vgv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2281208, 0.15, -2.35505)
+
+[node name="ShoppingObject4" parent="." instance=ExtResource("2_a0vgv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4958644, 0.15, -2.2518363)
+
+[node name="ShoppingObject5" parent="." instance=ExtResource("2_a0vgv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56832397, 0.15, -2.897491)
+
+[node name="ShoppingObject6" parent="." instance=ExtResource("2_a0vgv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4156613, 0.15, -1.6700068)
