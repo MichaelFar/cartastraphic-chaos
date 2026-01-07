@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvl2xwykeekj3"]
+
+[ext_resource type="Script" uid="uid://boy7evgyjn6g7" path="res://scripts/player_scene.gd" id="1_f302p"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_f302p"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_f302p"]
+
+[node name="PlayerScene" type="CharacterBody3D" node_paths=PackedStringArray("rotationDirectionNode", "rotationParent", "head")]
+script = ExtResource("1_f302p")
+rotationRate = 20.0
+rotationDirectionNode = NodePath("RotationHandler/MeshInstance3D")
+rotationParent = NodePath("RotationHandler")
+head = NodePath("Head")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_f302p")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0611701, 0.85375077)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.44524097)
+
+[node name="RotationHandler" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RotationHandler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+mesh = SubResource("CylinderMesh_f302p")
