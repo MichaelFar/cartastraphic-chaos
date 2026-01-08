@@ -12,13 +12,17 @@ class_name Player
 
 @export var cartMeshContainer : Node3D
 
+@export var cartManager : CartManager
+
 @export var look_speed : float = 0.002
 
 @export var camera : Camera3D
 
 @export var objectSpawnMarker : Marker3D
 
-var shoppingObjectList : Array[ShoppingObject]
+@export var ramSpeedThreshold : float = 0.8
+
+
 
 var look_rotation : Vector2
 
@@ -103,7 +107,7 @@ func _on_object_collector_body_entered(body: Node3D) -> void:
 func _on_object_container_body_entered(body: Node3D) -> void:
 	if(body is ShoppingObject):
 		var shopping_object : ShoppingObject = body
-		shopping_object.object_secured_in_cart.connect(add_object_to_list)
+		shopping_object.object_secured_in_cart.connect(cartManager.add_object_to_list)
 		shopping_object.isInCart = true
 
 
@@ -111,14 +115,8 @@ func _on_object_container_body_exited(body: Node3D) -> void:
 	
 	if(body is ShoppingObject):	
 		var shopping_object : ShoppingObject = body
-		shopping_object.object_secured_in_cart.disconnect(add_object_to_list)
+		shopping_object.object_secured_in_cart.disconnect(cartManager.add_object_to_list)
+		if(!body.freeze):
+			cartManager.pop_from_list(body)
+			body.call_deferred("reparent",GlobalValues.currentLevel)
 		shopping_object.isInCart = false
-
-func add_object_to_list(new_item : ShoppingObject):
-	if new_item not in shoppingObjectList:
-		print("Adding object to list")
-		shoppingObjectList.append(new_item)
-
-func remove_item_from_list(object_to_remove : ShoppingObject):
-	if object_to_remove in shoppingObjectList:
-		shoppingObjectList.pop_at(shoppingObjectList.find(object_to_remove))

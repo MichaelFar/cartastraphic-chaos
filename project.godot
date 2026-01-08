@@ -19,10 +19,6 @@ config/icon="res://icon.svg"
 
 GlobalValues="*res://scripts/global_values.gd"
 
-[display]
-
-window/size/mode=3
-
 [dotnet]
 
 project/assembly_name="Cartastraphic Chaos"

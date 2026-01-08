@@ -10,13 +10,27 @@ class_name ShoppingObject
 @export var collisionShape : CollisionShape3D
 @export var freezeThreshold : float = 0.1
 
+#enum ExampleEnum {TEST, TEST2}
+#
+#var whatever : ExampleEnum :
+	#set(value):
+		#whatever = value
+		#
+	#get():
+		#return whatever
+		#pass
+
 signal object_secured_in_cart
+
+var globalTimer : SceneTreeTimer
 
 var isInCart : bool = false :
 	set(value):
 		isInCart = value
+		print("Value is " + str(value))
 		check_if_should_freeze()
 	get():
+	
 		return isInCart
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -52,12 +66,10 @@ func check_if_should_freeze():
 		print("Freezing")
 		return
 	else:
-		
-		var timer = get_tree().create_timer(0.1)
-		timer.timeout.connect(check_if_should_freeze)
+		globalTimer = get_tree().create_timer(0.1)
+		globalTimer.timeout.connect(check_if_should_freeze)
 		if(linear_velocity.length() < freezeThreshold && linear_velocity.length() != 0.0 && isInCart):
 			freeze = true
+			call_deferred("reparent",GlobalValues.player.cartMeshContainer)
 			
-			reparent(GlobalValues.player.cartMeshContainer)
-			#collisionShape.disabled = true
 			object_secured_in_cart.emit(self)

@@ -9,15 +9,11 @@ size = Vector3(0.3, 0.3, 0.3)
 points = PackedVector3Array(0.15, 0.15, 0.15, 0.15, 0.15, -0.15, -0.15, 0.15, 0.15, 0.15, -0.15, 0.15, 0.15, -0.15, -0.15, -0.15, 0.15, -0.15, -0.15, -0.15, 0.15, -0.15, -0.15, -0.15)
 
 [node name="ShoppingObject" type="RigidBody3D" node_paths=PackedStringArray("collisionShape")]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_15ex7")
-weight = null
-price = null
 attractionForceMagnitude = 2.0
-distanceThreshold = null
 collisionShape = NodePath("CollisionShape3D")
-freezeThreshold = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_p74w2")
