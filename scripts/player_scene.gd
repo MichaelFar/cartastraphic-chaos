@@ -118,5 +118,6 @@ func _on_object_container_body_exited(body: Node3D) -> void:
 		shopping_object.object_secured_in_cart.disconnect(cartManager.add_object_to_list)
 		if(!body.freeze):
 			cartManager.pop_from_list(body)
-			body.call_deferred("reparent",GlobalValues.currentLevel)
+			#body.targetNode.queue_free()
+			#reparent(GlobalValues.currentLevel)
 		shopping_object.isInCart = false

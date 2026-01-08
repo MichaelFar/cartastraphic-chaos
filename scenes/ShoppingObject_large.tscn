@@ -8,12 +8,11 @@ resource_local_to_scene = true
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pey6c"]
 points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
 
-[node name="ShoppingObject" type="RigidBody3D" node_paths=PackedStringArray("collisionShape")]
+[node name="ShoppingObject" type="RigidBody3D"]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_pey6c")
 attractionForceMagnitude = 2.0
-collisionShape = NodePath("")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_p74w2")

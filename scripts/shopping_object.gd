@@ -10,15 +10,7 @@ class_name ShoppingObject
 @export var collisionShape : CollisionShape3D
 @export var freezeThreshold : float = 0.1
 
-#enum ExampleEnum {TEST, TEST2}
-#
-#var whatever : ExampleEnum :
-	#set(value):
-		#whatever = value
-		#
-	#get():
-		#return whatever
-		#pass
+var targetNode : Node3D
 
 signal object_secured_in_cart
 
@@ -37,7 +29,9 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _physics_process(delta: float) -> void:
-	pass
+	if(freeze && targetNode != null):
+		global_transform = targetNode.global_transform
+		#rotation = GlobalValues.player.cartMeshContainer.rotation
 
 func apply_force_towards_global_point(point : Vector3, should_stop : bool = false):
 	
@@ -70,6 +64,14 @@ func check_if_should_freeze():
 		globalTimer.timeout.connect(check_if_should_freeze)
 		if(linear_velocity.length() < freezeThreshold && linear_velocity.length() != 0.0 && isInCart):
 			freeze = true
-			call_deferred("reparent",GlobalValues.player.cartMeshContainer)
-			
+			lock_rotation = true
+			#reparent(GlobalValues.player.cartMeshContainer)
+			instance_target_node()
 			object_secured_in_cart.emit(self)
+
+func instance_target_node():
+	
+	var target_node = Node3D.new()
+	GlobalValues.player.cartMeshContainer.add_child(target_node)
+	target_node.global_transform = global_transform
+	targetNode = target_node

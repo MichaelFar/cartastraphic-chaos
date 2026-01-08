@@ -19,11 +19,15 @@ func pop_from_list(object_to_remove : ShoppingObject):
 func eject_item(object_to_eject : ShoppingObject):
 	
 	if(object_to_eject != null):
+		
 		object_to_eject.freeze = false
-		object_to_eject.reparent(GlobalValues.currentLevel)
-		#pop_from_list(object_to_eject)
-		if(object_to_eject.process_mode == Node.PROCESS_MODE_DISABLED):
-			object_to_eject.process_mode = Node.PROCESS_MODE_INHERIT
+		object_to_eject.lock_rotation = false
+		
+		if(object_to_eject.targetNode != null):
+			
+			object_to_eject.targetNode.queue_free()
+			
+		
 		object_to_eject.apply_central_impulse(object_to_eject.basis.z * 40)
 
 func get_random_object() -> ShoppingObject:
