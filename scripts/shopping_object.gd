@@ -29,29 +29,35 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _physics_process(delta: float) -> void:
+	
 	if(freeze && targetNode != null):
+		
 		global_transform = targetNode.global_transform
 		#rotation = GlobalValues.player.cartMeshContainer.rotation
 
-func apply_force_towards_global_point(point : Vector3, should_stop : bool = false):
+func apply_force_towards_global_point(point : Node3D, should_stop : bool = false, speed_mod : float = 0.1, impulse_limit : int = -1):
 	
-	should_stop = global_position.distance_to(point) <= distanceThreshold
-	
-	point = GlobalValues.player.objectSpawnMarker.global_position
+	should_stop = global_position.distance_to(point.global_position) <= distanceThreshold
 	
 	if(should_stop):
 		linear_velocity = Vector3.ZERO
 		print("Reached destination")
 		return
 	else:
-		
-		var timer = get_tree().create_timer(0.1)
-		timer.timeout.connect(apply_force_towards_global_point.bind(point, should_stop))
-	
-	var dynamic_magnitude =  clampf(attractionForceMagnitude * global_position.distance_to(point), 0.0, attractionForceMagnitude)
+		if(impulse_limit == -1):
+			var timer = get_tree().create_timer(speed_mod)
+			timer.timeout.connect(apply_force_towards_global_point.bind(point, should_stop, speed_mod))
+		else:
+			if(impulse_limit <= 0):
+				return
+			else:
+				
+				var timer = get_tree().create_timer(speed_mod)
+				timer.timeout.connect(apply_force_towards_global_point.bind(point, should_stop, speed_mod, impulse_limit - 1 ))
+	var dynamic_magnitude =  clampf(attractionForceMagnitude * global_position.distance_to(point.global_position), 0.0, attractionForceMagnitude)
 	dynamic_magnitude = attractionForceMagnitude
 	
-	var direction = global_position.direction_to(point)
+	var direction = global_position.direction_to(point.global_position)
 	apply_impulse(direction * dynamic_magnitude)
 
 func check_if_should_freeze():

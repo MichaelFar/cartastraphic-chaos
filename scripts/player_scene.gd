@@ -22,7 +22,9 @@ class_name Player
 
 @export var ramSpeedThreshold : float = 0.8
 
+@export var ejectPointContainer : Node3D
 
+var ejectPointArray : Array[Node]
 
 var look_rotation : Vector2
 
@@ -35,6 +37,7 @@ var deltaCounter : float = 0.0
 func _ready():
 	GlobalValues.player = self
 	originalRotationRate = rotationRate
+	ejectPointArray = ejectPointContainer.get_children()
 
 func _physics_process(delta: float) -> void:
 	
@@ -55,8 +58,6 @@ func _physics_process(delta: float) -> void:
 		
 	else:
 		
-		
-		#rotationRate = originalRotationRate
 		rotationRate = lerpf(rotationRate, originalRotationRate, deltaCounter)
 		
 	var rotation_input_strength = Input.get_action_strength("turn_right") - Input.get_action_strength("turn_left")
@@ -101,7 +102,7 @@ func _on_object_collector_body_entered(body: Node3D) -> void:
 	if(body is ShoppingObject):
 		print("Encountered shopping object")
 		var shopping_object : ShoppingObject = body
-		shopping_object.apply_force_towards_global_point(objectSpawnMarker.global_position, false)
+		shopping_object.apply_force_towards_global_point(objectSpawnMarker, false)
 
 
 func _on_object_container_body_entered(body: Node3D) -> void:

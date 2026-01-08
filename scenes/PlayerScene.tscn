@@ -40,7 +40,7 @@ size = Vector3(2.1218262, 1, 2.5133057)
 [node name="Camera3D" type="Camera3D" parent="HeadContainer/Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.44524097)
 
-[node name="PlayerScene" type="CharacterBody3D" parent="." node_paths=PackedStringArray("head", "headContainer", "headMarker", "cartMeshContainer", "cartManager", "camera", "objectSpawnMarker")]
+[node name="PlayerScene" type="CharacterBody3D" parent="." node_paths=PackedStringArray("head", "headContainer", "headMarker", "cartMeshContainer", "cartManager", "camera", "objectSpawnMarker", "ejectPointContainer")]
 script = ExtResource("1_f302p")
 rotationRate = 20.0
 head = NodePath("../HeadContainer/Head")
@@ -50,12 +50,30 @@ cartMeshContainer = NodePath("CartMeshParts")
 cartManager = NodePath("CartManager")
 camera = NodePath("../HeadContainer/Head/Camera3D")
 objectSpawnMarker = NodePath("ObjectSpawnMarker")
+ejectPointContainer = NodePath("EjectPointContainer")
+
+[node name="EjectPointContainer" type="Node3D" parent="PlayerScene"]
+transform = Transform3D(2.3852696, 0, 0, 0, 1, 0, 0, 0, 2.8681164, 0, 5.6261063, -1.9562936)
+
+[node name="Marker3D" type="Marker3D" parent="PlayerScene/EjectPointContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.525696, 0, -2.2871318)
+
+[node name="Marker3D2" type="Marker3D" parent="PlayerScene/EjectPointContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8654314, 0, -2.2738051)
+
+[node name="Marker3D3" type="Marker3D" parent="PlayerScene/EjectPointContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8787565, 0, -0.017594635)
+
+[node name="Marker3D4" type="Marker3D" parent="PlayerScene/EjectPointContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.069921, 0, -0.00845331)
 
 [node name="CartManager" type="Node3D" parent="PlayerScene" node_paths=PackedStringArray("testTimer")]
 script = ExtResource("2_vdp4a")
+shouldEject = false
 testTimer = NodePath("../TestEjectTimer")
 
 [node name="TestEjectTimer" type="Timer" parent="PlayerScene"]
+wait_time = 6.0
 autostart = true
 
 [node name="ObjectRamps" type="StaticBody3D" parent="PlayerScene"]
@@ -235,6 +253,7 @@ collision_mask = 2
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.022306174, 0.5, -1.7413331)
 shape = SubResource("BoxShape3D_vdp4a")
 
+[connection signal="timeout" from="PlayerScene/TestEjectTimer" to="PlayerScene/CartManager" method="_on_test_eject_timer_timeout"]
 [connection signal="body_entered" from="PlayerScene/ObjectContainer" to="PlayerScene" method="_on_object_container_body_entered"]
 [connection signal="body_exited" from="PlayerScene/ObjectContainer" to="PlayerScene" method="_on_object_container_body_exited"]
 [connection signal="body_entered" from="PlayerScene/ObjectCollector" to="PlayerScene" method="_on_object_collector_body_entered"]
