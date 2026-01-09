@@ -2,26 +2,18 @@
 
 [ext_resource type="PackedScene" uid="uid://dnl7lwlsm6pu2" path="res://scenes/TestCube.tscn" id="1_hovrg"]
 [ext_resource type="PackedScene" uid="uid://dvl2xwykeekj3" path="res://scenes/PlayerScene.tscn" id="2_3o331"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_7pvbp"]
+[ext_resource type="PackedScene" uid="uid://hls83hutlsb" path="res://scenes/LevelFloor.tscn" id="2_7pvbp"]
 
 [node name="Node3D" type="Node3D"]
 
-[node name="MeshInstance3D" parent="." instance=ExtResource("1_hovrg")]
-transform = Transform3D(21.429535, 0, 0, 0, 17.949858, 0, 0, 0, 2.5128586, 12.839483, 6.1284456, -7.812864)
+[node name="MeshInstance3D6" parent="." instance=ExtResource("1_hovrg")]
+transform = Transform3D(17.14363, 0, 0, 0, 10.769915, 0, 0, 0, 2.5128586, -13.108667, 5.3794575, -0.25363445)
 
-[node name="MeshInstance3D2" parent="." instance=ExtResource("1_hovrg")]
-transform = Transform3D(21.429535, 0, 0, 0, 17.949858, 0, 0, 0, 2.5128586, -13.108667, 6.129637, -7.79221)
+[node name="MeshInstance3D7" parent="." instance=ExtResource("1_hovrg")]
+transform = Transform3D(17.14363, 0, 0, 0, 10.769915, 0, 0, 0, 2.5128586, -13.108667, 5.3794575, -8.330787)
 
-[node name="MeshInstance3D4" parent="." instance=ExtResource("1_hovrg")]
-transform = Transform3D(17.14363, 0, 0, 0, 17.949858, 0, 0, 0, 2.5128586, 12.839483, 6.1284456, -22.890015)
-
-[node name="MeshInstance3D5" parent="." instance=ExtResource("1_hovrg")]
-transform = Transform3D(17.14363, 0, 0, 0, 17.949858, 0, 0, 0, 2.5128586, -13.108667, 6.129637, -22.869362)
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+[node name="GroundPlane" parent="." instance=ExtResource("2_7pvbp")]
 transform = Transform3D(46.728523, 0, 0, 0, 1, 0, 0, 0, 40.2273, 0, 9.536743e-07, 0)
-mesh = SubResource("PlaneMesh_7pvbp")
 
 [node name="PlayerSceneParent" parent="." instance=ExtResource("2_3o331")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013902664, 0.0319556, -13.736237)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013902664, 0.0319556, -16.736237)
