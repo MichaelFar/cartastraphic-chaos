@@ -12,7 +12,9 @@ points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_pey6c")
+weight = 4.0
 attractionForceMagnitude = 2.0
+itemCategory = 5
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_p74w2")

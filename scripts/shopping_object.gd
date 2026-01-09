@@ -10,6 +10,8 @@ class_name ShoppingObject
 @export var collisionShape : CollisionShape3D
 @export var freezeThreshold : float = 0.1
 
+@export_flags("Technology", "Entertainment", "Kids", "Food") var itemCategory
+
 var cartParent : Node3D
 
 var targetNode : Node3D

@@ -3,10 +3,18 @@ extends RigidBody3D
 class_name NPCCart
 @export var cartManager : CartManager
 
+@export var possibleShoppingObjects : Array[PackedScene]
+
+@export var numObjectsToSpawn : int = 0
+
+@export var spawnPointContainer : Node3D
+
+var spawnPoints := []
 
 func _ready() -> void:
 	cartManager.has_collided.connect(behavior_on_collision)
-	
+	spawnPoints = spawnPointContainer.get_children()
+	call_deferred("spawn_initial_items")
 	#GlobalSignalBus.cart_rammed.connect(object_rammed)
 
 func object_rammed(incoming_object: Node3D, other_object : Node3D):
@@ -23,3 +31,26 @@ func _on_object_container_body_entered(body: Node3D) -> void:
 
 func behavior_on_collision():
 	cartManager.eject_all_items()
+
+
+func _on_object_container_body_exited(body: Node3D) -> void:
+	if(body is ShoppingObject):	
+		var shopping_object : ShoppingObject = body
+		shopping_object.object_secured_in_cart.disconnect(cartManager.add_object_to_list)
+		body.cartParent = null
+		if(!body.freeze):
+			cartManager.pop_from_list(body)
+			#body.targetNode.queue_free()
+			#reparent(GlobalValues.currentLevel)
+		shopping_object.isInCart = false
+
+func spawn_initial_items():
+	var rand_obj = RandomNumberGenerator.new()
+	
+	
+	for i in numObjectsToSpawn:
+		var rand_index = rand_obj.randi_range(0, possibleShoppingObjects.size() - 1)
+		var object_instance = possibleShoppingObjects[rand_index].instantiate()
+		rand_index = rand_obj.randi_range(0, spawnPoints.size() - 1)
+		GlobalValues.currentLevel.add_child(object_instance)
+		object_instance.global_position = spawnPoints[rand_index].global_position

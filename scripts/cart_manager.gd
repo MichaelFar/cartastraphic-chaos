@@ -73,4 +73,10 @@ func get_weight_of_items() -> float:
 	for i in shoppingObjectList:
 		weight += i.weight
 	return weight
-		
+
+func get_total_price() -> float:
+	
+	var price: float = 0.0
+	for i in shoppingObjectList:
+		price += i.price
+	return price
