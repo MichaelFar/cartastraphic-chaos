@@ -1,7 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://dvl2xwykeekj3"]
+[gd_scene load_steps=14 format=3 uid="uid://dvl2xwykeekj3"]
 
 [ext_resource type="Script" uid="uid://boy7evgyjn6g7" path="res://scripts/player_scene.gd" id="1_f302p"]
-[ext_resource type="Script" uid="uid://b4qetqmmvdyad" path="res://scripts/cart_manager.gd" id="2_vdp4a"]
+[ext_resource type="PackedScene" uid="uid://bqncphdphm4nt" path="res://scenes/cart_manager.tscn" id="2_vdp4a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4kqly"]
 size = Vector3(1.406189, 0.1, 1)
@@ -31,6 +31,9 @@ size = Vector3(1, 3.9555664, 1.8588867)
 [sub_resource type="BoxShape3D" id="BoxShape3D_vdp4a"]
 size = Vector3(2.1218262, 1, 2.5133057)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_hwioa"]
+size = Vector3(2.0559387, 1, 3.036377)
+
 [node name="PlayerSceneParent" type="Node3D"]
 
 [node name="HeadContainer" type="Node3D" parent="."]
@@ -40,7 +43,7 @@ size = Vector3(2.1218262, 1, 2.5133057)
 [node name="Camera3D" type="Camera3D" parent="HeadContainer/Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.44524097)
 
-[node name="PlayerScene" type="CharacterBody3D" parent="." node_paths=PackedStringArray("head", "headContainer", "headMarker", "cartMeshContainer", "cartManager", "camera", "objectSpawnMarker", "ejectPointContainer")]
+[node name="PlayerScene" type="CharacterBody3D" parent="." node_paths=PackedStringArray("head", "headContainer", "headMarker", "cartMeshContainer", "cartManager", "camera", "objectSpawnMarker")]
 script = ExtResource("1_f302p")
 rotationRate = 20.0
 head = NodePath("../HeadContainer/Head")
@@ -50,27 +53,9 @@ cartMeshContainer = NodePath("CartMeshParts")
 cartManager = NodePath("CartManager")
 camera = NodePath("../HeadContainer/Head/Camera3D")
 objectSpawnMarker = NodePath("ObjectSpawnMarker")
-ejectPointContainer = NodePath("EjectPointContainer")
 
-[node name="EjectPointContainer" type="Node3D" parent="PlayerScene"]
-transform = Transform3D(2.3852696, 0, 0, 0, 1, 0, 0, 0, 2.8681164, 0, 5.6261063, -1.9562936)
-
-[node name="Marker3D" type="Marker3D" parent="PlayerScene/EjectPointContainer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.525696, 0, -2.2871318)
-
-[node name="Marker3D2" type="Marker3D" parent="PlayerScene/EjectPointContainer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8654314, 0, -2.2738051)
-
-[node name="Marker3D3" type="Marker3D" parent="PlayerScene/EjectPointContainer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8787565, 0, -0.017594635)
-
-[node name="Marker3D4" type="Marker3D" parent="PlayerScene/EjectPointContainer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.069921, 0, -0.00845331)
-
-[node name="CartManager" type="Node3D" parent="PlayerScene" node_paths=PackedStringArray("testTimer")]
-script = ExtResource("2_vdp4a")
-shouldEject = false
-testTimer = NodePath("../TestEjectTimer")
+[node name="CartManager" parent="PlayerScene" node_paths=PackedStringArray("cartOwner") instance=ExtResource("2_vdp4a")]
+cartOwner = NodePath("..")
 
 [node name="TestEjectTimer" type="Timer" parent="PlayerScene"]
 wait_time = 6.0
@@ -141,6 +126,14 @@ shape = SubResource("ConvexPolygonShape3D_3lb1s")
 transform = Transform3D(-9.595117e-09, -1, 4.371139e-08, 0, -4.371139e-08, -1, 0.21951067, -4.371139e-08, 1.9106855e-15, -0.035232604, -1.1338649, 0.5046561)
 shape = SubResource("ConvexPolygonShape3D_3lb1s")
 
+[node name="CollisionShape3D21" type="CollisionShape3D" parent="PlayerScene/ObjectRamps"]
+transform = Transform3D(0.048184935, 0, 0, 0, 0.8828489, 0, 0, 0, 0.9573292, -0.5773838, -2.1789694, -0.9580914)
+shape = SubResource("ConvexPolygonShape3D_hwioa")
+
+[node name="CollisionShape3D22" type="CollisionShape3D" parent="PlayerScene/ObjectRamps"]
+transform = Transform3D(0.048184935, 0, 0, 0, 0.8828489, 0, 0, 0, 0.9573292, 0.49238306, -2.1789694, -0.9580914)
+shape = SubResource("ConvexPolygonShape3D_hwioa")
+
 [node name="CollisionShape3D18" type="CollisionShape3D" parent="PlayerScene/ObjectRamps"]
 transform = Transform3D(-9.595117e-09, -1, 4.371139e-08, 0, -4.371139e-08, -1, 0.21951067, -4.371139e-08, 1.9106855e-15, -0.035232604, -0.1417687, 0.5046561)
 shape = SubResource("ConvexPolygonShape3D_3lb1s")
@@ -158,6 +151,14 @@ shape = SubResource("ConvexPolygonShape3D_4kqly")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="PlayerScene"]
 transform = Transform3D(0.21951067, 0, 0, 0, 1, 0, 0, 0, 1, -0.5887243, 0.51238596, 0)
+shape = SubResource("ConvexPolygonShape3D_hwioa")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="PlayerScene"]
+transform = Transform3D(0.21951067, 0, 0, 0, 1, 0, 0, 0, 1, -0.5887243, 0.51238596, -0.9598976)
+shape = SubResource("ConvexPolygonShape3D_hwioa")
+
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="PlayerScene"]
+transform = Transform3D(0.21951067, 0, 0, 0, 1, 0, 0, 0, 1, 0.5698269, 0.51238596, -0.9598976)
 shape = SubResource("ConvexPolygonShape3D_hwioa")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="PlayerScene"]
@@ -253,7 +254,13 @@ collision_mask = 2
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.022306174, 0.5, -1.7413331)
 shape = SubResource("BoxShape3D_vdp4a")
 
-[connection signal="timeout" from="PlayerScene/TestEjectTimer" to="PlayerScene/CartManager" method="_on_test_eject_timer_timeout"]
+[node name="CollisionZone" type="Area3D" parent="PlayerScene"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerScene/CollisionZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.006970167, 0.62392855, -0.62316895)
+shape = SubResource("BoxShape3D_hwioa")
+
 [connection signal="body_entered" from="PlayerScene/ObjectContainer" to="PlayerScene" method="_on_object_container_body_entered"]
 [connection signal="body_exited" from="PlayerScene/ObjectContainer" to="PlayerScene" method="_on_object_container_body_exited"]
 [connection signal="body_entered" from="PlayerScene/ObjectCollector" to="PlayerScene" method="_on_object_collector_body_entered"]
+[connection signal="body_entered" from="PlayerScene/CollisionZone" to="PlayerScene" method="_on_collision_zone_body_entered"]

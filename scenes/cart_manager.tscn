@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqncphdphm4nt"]
+
+[ext_resource type="Script" uid="uid://b4qetqmmvdyad" path="res://scripts/cart_manager.gd" id="1_xw5ik"]
+
+[node name="CartManager" type="Node3D" node_paths=PackedStringArray("ejectPointContainer")]
+script = ExtResource("1_xw5ik")
+shouldEject = false
+ejectPointContainer = NodePath("EjectPointContainer")
+
+[node name="EjectPointContainer" type="Node3D" parent="."]
+transform = Transform3D(2.3852696, 0, 0, 0, 1, 0, 0, 0, 2.8681164, 0, 5.6261063, -1.9562936)
+
+[node name="Marker3D" type="Marker3D" parent="EjectPointContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.525696, 0, -2.2871318)
+
+[node name="Marker3D2" type="Marker3D" parent="EjectPointContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8654314, 0, -2.2738051)
+
+[node name="Marker3D3" type="Marker3D" parent="EjectPointContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8787565, 0, -0.017594635)
+
+[node name="Marker3D4" type="Marker3D" parent="EjectPointContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.069921, 0, -0.00845331)

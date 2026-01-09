@@ -10,6 +10,8 @@ class_name ShoppingObject
 @export var collisionShape : CollisionShape3D
 @export var freezeThreshold : float = 0.1
 
+var cartParent : Node3D
+
 var targetNode : Node3D
 
 signal object_secured_in_cart
@@ -78,6 +80,6 @@ func check_if_should_freeze():
 func instance_target_node():
 	
 	var target_node = Node3D.new()
-	GlobalValues.player.cartMeshContainer.add_child(target_node)
+	cartParent.add_child(target_node)
 	target_node.global_transform = global_transform
 	targetNode = target_node

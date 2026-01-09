@@ -22,9 +22,7 @@ class_name Player
 
 @export var ramSpeedThreshold : float = 0.8
 
-@export var ejectPointContainer : Node3D
 
-var ejectPointArray : Array[Node]
 
 var look_rotation : Vector2
 
@@ -34,10 +32,13 @@ var originalRotationRate : float = 0.0
 
 var deltaCounter : float = 0.0
 
+var isRamming : bool = false
+
 func _ready():
 	GlobalValues.player = self
 	originalRotationRate = rotationRate
-	ejectPointArray = ejectPointContainer.get_children()
+	
+	cartManager.has_collided.connect(behavior_on_collision)
 
 func _physics_process(delta: float) -> void:
 	
@@ -45,14 +46,16 @@ func _physics_process(delta: float) -> void:
 	deltaCounter = clampf(deltaCounter, 0.0, 1.0)
 	var forward_back_input_strength = Input.get_action_strength("forward") - Input.get_action_strength("back")
 	
-	velocity = velocity.move_toward(-basis.z * speed * forward_back_input_strength, delta)
+	var velocity_goal_vector : Vector3 = -basis.z * speed * forward_back_input_strength
+	
+	velocity = velocity.move_toward(velocity_goal_vector, delta)
 	
 	if(velocity.length() >= 0.0):
 		deltaCounter += delta
 	else:
 		deltaCounter = 0.0
 	
-	if(velocity.length() <= (-basis.z * speed * forward_back_input_strength).length() / 4.0):
+	if(velocity.length() <= (velocity_goal_vector).length() / 4.0):
 		
 		rotationRate = lerpf(originalRotationRate, originalRotationRate * 3, deltaCounter)
 		
@@ -106,19 +109,29 @@ func _on_object_collector_body_entered(body: Node3D) -> void:
 
 
 func _on_object_container_body_entered(body: Node3D) -> void:
+	
 	if(body is ShoppingObject):
 		var shopping_object : ShoppingObject = body
+		body.cartParent = cartMeshContainer
 		shopping_object.object_secured_in_cart.connect(cartManager.add_object_to_list)
 		shopping_object.isInCart = true
-
 
 func _on_object_container_body_exited(body: Node3D) -> void:
 	
 	if(body is ShoppingObject):	
 		var shopping_object : ShoppingObject = body
 		shopping_object.object_secured_in_cart.disconnect(cartManager.add_object_to_list)
+		body.cartParent = null
 		if(!body.freeze):
 			cartManager.pop_from_list(body)
 			#body.targetNode.queue_free()
 			#reparent(GlobalValues.currentLevel)
 		shopping_object.isInCart = false
+
+
+func _on_collision_zone_body_entered(body: Node3D) -> void:
+	if(body is NPCCart):
+		GlobalValues.get_loser_cart(body.cartManager, cartManager).has_collided.emit()
+
+func behavior_on_collision():
+	cartManager.eject_all_items()
