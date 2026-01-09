@@ -22,8 +22,6 @@ class_name Player
 
 @export var ramSpeedThreshold : float = 0.8
 
-
-
 var look_rotation : Vector2
 
 var mouse_captured : bool = false
