@@ -12,6 +12,9 @@ var shoppingObjectList : Array[ShoppingObject]
 
 @export var ejectPointContainer : Node3D
 var ejectPointList := []
+
+signal has_ejected
+
 signal has_collided
 
 func _ready():
@@ -58,6 +61,7 @@ func get_random_object() -> ShoppingObject:
 func eject_all_items():
 	for i in shoppingObjectList:
 		eject_item(i)
+	has_ejected.emit()
 
 func eject_random_item():
 	

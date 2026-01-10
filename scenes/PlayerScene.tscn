@@ -53,6 +53,7 @@ cartMeshContainer = NodePath("CartMeshParts")
 cartManager = NodePath("CartManager")
 camera = NodePath("../HeadContainer/Head/Camera3D")
 objectSpawnMarker = NodePath("ObjectSpawnMarker")
+ramSpeedThreshold = 0.5
 
 [node name="CartManager" parent="PlayerScene" node_paths=PackedStringArray("cartOwner") instance=ExtResource("2_vdp4a")]
 cartOwner = NodePath("..")

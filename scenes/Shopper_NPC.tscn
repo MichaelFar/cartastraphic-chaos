@@ -1,3 +1,60 @@
-[gd_scene format=3 uid="uid://b20d0f3ct1nel"]
+[gd_scene load_steps=7 format=3 uid="uid://b20d0f3ct1nel"]
 
-[node name="ShopperNpc" type="Node3D"]
+[ext_resource type="Script" uid="uid://b86cusksxuutr" path="res://scripts/NPC_Scripts/shopper_npc.gd" id="1_63nyd"]
+[ext_resource type="PackedScene" uid="uid://brm8jl7ufyb2h" path="res://scenes/NPCCartScene.tscn" id="2_tm2yo"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_63nyd"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_63nyd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_63nyd"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tm2yo"]
+radius = 0.6484375
+height = 2.0756836
+
+[node name="ShopperNpc" type="CharacterBody3D" node_paths=PackedStringArray("rayCast", "rigidBody", "cartMarker")]
+script = ExtResource("1_63nyd")
+rayCast = NodePath("RayCast3D")
+speed = 2.0
+rigidBody = NodePath("RigidBody3D")
+cartPackedScene = ExtResource("2_tm2yo")
+cartMarker = NodePath("CartMarker")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_63nyd")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+process_mode = 3
+collision_layer = 2
+collision_mask = 2
+freeze = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_63nyd")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/MeshInstance3D"]
+transform = Transform3D(0.68307865, 0, 0, 0, 0.25374228, 0, 0, 0, 0.5092426, 0.27927938, 0.45825675, 0)
+mesh = SubResource("BoxMesh_63nyd")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_63nyd")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1158942, 0)
+target_position = Vector3(0, 0, -5)
+
+[node name="CollisionDetectionVolume" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionDetectionVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0378418, 0)
+shape = SubResource("CapsuleShape3D_tm2yo")
+
+[node name="CartMarker" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.3721025)
+
+[connection signal="body_entered" from="CollisionDetectionVolume" to="." method="_on_collision_detection_volume_body_entered"]

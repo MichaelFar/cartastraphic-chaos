@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bv1ls4eki6ob8"]
+[gd_scene load_steps=14 format=3 uid="uid://bv1ls4eki6ob8"]
 
 [ext_resource type="Script" uid="uid://bhtonanho1prp" path="res://scripts/michael_debug_scene.gd" id="1_d1jvf"]
 [ext_resource type="PackedScene" uid="uid://dvl2xwykeekj3" path="res://scenes/PlayerScene.tscn" id="1_ni3o6"]
+[ext_resource type="PackedScene" uid="uid://b20d0f3ct1nel" path="res://scenes/Shopper_NPC.tscn" id="5_d1jvf"]
 [ext_resource type="PackedScene" uid="uid://brm8jl7ufyb2h" path="res://scenes/NPCCartScene.tscn" id="6_cc7sd"]
 [ext_resource type="PackedScene" uid="uid://dr867i86f8l4b" path="res://scenes/aisle_block.tscn" id="7_k18ex"]
 
@@ -26,6 +27,11 @@ albedo_color = Color(0.36078432, 0.3647059, 0.1764706, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_ni3o6"]
 material = SubResource("StandardMaterial3D_kpdrb")
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_d1jvf"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cc7sd"]
+
 [node name="MichaelDebugScene" type="Node3D"]
 script = ExtResource("1_d1jvf")
 
@@ -48,6 +54,34 @@ transform = Transform3D(11.260407, 0, 0, 0, 1, 0, 0, 0, 11.251738, 0, 0, 0)
 mesh = SubResource("PlaneMesh_ni3o6")
 skeleton = NodePath("../..")
 
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1.9860013, 0, 0, 0, 21.008526, -11.8177805, 0.9071076, 0.38669014)
+shape = SubResource("ConcavePolygonShape3D_d1jvf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D2"]
+mesh = SubResource("BoxMesh_cc7sd")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1.9860013, 0, 0, 0, 21.008526, 11.246453, 0.9071076, 0.38669014)
+shape = SubResource("ConcavePolygonShape3D_d1jvf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D3"]
+mesh = SubResource("BoxMesh_cc7sd")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.371139e-08, 0, -21.008526, 0, 1.9860013, 0, 1, 0, -9.1831186e-07, 0.51492786, 0.9071076, 10.549052)
+shape = SubResource("ConcavePolygonShape3D_d1jvf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D4"]
+mesh = SubResource("BoxMesh_cc7sd")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.371139e-08, 0, -21.008526, 0, 1.9860013, 0, 1, 0, -9.1831186e-07, 0.51492786, 0.9071076, -11.587406)
+shape = SubResource("ConcavePolygonShape3D_d1jvf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D5"]
+mesh = SubResource("BoxMesh_cc7sd")
+
 [node name="PlayerScene" parent="." instance=ExtResource("1_ni3o6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14809394, 0.13275242, 2.4409165)
 
@@ -67,3 +101,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.
 
 [node name="AisleBlock2" parent="LevelGeometry" instance=ExtResource("7_k18ex")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2903366, 0, -10.231047)
+
+[node name="ShopperNpc" parent="." instance=ExtResource("5_d1jvf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.213294, -0.4111457, -2)
+percentChanceToSpawnCart = 100

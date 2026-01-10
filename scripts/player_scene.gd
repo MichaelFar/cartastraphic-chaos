@@ -48,6 +48,8 @@ func _physics_process(delta: float) -> void:
 	
 	velocity = velocity.move_toward(velocity_goal_vector, delta)
 	
+	isRamming = velocity.length() >= velocity_goal_vector.length() * ramSpeedThreshold
+	
 	if(velocity.length() >= 0.0):
 		deltaCounter += delta
 	else:
@@ -128,7 +130,7 @@ func _on_object_container_body_exited(body: Node3D) -> void:
 
 
 func _on_collision_zone_body_entered(body: Node3D) -> void:
-	if(body is NPCCart):
+	if(body is NPCCart && isRamming):
 		GlobalValues.get_loser_cart(body.cartManager, cartManager).has_collided.emit()
 
 func behavior_on_collision():
