@@ -1,11 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bv1ls4eki6ob8"]
+[gd_scene load_steps=11 format=3 uid="uid://bv1ls4eki6ob8"]
 
 [ext_resource type="Script" uid="uid://bhtonanho1prp" path="res://scripts/michael_debug_scene.gd" id="1_d1jvf"]
 [ext_resource type="PackedScene" uid="uid://dvl2xwykeekj3" path="res://scenes/PlayerScene.tscn" id="1_ni3o6"]
-[ext_resource type="PackedScene" uid="uid://bqbv472bseb5b" path="res://scenes/ShoppingObject.tscn" id="2_a0vgv"]
-[ext_resource type="PackedScene" uid="uid://dox7ujejs08nv" path="res://scenes/ShoppingObject_large.tscn" id="3_j4ipd"]
-[ext_resource type="PackedScene" uid="uid://be0l8gy7qeeag" path="res://scenes/ShoppingObject_medium.tscn" id="4_d1jvf"]
 [ext_resource type="PackedScene" uid="uid://brm8jl7ufyb2h" path="res://scenes/NPCCartScene.tscn" id="6_cc7sd"]
+[ext_resource type="PackedScene" uid="uid://dr867i86f8l4b" path="res://scenes/aisle_block.tscn" id="7_k18ex"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kpdrb"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -53,57 +51,19 @@ skeleton = NodePath("../..")
 [node name="PlayerScene" parent="." instance=ExtResource("1_ni3o6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14809394, 0.13275242, 2.4409165)
 
-[node name="ShoppingObject" parent="." instance=ExtResource("2_a0vgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3290951, 0.62444633, 2.2565084)
-
-[node name="ShoppingObject2" parent="." instance=ExtResource("2_a0vgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.597461, 0.15, -0.2562003)
-
-[node name="ShoppingObject3" parent="." instance=ExtResource("2_a0vgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2281208, 0.15, -2.35505)
-
-[node name="ShoppingObject4" parent="." instance=ExtResource("2_a0vgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4958644, 0.15, -2.2518363)
-
-[node name="ShoppingObject5" parent="." instance=ExtResource("2_a0vgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56832397, 0.15, -2.897491)
-
-[node name="ShoppingObject6" parent="." instance=ExtResource("2_a0vgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2962613, 2.9053, -1.6034927)
-
-[node name="ShoppingObject12" parent="." instance=ExtResource("2_a0vgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6926622, 2.9053, -1.6034927)
-
-[node name="ShoppingObject13" parent="." instance=ExtResource("2_a0vgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6926622, 2.9053, -0.84488153)
-
-[node name="ShoppingObject14" parent="." instance=ExtResource("2_a0vgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.349006, 2.9053, -4.2696447)
-
-[node name="ShoppingObject7" parent="." instance=ExtResource("3_j4ipd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.331025, 0.5, 1.5974667)
-
-[node name="ShoppingObject8" parent="." instance=ExtResource("4_d1jvf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2344027, 0.15, 4.2045693)
-
-[node name="ShoppingObject9" parent="." instance=ExtResource("3_j4ipd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2161121, 5.1512804, -5.0905013)
-
-[node name="ShoppingObject10" parent="." instance=ExtResource("4_d1jvf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9725871, 2.9713254, -5.8420315)
-
-[node name="ShoppingObject15" parent="." instance=ExtResource("4_d1jvf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4881434, 4.466043, -1.557035)
-
-[node name="ShoppingObject16" parent="." instance=ExtResource("4_d1jvf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4881434, 5.1488037, -1.557035)
-
-[node name="ShoppingObject17" parent="." instance=ExtResource("4_d1jvf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4881434, 5.865071, -1.557035)
-
-[node name="ShoppingObject11" parent="." instance=ExtResource("2_a0vgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0018253, 2.241834, -1.2958937)
-
 [node name="NpcCartScene" parent="." instance=ExtResource("6_cc7sd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.501959, 0, -4.2045035)
-numObjectsToSpawn = 100
+
+[node name="LevelGeometry" type="Node3D" parent="."]
+
+[node name="AisleBlock" parent="LevelGeometry" instance=ExtResource("7_k18ex")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.254254, 0, -9.231047)
+
+[node name="AisleBlock4" parent="LevelGeometry" instance=ExtResource("7_k18ex")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.254254, 0, -5.2310467)
+
+[node name="AisleBlock6" parent="LevelGeometry" instance=ExtResource("7_k18ex")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.254254, 0, -1.2310467)
+
+[node name="AisleBlock2" parent="LevelGeometry" instance=ExtResource("7_k18ex")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2903366, 0, -10.231047)

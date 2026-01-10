@@ -27,6 +27,7 @@ size = Vector3(1, 3.9555664, 1.8588867)
 
 [node name="NpcCartScene" type="RigidBody3D" node_paths=PackedStringArray("cartManager", "spawnPointContainer")]
 mass = 0.2
+freeze_mode = 1
 script = ExtResource("1_tw8g5")
 cartManager = NodePath("CartManager")
 possibleShoppingObjects = Array[PackedScene]([ExtResource("2_akr2v"), ExtResource("3_f35mx"), ExtResource("4_g6mio")])

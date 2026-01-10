@@ -103,7 +103,7 @@ func _on_object_collector_body_entered(body: Node3D) -> void:
 	if(body is ShoppingObject):
 		print("Encountered shopping object")
 		var shopping_object : ShoppingObject = body
-		shopping_object.apply_force_towards_global_point(objectSpawnMarker, false)
+		shopping_object.apply_force_towards_global_point(objectSpawnMarker, false, 0.1, 100)
 
 
 func _on_object_container_body_entered(body: Node3D) -> void:
