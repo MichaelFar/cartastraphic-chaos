@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://d16ns3fu8p2sa"]
+
+[ext_resource type="Script" uid="uid://cqeehqx74owvt" path="res://scripts/Joy/wallet_looting_button.gd" id="1_xf5lh"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xq8nx"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Item1Button" type="Button"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = SubResource("ViewportTexture_xq8nx")
+expand_icon = true
+script = ExtResource("1_xf5lh")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(1197, 667)
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
