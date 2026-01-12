@@ -1,61 +1,57 @@
-[gd_scene load_steps=4 format=3 uid="uid://8dh5f61gxnhr"]
+[gd_scene load_steps=3 format=3 uid="uid://8dh5f61gxnhr"]
 
-[ext_resource type="PackedScene" uid="uid://hls83hutlsb" path="res://scenes/LevelFloor.tscn" id="1_cj413"]
-[ext_resource type="PackedScene" uid="uid://dvl2xwykeekj3" path="res://scenes/PlayerScene.tscn" id="2_3uw0d"]
-[ext_resource type="PackedScene" uid="uid://dnl7lwlsm6pu2" path="res://scenes/TestCube.tscn" id="3_wujo3"]
+[ext_resource type="PackedScene" uid="uid://hls83hutlsb" path="res://scenes/LevelFloor.tscn" id="1_yi02p"]
+[ext_resource type="PackedScene" uid="uid://dnl7lwlsm6pu2" path="res://scenes/TestCube.tscn" id="2_i7xtr"]
 
 [node name="Node3D" type="Node3D"]
 
-[node name="GroundPlane" parent="." instance=ExtResource("1_cj413")]
+[node name="GroundPlane" parent="." instance=ExtResource("1_yi02p")]
 transform = Transform3D(-7.9267994e-07, 0, 23.895014, 0, 1, 0, -18.134403, 0, -1.0444842e-06, 0, 0, 2)
 
-[node name="PlayerSceneParent" parent="." instance=ExtResource("2_3uw0d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19)
-
-[node name="DeskFront" parent="." instance=ExtResource("3_wujo3")]
+[node name="DeskFront" parent="." instance=ExtResource("2_i7xtr")]
 transform = Transform3D(3.1758957, 0, 0, 0, 1, 0, 0, 0, 0.8413267, 0, 0.4575987, 13)
 
-[node name="TvWall" parent="." instance=ExtResource("3_wujo3")]
+[node name="TvWall" parent="." instance=ExtResource("2_i7xtr")]
 transform = Transform3D(30.234531, 0, 0, 0, 8.200001, 0, 0, 0, 0.8413267, 0, 4.127668, -12)
 
-[node name="DeskLeft" parent="." instance=ExtResource("3_wujo3")]
+[node name="DeskLeft" parent="." instance=ExtResource("2_i7xtr")]
 transform = Transform3D(-1.3882281e-07, 0, -0.8413267, 0, 1, 0, 3.1758957, 0, -3.677556e-08, 2, 0.4575987, 11.831394)
 
-[node name="PhoneShelfLeft" parent="." instance=ExtResource("3_wujo3")]
+[node name="PhoneShelfLeft" parent="." instance=ExtResource("2_i7xtr")]
 transform = Transform3D(-2.7764563e-07, 0, -1.26199, 0, 1, 0, 6.3517914, 0, -5.5163333e-08, 8, 0.4575987, 14.830734)
 
-[node name="DeskRight" parent="." instance=ExtResource("3_wujo3")]
+[node name="DeskRight" parent="." instance=ExtResource("2_i7xtr")]
 transform = Transform3D(-1.3882281e-07, 0, -0.8413267, 0, 1, 0, 3.1758957, 0, -3.677556e-08, -1.9778442, 0.4575987, 11.832714)
 
-[node name="TechShelf4" parent="." instance=ExtResource("3_wujo3")]
+[node name="TechShelf4" parent="." instance=ExtResource("2_i7xtr")]
 transform = Transform3D(5.03438e-07, 0, -0.84132683, 0, 4.5, 0, -11.517318, 0, -3.6775564e-08, -19.977844, 2.2023468, 11.225344)
 
-[node name="TechShelf2" parent="." instance=ExtResource("3_wujo3")]
+[node name="TechShelf2" parent="." instance=ExtResource("2_i7xtr")]
 transform = Transform3D(5.03438e-07, 0, -0.84132683, 0, 4.5, 0, -11.517318, 0, -3.6775564e-08, 20.959225, 2.2023468, 11.225344)
 
-[node name="TechShelf3" parent="." instance=ExtResource("3_wujo3")]
+[node name="TechShelf3" parent="." instance=ExtResource("2_i7xtr")]
 transform = Transform3D(5.03438e-07, 0, -0.84132683, 0, 4.5, 0, -11.517318, 0, -3.6775564e-08, -19.977844, 2.2023468, -6.7746563)
 
-[node name="TechShelf5" parent="." instance=ExtResource("3_wujo3")]
+[node name="TechShelf5" parent="." instance=ExtResource("2_i7xtr")]
 transform = Transform3D(5.03438e-07, 0, -0.84132683, 0, 4.5, 0, -11.517318, 0, -3.6775564e-08, -12.977844, 2.2023468, -1.7746563)
 
-[node name="TechShelf6" parent="." instance=ExtResource("3_wujo3")]
+[node name="TechShelf6" parent="." instance=ExtResource("2_i7xtr")]
 transform = Transform3D(5.03438e-07, 0, -0.84132683, 0, 4.5, 0, -11.517318, 0, -3.6775564e-08, 13.022156, 2.2023468, -1.7746563)
 
-[node name="TechShelf" parent="." instance=ExtResource("3_wujo3")]
+[node name="TechShelf" parent="." instance=ExtResource("2_i7xtr")]
 transform = Transform3D(5.03438e-07, 0, -0.84132683, 0, 4.5, 0, -11.517318, 0, -3.6775564e-08, 20.959225, 2.2023468, -6.7746563)
 
-[node name="PhoneShelfRight" parent="." instance=ExtResource("3_wujo3")]
+[node name="PhoneShelfRight" parent="." instance=ExtResource("2_i7xtr")]
 transform = Transform3D(-2.7764563e-07, 0, -1.3461226, 0, 1, 0, 6.3517914, 0, -5.8840893e-08, -7.977844, 0.4575987, 14.833374)
 
-[node name="PhoneShelfLeft2" parent="." instance=ExtResource("3_wujo3")]
+[node name="PhoneShelfLeft2" parent="." instance=ExtResource("2_i7xtr")]
 transform = Transform3D(15.879478, 0, -3.5527137e-15, 0, 1, 0, 0, 0, 1.26199, 0.0077772946, 0.4575987, -6.156868)
 
-[node name="PhoneShelfRight2" parent="." instance=ExtResource("3_wujo3")]
+[node name="PhoneShelfRight2" parent="." instance=ExtResource("2_i7xtr")]
 transform = Transform3D(15.879478, 0, -3.5527137e-15, 0, 1, 0, 0, 0, 1.3461225, 0.014378468, 0.4575987, 2.8209763)
 
-[node name="PhoneShelfLeftSlant" parent="." instance=ExtResource("3_wujo3")]
+[node name="PhoneShelfLeftSlant" parent="." instance=ExtResource("2_i7xtr")]
 transform = Transform3D(-4.4913945, 0, -0.8923616, 0, 1, 0, 4.4913945, 0, -0.8923617, 10.069752, 0.4575987, 9.857928)
 
-[node name="PhoneShelfRighSlant" parent="." instance=ExtResource("3_wujo3")]
+[node name="PhoneShelfRighSlant" parent="." instance=ExtResource("2_i7xtr")]
 transform = Transform3D(4.4913945, 0, -0.9518525, 0, 1, 0, 4.4913945, 0, 0.95185226, -10.032266, 0.4575987, 9.887285)

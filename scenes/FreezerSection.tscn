@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=3 uid="uid://da4dm64tophim"]
+
+[ext_resource type="PackedScene" uid="uid://hls83hutlsb" path="res://scenes/LevelFloor.tscn" id="1_2e8vs"]
+[ext_resource type="PackedScene" uid="uid://dnl7lwlsm6pu2" path="res://scenes/TestCube.tscn" id="2_shfra"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="GroundPlane" parent="." instance=ExtResource("1_2e8vs")]
+transform = Transform3D(-7.9267994e-07, 0, 23.895014, 0, 1, 0, -18.134403, 0, -1.0444842e-06, 0, 0, 1)
+
+[node name="SquareLowFreezer" parent="." instance=ExtResource("2_shfra")]
+transform = Transform3D(3.1758957, 0, 0, 0, 1, 0, 0, 0, 2.9614701, 0.030940294, 0.48858213, -6)
+
+[node name="SquareLowFreezer2" parent="." instance=ExtResource("2_shfra")]
+transform = Transform3D(3.1758957, 0, 0, 0, 1, 0, 0, 0, 2.9614701, 0.030940056, 0.48858213, 6)
+
+[node name="SquareLowFreezer3" parent="." instance=ExtResource("2_shfra")]
+transform = Transform3D(3.1758957, 0, 0, 0, 1, 0, 0, 0, 2.9614701, -13.703583, 0.48858213, -2.721068)
+
+[node name="SquareLowFreezer4" parent="." instance=ExtResource("2_shfra")]
+transform = Transform3D(3.1758957, 0, 0, 0, 1, 0, 0, 0, 2.9614701, -19.703583, 0.48858213, -2.721068)
+
+[node name="SquareLowFreezer5" parent="." instance=ExtResource("2_shfra")]
+transform = Transform3D(3.1758957, 0, 0, 0, 1, 0, 0, 0, 2.9614701, -13.703583, 0.48858213, 2.6918516)
+
+[node name="SquareLowFreezer6" parent="." instance=ExtResource("2_shfra")]
+transform = Transform3D(3.1758957, 0, 0, 0, 1, 0, 0, 0, 2.9614701, -19.703583, 0.48858213, 2.6918516)
+
+[node name="LongLowFreezer" parent="." instance=ExtResource("2_shfra")]
+transform = Transform3D(15.441206, 0, 0, 0, 1, 0, 0, 0, 2.019184, 0, 0.48734975, 0.00080126524)
+
+[node name="StandingFreezer" parent="." instance=ExtResource("2_shfra")]
+transform = Transform3D(-3.681581e-07, 0, -2.019184, 0, 3.3600001, 0, 8.422476, 0, -8.826134e-08, 7.979907, 1.5078886, 0.00080100045)
+
+[node name="StandingFreezer2" parent="." instance=ExtResource("2_shfra")]
+transform = Transform3D(-3.681581e-07, 0, -2.019184, 0, 3.3600001, 0, 8.422476, 0, -8.826134e-08, -8.173566, 1.5078886, 0.0008002944)
+
+[node name="LongLowFreezer2" parent="." instance=ExtResource("2_shfra")]
+transform = Transform3D(15.441206, 0, 0, 0, 1, 0, 0, 0, 2.019184, 0, 0.48734975, -11.999199)
+
+[node name="StandingFreezer3" parent="." instance=ExtResource("2_shfra")]
+transform = Transform3D(-3.681581e-07, 0, -2.019184, 0, 3.3600001, 0, 8.422476, 0, -8.826134e-08, 7.979907, 1.5078886, -11.999199)
+
+[node name="StandingFreezer4" parent="." instance=ExtResource("2_shfra")]
+transform = Transform3D(-3.681581e-07, 0, -2.019184, 0, 3.3600001, 0, 8.422476, 0, -8.826134e-08, -8.173566, 1.5078886, -11.9992)
+
+[node name="LongLowFreezer3" parent="." instance=ExtResource("2_shfra")]
+transform = Transform3D(15.441206, 0, 0, 0, 1, 0, 0, 0, 2.019184, 0, 0.48734975, 12.000801)
+
+[node name="StandingFreezer5" parent="." instance=ExtResource("2_shfra")]
+transform = Transform3D(-3.681581e-07, 0, -2.019184, 0, 3.3600001, 0, 8.422476, 0, -8.826134e-08, 7.979907, 1.5078886, 12.000801)
+
+[node name="StandingFreezer6" parent="." instance=ExtResource("2_shfra")]
+transform = Transform3D(-3.681581e-07, 0, -2.019184, 0, 3.3600001, 0, 8.422476, 0, -8.826134e-08, -16.617268, 1.5078886, 12.0008)
+
+[node name="StandingFreezer7" parent="." instance=ExtResource("2_shfra")]
+transform = Transform3D(-3.681581e-07, 0, -2.019184, 0, 3.3600001, 0, 8.422476, 0, -8.826134e-08, -16.617268, 1.5078886, -11.9992)
+
+[node name="SquareLowFreezer7" parent="." instance=ExtResource("2_shfra")]
+transform = Transform3D(3.1758957, 0, 0, 0, 1, 0, 0, 0, 2.9614701, 19.763063, 0.48858213, -2.721068)
+
+[node name="SquareLowFreezer8" parent="." instance=ExtResource("2_shfra")]
+transform = Transform3D(3.1758957, 0, 0, 0, 1, 0, 0, 0, 2.9614701, 13.763063, 0.48858213, -2.721068)
+
+[node name="SquareLowFreezer9" parent="." instance=ExtResource("2_shfra")]
+transform = Transform3D(3.1758957, 0, 0, 0, 1, 0, 0, 0, 2.9614701, 19.763063, 0.48858213, 2.6918516)
+
+[node name="SquareLowFreezer10" parent="." instance=ExtResource("2_shfra")]
+transform = Transform3D(3.1758957, 0, 0, 0, 1, 0, 0, 0, 2.9614701, 13.763063, 0.48858213, 2.6918516)
+
+[node name="StandingFreezer8" parent="." instance=ExtResource("2_shfra")]
+transform = Transform3D(-3.681581e-07, 0, -2.019184, 0, 3.3600001, 0, 8.422476, 0, -8.826134e-08, 16.849379, 1.5078886, 12.0008)
+
+[node name="StandingFreezer9" parent="." instance=ExtResource("2_shfra")]
+transform = Transform3D(-3.681581e-07, 0, -2.019184, 0, 3.3600001, 0, 8.422476, 0, -8.826134e-08, 16.849379, 1.5078886, -11.9992)
+
+[node name="StandingFreezer10" parent="." instance=ExtResource("2_shfra")]
+transform = Transform3D(-3.681581e-07, 0, -2.019184, 0, 3.3600001, 0, 8.422476, 0, -8.826134e-08, -8.173566, 1.5078886, 12.0008)

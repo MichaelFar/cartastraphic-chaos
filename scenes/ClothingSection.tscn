@@ -1,0 +1,261 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdnglpybn3lf0"]
+
+[ext_resource type="PackedScene" uid="uid://hls83hutlsb" path="res://scenes/LevelFloor.tscn" id="1_r7u40"]
+[ext_resource type="PackedScene" uid="uid://dnl7lwlsm6pu2" path="res://scenes/TestCube.tscn" id="2_jkxlm"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="GroundPlane" parent="." instance=ExtResource("1_r7u40")]
+transform = Transform3D(-7.9267994e-07, 0, 23.895014, 0, 1, 0, -18.134403, 0, -1.0444842e-06, -0.045926273, 0, 0.37349463)
+
+[node name="MeshInstance3D" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(19.79803, 0, 0, 0, 5.0441155, 0, 0, 0, 0.9799849, -0.07401657, 2.5520616, -0.023418427)
+
+[node name="MeshInstance3D9" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, -3.504654, 1.1851661, -3.4996176)
+
+[node name="MeshInstance3D11" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, -9.504654, 1.1851661, -3.4996176)
+
+[node name="MeshInstance3D13" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, -6.504654, 1.1851661, -6.4996176)
+
+[node name="MeshInstance3D15" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, -3.504654, 1.1851661, -9.499618)
+
+[node name="MeshInstance3D17" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, -9.504654, 1.1851661, -9.499618)
+
+[node name="MeshInstance3D22" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, -14.504654, 1.1851661, -3.4996176)
+
+[node name="MeshInstance3D24" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, -20.504654, 1.1851661, -3.4996176)
+
+[node name="MeshInstance3D26" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, -17.504654, 1.1851661, -6.4996176)
+
+[node name="MeshInstance3D28" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, -14.504654, 1.1851661, -9.499618)
+
+[node name="MeshInstance3D30" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, -20.504654, 1.1851661, -9.499618)
+
+[node name="MeshInstance3D18" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, -3.504654, 1.1851661, -12.499618)
+
+[node name="MeshInstance3D19" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, -6.504654, 1.1851661, -12.499618)
+
+[node name="MeshInstance3D20" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, -3.504654, 1.1851661, -15.499618)
+
+[node name="MeshInstance3D21" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, -6.504654, 1.1851661, -15.499618)
+
+[node name="MeshInstance3D31" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, -17.504654, 1.1851661, -12.499618)
+
+[node name="MeshInstance3D32" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, -20.504654, 1.1851661, -12.499618)
+
+[node name="MeshInstance3D33" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, -17.504654, 1.1851661, -15.499618)
+
+[node name="MeshInstance3D34" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, -20.504654, 1.1851661, -15.499618)
+
+[node name="MeshInstance3D4" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-8.246074e-07, 0, -0.9799849, 0, 5.044115, 0, 18.864819, 0, -4.28365e-08, -0.07401657, 2.5520616, -0.023418427)
+
+[node name="MeshInstance3D5" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-1.6492147e-07, 0, -0.9799849, 0, 5.044115, 0, 3.7729635, 0, -4.28365e-08, 11.744826, 2.5520616, -13.426119)
+
+[node name="MeshInstance3D6" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-1.6492147e-07, 0, -0.9799849, 0, 5.044115, 0, 3.7729635, 0, -4.28365e-08, -11.840336, 2.5520616, -13.426119)
+
+[node name="MeshInstance3D10" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-7.686058, 0, 1.5865386e-07, 0, 0.5044114, 0, -6.719366e-07, 0, -1.8147886, -11.901457, 0.2299217, -6.5492296)
+
+[node name="MeshInstance3D12" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, 20.495346, 1.1851661, -3.4996176)
+
+[node name="MeshInstance3D14" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, 14.495346, 1.1851661, -3.4996176)
+
+[node name="MeshInstance3D16" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, 17.495346, 1.1851661, -6.4996176)
+
+[node name="MeshInstance3D23" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, 20.495346, 1.1851661, -9.499618)
+
+[node name="MeshInstance3D25" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, 14.495346, 1.1851661, -9.499618)
+
+[node name="MeshInstance3D27" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, 9.495346, 1.1851661, -3.4996176)
+
+[node name="MeshInstance3D29" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, 3.495346, 1.1851661, -3.4996176)
+
+[node name="MeshInstance3D35" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, 6.495346, 1.1851661, -6.4996176)
+
+[node name="MeshInstance3D36" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, 9.495346, 1.1851661, -9.499618)
+
+[node name="MeshInstance3D37" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, 3.495346, 1.1851661, -9.499618)
+
+[node name="MeshInstance3D38" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, 20.495346, 1.1851661, -12.499618)
+
+[node name="MeshInstance3D39" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, 17.495346, 1.1851661, -12.499618)
+
+[node name="MeshInstance3D40" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, 20.495346, 1.1851661, -15.499618)
+
+[node name="MeshInstance3D41" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, 17.495346, 1.1851661, -15.499618)
+
+[node name="MeshInstance3D42" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, 6.495346, 1.1851661, -12.499618)
+
+[node name="MeshInstance3D43" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, 3.495346, 1.1851661, -12.499618)
+
+[node name="MeshInstance3D44" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, 6.495346, 1.1851661, -15.499618)
+
+[node name="MeshInstance3D45" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(0.54330677, 0, 0, 0, 2.4211757, 0, 0, 0, 0.58799094, 3.495346, 1.1851661, -15.499618)
+
+[node name="MeshInstance3D46" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-7.686058, 0, 1.5865386e-07, 0, 0.5044114, 0, -6.719366e-07, 0, -1.8147886, 12.098543, 0.2299217, -6.5492296)
+
+[node name="MeshInstance3D47" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, 3.5062075, 1.1851661, 3.1793728)
+
+[node name="MeshInstance3D48" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, 9.506208, 1.1851661, 3.1793718)
+
+[node name="MeshInstance3D49" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, 6.506208, 1.1851661, 6.179373)
+
+[node name="MeshInstance3D50" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, 3.5062084, 1.1851661, 9.179373)
+
+[node name="MeshInstance3D51" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, 9.506208, 1.1851661, 9.179372)
+
+[node name="MeshInstance3D52" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, 14.506208, 1.1851661, 3.1793718)
+
+[node name="MeshInstance3D53" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, 20.506207, 1.1851661, 3.1793709)
+
+[node name="MeshInstance3D54" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, 17.506208, 1.1851661, 6.179371)
+
+[node name="MeshInstance3D55" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, 14.506208, 1.1851661, 9.179372)
+
+[node name="MeshInstance3D56" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, 20.506208, 1.1851661, 9.179371)
+
+[node name="MeshInstance3D57" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, 3.5062084, 1.1851661, 12.179373)
+
+[node name="MeshInstance3D58" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, 6.506209, 1.1851661, 12.179373)
+
+[node name="MeshInstance3D59" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, 3.5062094, 1.1851661, 15.179373)
+
+[node name="MeshInstance3D60" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, 6.506209, 1.1851661, 15.179373)
+
+[node name="MeshInstance3D61" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, 17.506208, 1.1851661, 12.179371)
+
+[node name="MeshInstance3D62" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, 20.506208, 1.1851661, 12.179371)
+
+[node name="MeshInstance3D63" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, 17.506208, 1.1851661, 15.179371)
+
+[node name="MeshInstance3D64" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, 20.50621, 1.1851661, 15.179371)
+
+[node name="MeshInstance3D65" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(7.686059, 0, -1.4210855e-14, 0, 0.50441146, 0, 1.1368684e-13, 0, 1.8147888, 11.903011, 0.2299217, 6.228984)
+
+[node name="MeshInstance3D66" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, -20.493793, 1.1851661, 3.1793728)
+
+[node name="MeshInstance3D67" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, -14.493792, 1.1851661, 3.1793718)
+
+[node name="MeshInstance3D68" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, -17.493792, 1.1851661, 6.179373)
+
+[node name="MeshInstance3D69" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, -20.493792, 1.1851661, 9.179373)
+
+[node name="MeshInstance3D70" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, -14.493792, 1.1851661, 9.179372)
+
+[node name="MeshInstance3D71" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, -9.493792, 1.1851661, 3.1793718)
+
+[node name="MeshInstance3D72" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, -3.4937935, 1.1851661, 3.1793709)
+
+[node name="MeshInstance3D73" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, -6.4937916, 1.1851661, 6.179371)
+
+[node name="MeshInstance3D74" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, -9.493792, 1.1851661, 9.179372)
+
+[node name="MeshInstance3D75" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, -3.4937916, 1.1851661, 9.179371)
+
+[node name="MeshInstance3D76" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, -20.493792, 1.1851661, 12.179373)
+
+[node name="MeshInstance3D77" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, -17.493792, 1.1851661, 12.179373)
+
+[node name="MeshInstance3D78" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, -20.49379, 1.1851661, 15.179373)
+
+[node name="MeshInstance3D79" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, -17.493792, 1.1851661, 15.179373)
+
+[node name="MeshInstance3D80" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, -6.4937916, 1.1851661, 12.179371)
+
+[node name="MeshInstance3D81" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, -3.4937916, 1.1851661, 12.179371)
+
+[node name="MeshInstance3D82" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, -6.4937916, 1.1851661, 15.179371)
+
+[node name="MeshInstance3D83" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-0.54330677, 0, -5.1403802e-08, 0, 2.421176, 0, 4.7497387e-08, 0, -0.58799094, -3.4937897, 1.1851661, 15.179371)
+
+[node name="MeshInstance3D84" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(7.686059, 0, -1.4210855e-14, 0, 0.50441146, 0, 1.1368684e-13, 0, 1.8147888, -12.096989, 0.2299217, 6.228984)
+
+[node name="MeshInstance3D7" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-1.6492147e-07, 0, -0.9799849, 0, 5.044115, 0, 3.7729635, 0, -4.28365e-08, 11.744826, 2.5520616, 12.976582)
+
+[node name="MeshInstance3D8" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(-1.6492147e-07, 0, -0.9799849, 0, 5.044115, 0, 3.7729635, 0, -4.28365e-08, -11.840336, 2.5520616, 12.976582)
+
+[node name="MeshInstance3D3" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(7.756102, 0, 0, 0, 5.0441155, 0, 0, 0, 0.9799849, 19.952854, 2.5127513, -0.023418427)
+
+[node name="MeshInstance3D85" parent="." instance=ExtResource("2_jkxlm")]
+transform = Transform3D(7.756102, 0, 0, 0, 5.0441155, 0, 0, 0, 0.9799849, -19.966166, 2.5127513, -0.023418427)
