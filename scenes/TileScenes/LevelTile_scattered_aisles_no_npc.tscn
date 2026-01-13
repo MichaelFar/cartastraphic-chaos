@@ -1,10 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqn28v4k0i5b6"]
+[gd_scene load_steps=6 format=3 uid="uid://dqn28v4k0i5b6"]
 
 [ext_resource type="Script" uid="uid://dofgh56llm5l1" path="res://scripts/level_tile.gd" id="1_qljrs"]
 [ext_resource type="PackedScene" uid="uid://b20d0f3ct1nel" path="res://scenes/Shopper_NPC.tscn" id="2_rxte3"]
 [ext_resource type="PackedScene" uid="uid://dr867i86f8l4b" path="res://scenes/aisle_block.tscn" id="3_liobg"]
+[ext_resource type="Material" uid="uid://cqc0lkhnaq841" path="res://materials/floor.tres" id="3_rxte3"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_f3jeo"]
+material = ExtResource("3_rxte3")
 size = Vector2(10, 10)
 
 [node name="LevelTile" type="Node3D" node_paths=PackedStringArray("npcSpawnMarkerParent")]

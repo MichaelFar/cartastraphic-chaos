@@ -18,6 +18,7 @@ script = ExtResource("1_63nyd")
 rayCast = NodePath("RayCast3D")
 speed = 2.0
 rigidBody = NodePath("RigidBody3D")
+percentChanceToSpawnCart = 100
 cartPackedScene = ExtResource("2_tm2yo")
 cartMarker = NodePath("CartMarker")
 

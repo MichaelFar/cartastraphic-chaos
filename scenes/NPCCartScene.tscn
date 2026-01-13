@@ -1,10 +1,23 @@
-[gd_scene load_steps=14 format=3 uid="uid://brm8jl7ufyb2h"]
+[gd_scene load_steps=27 format=3 uid="uid://brm8jl7ufyb2h"]
 
 [ext_resource type="Script" uid="uid://54g6vwd1n444" path="res://scripts/npc_cart.gd" id="1_tw8g5"]
 [ext_resource type="PackedScene" uid="uid://bqncphdphm4nt" path="res://scenes/cart_manager.tscn" id="1_wa18g"]
-[ext_resource type="PackedScene" uid="uid://bqbv472bseb5b" path="res://scenes/ShoppingObject.tscn" id="2_akr2v"]
-[ext_resource type="PackedScene" uid="uid://be0l8gy7qeeag" path="res://scenes/ShoppingObject_medium.tscn" id="3_f35mx"]
-[ext_resource type="PackedScene" uid="uid://dox7ujejs08nv" path="res://scenes/ShoppingObject_large.tscn" id="4_g6mio"]
+[ext_resource type="PackedScene" uid="uid://ckh7sx453mi2v" path="res://scenes/ShoppingObjects/ShoppingObject_bedside_table_1.tscn" id="2_cmp0v"]
+[ext_resource type="PackedScene" uid="uid://doe1li2is82v6" path="res://scenes/ShoppingObjects/ShoppingObject_bedside_table_2.tscn" id="3_bxfqb"]
+[ext_resource type="PackedScene" uid="uid://c8uxqpkm5mv81" path="res://scenes/ShoppingObjects/ShoppingObject_handheld_console.tscn" id="4_655mb"]
+[ext_resource type="PackedScene" uid="uid://kul14ibphv6x" path="res://scenes/ShoppingObjects/ShoppingObject_handheld_tablet.tscn" id="5_06ctc"]
+[ext_resource type="PackedScene" uid="uid://do5hinv0gpmci" path="res://scenes/ShoppingObjects/ShoppingObject_keyboard_1.tscn" id="6_m54rm"]
+[ext_resource type="PackedScene" uid="uid://taneiqk4uk7g" path="res://scenes/ShoppingObjects/ShoppingObject_keyboard_2.tscn" id="7_ki1be"]
+[ext_resource type="PackedScene" uid="uid://cq4q7bdxq67la" path="res://scenes/ShoppingObjects/ShoppingObject_keyboard_3.tscn" id="8_7ggyv"]
+[ext_resource type="PackedScene" uid="uid://g7l7txl2iuyo" path="res://scenes/ShoppingObjects/ShoppingObject_monitor_1.tscn" id="9_5ais1"]
+[ext_resource type="PackedScene" uid="uid://c0rk83lt33bos" path="res://scenes/ShoppingObjects/ShoppingObject_monitor_2.tscn" id="10_ci0cd"]
+[ext_resource type="PackedScene" uid="uid://cep365pdjo1j4" path="res://scenes/ShoppingObjects/ShoppingObject_monitor_3.tscn" id="11_xp4lh"]
+[ext_resource type="PackedScene" uid="uid://tex4184syqqy" path="res://scenes/ShoppingObjects/ShoppingObject_mouse_1.tscn" id="12_w16he"]
+[ext_resource type="PackedScene" uid="uid://blk3akrxkxwc6" path="res://scenes/ShoppingObjects/ShoppingObject_PCTower_1.tscn" id="13_we32o"]
+[ext_resource type="PackedScene" uid="uid://ph3tm5xaupp3" path="res://scenes/ShoppingObjects/ShoppingObject_phone_1.tscn" id="14_wrqcw"]
+[ext_resource type="PackedScene" uid="uid://c8p2ttytbwbhd" path="res://scenes/ShoppingObjects/ShoppingObject_tv_1.tscn" id="15_e5v15"]
+[ext_resource type="PackedScene" uid="uid://k2wgmcm78xnh" path="res://scenes/ShoppingObjects/ShoppingObject_tv_2.tscn" id="16_l3x6v"]
+[ext_resource type="PackedScene" uid="uid://tq3030bvvgbf" path="res://scenes/ShoppingObjects/ShoppingObject_tv_3.tscn" id="17_8xpgb"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wa18g"]
 points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
@@ -32,7 +45,7 @@ mass = 0.2
 freeze_mode = 1
 script = ExtResource("1_tw8g5")
 cartManager = NodePath("CartManager")
-possibleShoppingObjects = Array[PackedScene]([ExtResource("2_akr2v"), ExtResource("3_f35mx"), ExtResource("4_g6mio")])
+possibleShoppingObjects = Array[PackedScene]([ExtResource("2_cmp0v"), ExtResource("3_bxfqb"), ExtResource("4_655mb"), ExtResource("5_06ctc"), ExtResource("6_m54rm"), ExtResource("7_ki1be"), ExtResource("8_7ggyv"), ExtResource("9_5ais1"), ExtResource("10_ci0cd"), ExtResource("11_xp4lh"), ExtResource("12_w16he"), ExtResource("13_we32o"), ExtResource("14_wrqcw"), ExtResource("15_e5v15"), ExtResource("16_l3x6v"), ExtResource("17_8xpgb")])
 numObjectsToSpawn = 10
 spawnPointContainer = NodePath("ObjectSpawnPoints")
 

@@ -67,6 +67,8 @@ func _on_collision_detection_volume_body_entered(body: Node3D) -> void:
 	if(body is Player):
 		if(body.isRamming):
 			fall_over()
+	#if(body is not ShoppingObject && body != spawnedCart):
+		#switch_direction()
 
 func set_process_to_disabled():
 	#print("Setting process mode to disabled")
@@ -85,12 +87,14 @@ func spawn_cart_at_random():
 
 func switch_direction():
 	currentDirection = rayCast.get_collision_normal()
+	if(currentDirection == Vector3.ZERO):
+		currentDirection = -basis.z
 	if(!rayCast.is_colliding()):
 		currentDirection *= -1
 
 func set_timer_to_false():
 	timerIsRunning = false
-	switch_direction()
+	currentDirection = -basis.z
 
 func check_velocity_interval():
 	var switch_direction_check_timer := get_tree().create_timer(5.0)

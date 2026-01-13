@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8p2ttytbwbhd"]
+
+[ext_resource type="Script" uid="uid://n31b4ilrm78c" path="res://scripts/shopping_object.gd" id="1_7jhop"]
+[ext_resource type="PackedScene" uid="uid://bb2xtoojdhgte" path="res://meshes/psx_mega_pack_models/Electronics & Misc/tv_mp_1.glb" id="2_p8yk1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p8yk1"]
+size = Vector3(0.5280075, 0.55718994, 0.32305908)
+
+[node name="ShoppingObject" type="RigidBody3D" node_paths=PackedStringArray("collisionShape")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_7jhop")
+weight = 6.0
+attractionForceMagnitude = 2.0
+collisionShape = NodePath("")
+
+[node name="tv_mp_12" parent="." instance=ExtResource("2_p8yk1")]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.006580353, 0.27786255, 0.16012573)
+shape = SubResource("BoxShape3D_p8yk1")
+
+[editable path="tv_mp_12"]

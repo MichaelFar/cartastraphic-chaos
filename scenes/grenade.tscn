@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://essu61nx3s7o"]
+
+[ext_resource type="ArrayMesh" uid="uid://ny5nfui64kgs" path="res://meshes/Grenade.obj" id="1_cvyik"]
+[ext_resource type="Texture2D" uid="uid://tg58tlabn2le" path="res://textures/GrenadeTexture.png" id="2_wxtds"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wxtds"]
+bounce = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vhiwl"]
+albedo_texture = ExtResource("2_wxtds")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wxtds"]
+radius = 0.10449219
+height = 0.4765625
+
+[node name="Grenade" type="RigidBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_wxtds")
+
+[node name="Grenade" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -0.04610791, -5.9604645e-08, -0.01898408)
+mesh = ExtResource("1_cvyik")
+surface_material_override/0 = SubResource("StandardMaterial3D_vhiwl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0009765625, 0)
+shape = SubResource("CapsuleShape3D_wxtds")

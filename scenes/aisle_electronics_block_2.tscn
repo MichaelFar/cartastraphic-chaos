@@ -1,0 +1,91 @@
+[gd_scene load_steps=14 format=3 uid="uid://d3wspkncjugsf"]
+
+[ext_resource type="Script" uid="uid://b3h0wsemys865" path="res://scripts/aisle_block.gd" id="1_tjkhq"]
+[ext_resource type="PackedScene" uid="uid://do5hinv0gpmci" path="res://scenes/ShoppingObjects/ShoppingObject_keyboard_1.tscn" id="2_kq88j"]
+[ext_resource type="PackedScene" uid="uid://taneiqk4uk7g" path="res://scenes/ShoppingObjects/ShoppingObject_keyboard_2.tscn" id="3_4aeb3"]
+[ext_resource type="PackedScene" uid="uid://g7l7txl2iuyo" path="res://scenes/ShoppingObjects/ShoppingObject_monitor_1.tscn" id="3_tyb46"]
+[ext_resource type="PackedScene" uid="uid://cq4q7bdxq67la" path="res://scenes/ShoppingObjects/ShoppingObject_keyboard_3.tscn" id="4_0a81j"]
+[ext_resource type="PackedScene" uid="uid://c0rk83lt33bos" path="res://scenes/ShoppingObjects/ShoppingObject_monitor_2.tscn" id="4_iv6ei"]
+[ext_resource type="PackedScene" uid="uid://tex4184syqqy" path="res://scenes/ShoppingObjects/ShoppingObject_mouse_1.tscn" id="5_qrti8"]
+[ext_resource type="PackedScene" uid="uid://cep365pdjo1j4" path="res://scenes/ShoppingObjects/ShoppingObject_monitor_3.tscn" id="5_vtgo6"]
+[ext_resource type="PackedScene" uid="uid://u6n40asu0y4g" path="res://scenes/TestCube.tscn" id="6_bedxs"]
+[ext_resource type="PackedScene" uid="uid://blk3akrxkxwc6" path="res://scenes/ShoppingObjects/ShoppingObject_PCTower_1.tscn" id="8_8cxkk"]
+[ext_resource type="PackedScene" uid="uid://c8p2ttytbwbhd" path="res://scenes/ShoppingObjects/ShoppingObject_tv_1.tscn" id="10_qfr42"]
+[ext_resource type="PackedScene" uid="uid://k2wgmcm78xnh" path="res://scenes/ShoppingObjects/ShoppingObject_tv_2.tscn" id="11_23511"]
+[ext_resource type="PackedScene" uid="uid://tq3030bvvgbf" path="res://scenes/ShoppingObjects/ShoppingObject_tv_3.tscn" id="12_bunou"]
+
+[node name="AisleBlock" type="Node3D" node_paths=PackedStringArray("smallSpawnContainers", "mediumSpawnContainers", "largeSpawnContainers")]
+script = ExtResource("1_tjkhq")
+smallItemsPackedScenes = Array[PackedScene]([ExtResource("2_kq88j"), ExtResource("3_4aeb3"), ExtResource("4_0a81j"), ExtResource("5_qrti8"), ExtResource("5_qrti8")])
+mediumItemsPackedScenes = Array[PackedScene]([ExtResource("3_tyb46"), ExtResource("4_iv6ei"), ExtResource("8_8cxkk")])
+largeItemsPackedScenes = Array[PackedScene]([ExtResource("5_vtgo6"), ExtResource("10_qfr42"), ExtResource("11_23511"), ExtResource("12_bunou")])
+smallSpawnContainers = [NodePath("SpawnMarkerContainerSmall"), NodePath("SpawnMarkerContainerSmall2")]
+mediumSpawnContainers = [NodePath("SpawnMarkerContainerMedium")]
+largeSpawnContainers = [NodePath("SpawnMarkerContainerLarge2")]
+
+[node name="MeshInstance3D" parent="." instance=ExtResource("6_bedxs")]
+transform = Transform3D(1.9949594, 0, 0, 0, 0.52337885, 0, 0, 0, 0.19869338, 0, 1.2392434, 0)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D4" parent="." instance=ExtResource("6_bedxs")]
+transform = Transform3D(1.9949594, 0, 0, 0, 0.08362305, 0, 0, 0, 0.69667876, 0, 0.9539993, 0.02320689)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D5" parent="." instance=ExtResource("6_bedxs")]
+transform = Transform3D(1.9949594, 0, 0, 0, 0.08362305, 0, 0, 0, 1.3547119, 0, 0.17882168, -0.0008970499)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D2" parent="." instance=ExtResource("6_bedxs")]
+transform = Transform3D(1.9949594, 0, 0, 0, 0.52337885, 0, 0, 0, 0.19869338, 0, 0.69438064, 0)
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D3" parent="." instance=ExtResource("6_bedxs")]
+transform = Transform3D(1.9949594, 0, 0, 0, 0.52337885, 0, 0, 0, 0.19869338, 0, 0.21620852, 0)
+skeleton = NodePath("../../..")
+
+[node name="SpawnMarkerContainerSmall" type="Node3D" parent="."]
+
+[node name="Marker3D" type="Marker3D" parent="SpawnMarkerContainerSmall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1827775, 0.18002295)
+
+[node name="Marker3D2" type="Marker3D" parent="SpawnMarkerContainerSmall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6428518, 1.1827775, 0.18002295)
+
+[node name="Marker3D3" type="Marker3D" parent="SpawnMarkerContainerSmall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5786965, 1.1827775, 0.18002295)
+
+[node name="SpawnMarkerContainerSmall2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.38524812)
+
+[node name="Marker3D" type="Marker3D" parent="SpawnMarkerContainerSmall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1827775, 0.18002295)
+
+[node name="Marker3D2" type="Marker3D" parent="SpawnMarkerContainerSmall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6428518, 1.1827775, 0.18002295)
+
+[node name="Marker3D3" type="Marker3D" parent="SpawnMarkerContainerSmall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5786965, 1.1827775, 0.18002295)
+
+[node name="SpawnMarkerContainerMedium" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.83974165, 0.24594778)
+
+[node name="Marker3D" type="Marker3D" parent="SpawnMarkerContainerMedium"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1827775, 0.18002295)
+
+[node name="Marker3D2" type="Marker3D" parent="SpawnMarkerContainerMedium"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6428518, 1.1827775, 0.18002295)
+
+[node name="Marker3D3" type="Marker3D" parent="SpawnMarkerContainerMedium"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5786965, 1.1827775, 0.18002295)
+
+[node name="SpawnMarkerContainerLarge2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.737655, -0.59175295)
+
+[node name="Marker3D" type="Marker3D" parent="SpawnMarkerContainerLarge2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1827775, 0.18002295)
+
+[node name="Marker3D2" type="Marker3D" parent="SpawnMarkerContainerLarge2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6428518, 1.1827775, 0.18002295)
+
+[node name="Marker3D4" type="Marker3D" parent="SpawnMarkerContainerLarge2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5786965, 1.1827775, 0.18002295)
