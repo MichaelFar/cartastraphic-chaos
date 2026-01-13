@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://bv1ls4eki6ob8"]
+[gd_scene load_steps=13 format=3 uid="uid://bv1ls4eki6ob8"]
 
-[ext_resource type="Script" uid="uid://bhtonanho1prp" path="res://scripts/michael_debug_scene.gd" id="1_d1jvf"]
+[ext_resource type="Script" uid="uid://bhtonanho1prp" path="res://scripts/base_level.gd" id="1_d1jvf"]
 [ext_resource type="PackedScene" uid="uid://dvl2xwykeekj3" path="res://scenes/PlayerScene.tscn" id="1_ni3o6"]
 [ext_resource type="PackedScene" uid="uid://b20d0f3ct1nel" path="res://scenes/Shopper_NPC.tscn" id="5_d1jvf"]
-[ext_resource type="PackedScene" uid="uid://brm8jl7ufyb2h" path="res://scenes/NPCCartScene.tscn" id="6_cc7sd"]
 [ext_resource type="PackedScene" uid="uid://dr867i86f8l4b" path="res://scenes/aisle_block.tscn" id="7_k18ex"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kpdrb"]
@@ -85,23 +84,28 @@ mesh = SubResource("BoxMesh_cc7sd")
 [node name="PlayerScene" parent="." instance=ExtResource("1_ni3o6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14809394, 0.13275242, 2.4409165)
 
-[node name="NpcCartScene" parent="." instance=ExtResource("6_cc7sd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.501959, 0, -4.2045035)
-
 [node name="LevelGeometry" type="Node3D" parent="."]
 
 [node name="AisleBlock" parent="LevelGeometry" instance=ExtResource("7_k18ex")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.254254, 0, -9.231047)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.401714, 0, -7.9135633)
 
 [node name="AisleBlock4" parent="LevelGeometry" instance=ExtResource("7_k18ex")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.254254, 0, -5.2310467)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.401714, 0, -3.9135633)
 
 [node name="AisleBlock6" parent="LevelGeometry" instance=ExtResource("7_k18ex")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.254254, 0, -1.2310467)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.401714, 0, 0.08643675)
 
 [node name="AisleBlock2" parent="LevelGeometry" instance=ExtResource("7_k18ex")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2903366, 0, -10.231047)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4377966, 0, -8.913563)
 
 [node name="ShopperNpc" parent="." instance=ExtResource("5_d1jvf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.213294, -0.4111457, -2)
-percentChanceToSpawnCart = 100
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.213294, -0.0053436756, -2)
+
+[node name="ShopperNpc2" parent="." instance=ExtResource("5_d1jvf")]
+transform = Transform3D(0.48785964, 0, 0.87292206, 0, 1, 0, -0.87292206, 0, 0.48785964, 2.5785398, -0.0053436756, -6.7960587)
+
+[node name="ShopperNpc3" parent="." instance=ExtResource("5_d1jvf")]
+transform = Transform3D(-0.6507609, 0, 0.7592827, 0, 1, 0, -0.7592827, 0, -0.6507609, 6.211091, -0.0053436756, 4.4996166)
+
+[node name="ShopperNpc4" parent="." instance=ExtResource("5_d1jvf")]
+transform = Transform3D(0.30265272, 0, -0.9531009, 0, 1, 0, 0.9531009, 0, 0.30265272, -8.324864, -0.0053436756, 5.0378275)

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b27pe7r8dx4qw"]
+
+[ext_resource type="Script" uid="uid://dofgh56llm5l1" path="res://scripts/level_tile.gd" id="1_u20gd"]
+[ext_resource type="PackedScene" uid="uid://b20d0f3ct1nel" path="res://scenes/Shopper_NPC.tscn" id="2_iydbi"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_f3jeo"]
+size = Vector2(10, 10)
+
+[node name="LevelTile" type="Node3D" node_paths=PackedStringArray("npcSpawnMarkerParent")]
+script = ExtResource("1_u20gd")
+npcSpawnMarkerParent = NodePath("NPCSpawnMarkerParent")
+ordinaryNPCPackedScene = ExtResource("2_iydbi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_f3jeo")
+
+[node name="NPCSpawnMarkerParent" type="Node3D" parent="."]

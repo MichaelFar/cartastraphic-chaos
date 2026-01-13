@@ -70,4 +70,5 @@ func spawn_initial_items():
 
 
 func _on_front_volume_body_entered(body: Node3D) -> void:
+	#print("Front of npc cart hit something")
 	front_volume_entered.emit()
