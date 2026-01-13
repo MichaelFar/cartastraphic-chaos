@@ -29,8 +29,9 @@ func _ready() -> void:
 	currentDirection = -basis.z
 	spawn_cart_at_random()
 func _physics_process(delta: float) -> void:
+	
 	if(!timerIsRunning || spawnedCart == null):
-		
+		currentDirection.y = 0.0
 		velocity = currentDirection * speed
 		if(currentDirection != Vector3.ZERO && currentDirection.y <= 0.0):
 			

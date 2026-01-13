@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d3wspkncjugsf"]
+[gd_scene load_steps=15 format=3 uid="uid://d3wspkncjugsf"]
 
 [ext_resource type="Script" uid="uid://b3h0wsemys865" path="res://scripts/aisle_block.gd" id="1_tjkhq"]
 [ext_resource type="PackedScene" uid="uid://do5hinv0gpmci" path="res://scenes/ShoppingObjects/ShoppingObject_keyboard_1.tscn" id="2_kq88j"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c8p2ttytbwbhd" path="res://scenes/ShoppingObjects/ShoppingObject_tv_1.tscn" id="10_qfr42"]
 [ext_resource type="PackedScene" uid="uid://k2wgmcm78xnh" path="res://scenes/ShoppingObjects/ShoppingObject_tv_2.tscn" id="11_23511"]
 [ext_resource type="PackedScene" uid="uid://tq3030bvvgbf" path="res://scenes/ShoppingObjects/ShoppingObject_tv_3.tscn" id="12_bunou"]
+[ext_resource type="Material" uid="uid://dryao356lw568" path="res://materials/Base_Shelf_Material.tres" id="14_0a81j"]
 
 [node name="AisleBlock" type="Node3D" node_paths=PackedStringArray("smallSpawnContainers", "mediumSpawnContainers", "largeSpawnContainers")]
 script = ExtResource("1_tjkhq")
@@ -25,22 +26,27 @@ largeSpawnContainers = [NodePath("SpawnMarkerContainerLarge2")]
 
 [node name="MeshInstance3D" parent="." instance=ExtResource("6_bedxs")]
 transform = Transform3D(1.9949594, 0, 0, 0, 0.52337885, 0, 0, 0, 0.19869338, 0, 1.2392434, 0)
+material_override = ExtResource("14_0a81j")
 skeleton = NodePath("../../..")
 
 [node name="MeshInstance3D4" parent="." instance=ExtResource("6_bedxs")]
 transform = Transform3D(1.9949594, 0, 0, 0, 0.08362305, 0, 0, 0, 0.69667876, 0, 0.9539993, 0.02320689)
+material_override = ExtResource("14_0a81j")
 skeleton = NodePath("../../..")
 
 [node name="MeshInstance3D5" parent="." instance=ExtResource("6_bedxs")]
 transform = Transform3D(1.9949594, 0, 0, 0, 0.08362305, 0, 0, 0, 1.3547119, 0, 0.17882168, -0.0008970499)
+material_override = ExtResource("14_0a81j")
 skeleton = NodePath("../../..")
 
 [node name="MeshInstance3D2" parent="." instance=ExtResource("6_bedxs")]
 transform = Transform3D(1.9949594, 0, 0, 0, 0.52337885, 0, 0, 0, 0.19869338, 0, 0.69438064, 0)
+material_override = ExtResource("14_0a81j")
 skeleton = NodePath("../../..")
 
 [node name="MeshInstance3D3" parent="." instance=ExtResource("6_bedxs")]
 transform = Transform3D(1.9949594, 0, 0, 0, 0.52337885, 0, 0, 0, 0.19869338, 0, 0.21620852, 0)
+material_override = ExtResource("14_0a81j")
 skeleton = NodePath("../../..")
 
 [node name="SpawnMarkerContainerSmall" type="Node3D" parent="."]

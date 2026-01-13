@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://essu61nx3s7o"]
+[gd_scene load_steps=7 format=3 uid="uid://essu61nx3s7o"]
 
 [ext_resource type="ArrayMesh" uid="uid://ny5nfui64kgs" path="res://meshes/Grenade.obj" id="1_cvyik"]
 [ext_resource type="Texture2D" uid="uid://tg58tlabn2le" path="res://textures/GrenadeTexture.png" id="2_wxtds"]
+[ext_resource type="Material" uid="uid://d31y0b4ehqsxs" path="res://resources/explosion_assets/ExplosionMaterial.tres" id="3_vhiwl"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wxtds"]
 bounce = 1.0
@@ -24,3 +25,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_vhiwl")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0009765625, 0)
 shape = SubResource("CapsuleShape3D_wxtds")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+process_material = ExtResource("3_vhiwl")
