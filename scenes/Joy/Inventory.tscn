@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://bv8twyvc2cjfa"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4l1yp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ng6ov"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ecf4b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4l1yp"]
+albedo_color = Color(0.06879827, 0.06879828, 0.06879828, 1)
+metallic = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_aic3w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ecf4b"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_aic3w"]
+
+[node name="Inventory" type="Node3D"]
+
+[node name="Plane" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9949159, 0, 0, 0, 0.9949159, 0, 0, 0, 1.9898318, 0, 0, 0)
+mesh = SubResource("PlaneMesh_4l1yp")
+surface_material_override/0 = SubResource("StandardMaterial3D_ng6ov")
+
+[node name="Shopping List" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9290885, 0, 0, 0, 0.9949154, 0, 0, 0, 0.46407375, -0.22656643, 0.03299856, 1.3487109)
+mesh = SubResource("PlaneMesh_ecf4b")
+skeleton = NodePath("../Plane")
+
+[node name="CreditCardStack" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.13475622, 0, 0.09831519, 0, 0.99491507, 0, -0.063104354, 0, 0.20994723, 0.2958684, 0.03299856, 0.4423416)
+mesh = SubResource("PlaneMesh_ecf4b")
+skeleton = NodePath("../Plane")
+
+[node name="CashStack" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.14331427, 0, -0.062366247, 0, 0.99491507, 0, 0.04003024, 0, 0.22328046, 0.24201602, 0.03299856, -0.25369596)
+mesh = SubResource("PlaneMesh_ecf4b")
+skeleton = NodePath("../Plane")
+
+[node name="CuponStack" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.14432633, 0, 0.05641763, 0, 0.99491507, 0, -0.036212098, 0, 0.22485723, 0.6266592, 0.032998443, 0.038576424)
+mesh = SubResource("PlaneMesh_ecf4b")
+skeleton = NodePath("../Plane")
+
+[node name="JunkStack" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.14797877, 0, 0.024321016, 0, 0.994915, 0, -0.015610641, 0, 0.23054764, -0.5926476, 0.032998443, 0.2736373)
+mesh = SubResource("PlaneMesh_ecf4b")
+skeleton = NodePath("../Plane")
+
+[node name="Phone" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.07953258, -0.66227615, -0.2956037, 0.10181903, 0.6624475, -0.0005259961, 0.04221148, -0.35007635, 0.55822915, -0.2430973, 0.42832094, -1.3672404)
+material_override = SubResource("StandardMaterial3D_4l1yp")
+mesh = SubResource("BoxMesh_aic3w")
+surface_material_override/0 = SubResource("StandardMaterial3D_ecf4b")
+
+[node name="Screen" type="MeshInstance3D" parent="Phone"]
+transform = Transform3D(-1.7531388e-08, 0.078327805, 0, -0.4010714, -3.423817e-09, 0, 0, 0, 0.38182703, 0.5267809, 0.016726976, 4.417836e-08)
+mesh = SubResource("PlaneMesh_aic3w")
