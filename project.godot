@@ -15,6 +15,10 @@ run/main_scene="uid://bv1ls4eki6ob8"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+ItemButtons="*res://scripts/Joy/item_buttons.gd"
+
 [display]
 
 window/size/mode=3

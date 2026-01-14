@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dh778osy8ievl"]
+
+[ext_resource type="Script" uid="uid://covuqvlchlqd" path="res://scripts/Joy/card_object.gd" id="1_ejqs2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kqdon"]
+resource_local_to_scene = true
+metallic = 0.62
+roughness = 0.6
+
+[sub_resource type="QuadMesh" id="QuadMesh_rvogd"]
+
+[node name="WalletItem" type="Node3D"]
+
+[node name="Item Viewport" type="SubViewport" parent="."]
+size = Vector2i(1197, 667)
+
+[node name="ItemFront" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.9999735, -0.009497116, -0.001798727, 0.012677443, 2.9999788, 0.0020325566, 0.007169112, -0.0061147367, 0.9999963, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_kqdon")
+mesh = SubResource("QuadMesh_rvogd")
+script = ExtResource("1_ejqs2")
+
+[node name="ItemFront2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-3.9999733, 0.009497114, 0.0017988145, 0.012677443, 2.9999788, 0.0020325566, -0.0071694613, 0.0061147376, -0.9999963, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_kqdon")
+mesh = SubResource("QuadMesh_rvogd")
+script = ExtResource("1_ejqs2")

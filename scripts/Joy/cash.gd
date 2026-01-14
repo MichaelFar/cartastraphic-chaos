@@ -1,6 +1,6 @@
 extends Control
 
-var value: int
+@export var value: int
 
 @onready var item_name: String = "Cash"
 @onready var item_description: String = "Some cold hard cash. No Strings attached"
@@ -21,3 +21,5 @@ func _ready() -> void:
 	$DollarAmount2.text = "$" + str(value)
 	$DollarAmount3.text = "$" + str(value)
 	$DollarAmount4.text = "$" + str(value)
+	
+	tooltip_text = item_name + "\n" + item_description
