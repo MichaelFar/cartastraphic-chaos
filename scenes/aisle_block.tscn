@@ -1,0 +1,89 @@
+[gd_scene load_steps=7 format=3 uid="uid://dr867i86f8l4b"]
+
+[ext_resource type="Script" uid="uid://b3h0wsemys865" path="res://scripts/aisle_block.gd" id="1_eoj33"]
+[ext_resource type="PackedScene" uid="uid://u6n40asu0y4g" path="res://scenes/TestCube.tscn" id="1_rdrf3"]
+[ext_resource type="PackedScene" uid="uid://bqbv472bseb5b" path="res://scenes/ShoppingObjects/ShoppingObject.tscn" id="2_nld3q"]
+[ext_resource type="PackedScene" uid="uid://be0l8gy7qeeag" path="res://scenes/ShoppingObjects/ShoppingObject_medium.tscn" id="3_oprsp"]
+[ext_resource type="PackedScene" uid="uid://dox7ujejs08nv" path="res://scenes/ShoppingObjects/ShoppingObject_large.tscn" id="4_sq2ng"]
+[ext_resource type="Material" uid="uid://dryao356lw568" path="res://materials/Base_Shelf_Material.tres" id="6_oprsp"]
+
+[node name="AisleBlock" type="Node3D" node_paths=PackedStringArray("smallSpawnContainers", "mediumSpawnContainers", "largeSpawnContainers")]
+script = ExtResource("1_eoj33")
+smallItemsPackedScenes = Array[PackedScene]([ExtResource("2_nld3q")])
+mediumItemsPackedScenes = Array[PackedScene]([ExtResource("3_oprsp")])
+largeItemsPackedScenes = Array[PackedScene]([ExtResource("4_sq2ng")])
+smallSpawnContainers = [NodePath("SpawnMarkerContainerSmall"), NodePath("SpawnMarkerContainerSmall2")]
+mediumSpawnContainers = [NodePath("SpawnMarkerContainerMedium")]
+largeSpawnContainers = [NodePath("SpawnMarkerContainerLarge2")]
+
+[node name="MeshInstance3D" parent="." instance=ExtResource("1_rdrf3")]
+transform = Transform3D(1.9949594, 0, 0, 0, 0.52337885, 0, 0, 0, 0.19869338, 0, 1.2392434, 0)
+material_override = ExtResource("6_oprsp")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D4" parent="." instance=ExtResource("1_rdrf3")]
+transform = Transform3D(1.9949594, 0, 0, 0, 0.08362305, 0, 0, 0, 0.69667876, 0, 0.9539993, 0.02320689)
+material_override = ExtResource("6_oprsp")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D5" parent="." instance=ExtResource("1_rdrf3")]
+transform = Transform3D(1.9949594, 0, 0, 0, 0.08362305, 0, 0, 0, 1.3547119, 0, 0.17882168, -0.0008970499)
+material_override = ExtResource("6_oprsp")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D2" parent="." instance=ExtResource("1_rdrf3")]
+transform = Transform3D(1.9949594, 0, 0, 0, 0.52337885, 0, 0, 0, 0.19869338, 0, 0.69438064, 0)
+material_override = ExtResource("6_oprsp")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D3" parent="." instance=ExtResource("1_rdrf3")]
+transform = Transform3D(1.9949594, 0, 0, 0, 0.52337885, 0, 0, 0, 0.19869338, 0, 0.21620852, 0)
+material_override = ExtResource("6_oprsp")
+skeleton = NodePath("../../..")
+
+[node name="SpawnMarkerContainerSmall" type="Node3D" parent="."]
+
+[node name="Marker3D" type="Marker3D" parent="SpawnMarkerContainerSmall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1827775, 0.18002295)
+
+[node name="Marker3D2" type="Marker3D" parent="SpawnMarkerContainerSmall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6428518, 1.1827775, 0.18002295)
+
+[node name="Marker3D3" type="Marker3D" parent="SpawnMarkerContainerSmall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5786965, 1.1827775, 0.18002295)
+
+[node name="SpawnMarkerContainerSmall2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.38524812)
+
+[node name="Marker3D" type="Marker3D" parent="SpawnMarkerContainerSmall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1827775, 0.18002295)
+
+[node name="Marker3D2" type="Marker3D" parent="SpawnMarkerContainerSmall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6428518, 1.1827775, 0.18002295)
+
+[node name="Marker3D3" type="Marker3D" parent="SpawnMarkerContainerSmall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5786965, 1.1827775, 0.18002295)
+
+[node name="SpawnMarkerContainerMedium" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.83974165, 0.24594778)
+
+[node name="Marker3D" type="Marker3D" parent="SpawnMarkerContainerMedium"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1827775, 0.18002295)
+
+[node name="Marker3D2" type="Marker3D" parent="SpawnMarkerContainerMedium"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6428518, 1.1827775, 0.18002295)
+
+[node name="Marker3D3" type="Marker3D" parent="SpawnMarkerContainerMedium"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5786965, 1.1827775, 0.18002295)
+
+[node name="SpawnMarkerContainerLarge2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.737655, -0.59175295)
+
+[node name="Marker3D" type="Marker3D" parent="SpawnMarkerContainerLarge2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1827775, 0.18002295)
+
+[node name="Marker3D2" type="Marker3D" parent="SpawnMarkerContainerLarge2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6428518, 1.1827775, 0.18002295)
+
+[node name="Marker3D4" type="Marker3D" parent="SpawnMarkerContainerLarge2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5786965, 1.1827775, 0.18002295)

@@ -1,0 +1,39 @@
+[gd_scene load_steps=15 format=3 uid="uid://dttjj5us257jr"]
+
+[ext_resource type="Script" uid="uid://dofgh56llm5l1" path="res://scripts/level_tile.gd" id="1_ktx88"]
+[ext_resource type="PackedScene" uid="uid://b20d0f3ct1nel" path="res://scenes/Shopper_NPC.tscn" id="2_6ayvn"]
+[ext_resource type="PackedScene" uid="uid://b66pboca0adai" path="res://scenes/aisle_electronics_block_1.tscn" id="3_g8k3d"]
+[ext_resource type="Material" uid="uid://cqc0lkhnaq841" path="res://materials/floor.tres" id="3_j24om"]
+[ext_resource type="PackedScene" uid="uid://g7l7txl2iuyo" path="res://scenes/ShoppingObjects/ShoppingObject_monitor_1.tscn" id="4_j24om"]
+[ext_resource type="PackedScene" uid="uid://c0rk83lt33bos" path="res://scenes/ShoppingObjects/ShoppingObject_monitor_2.tscn" id="5_yyw3u"]
+[ext_resource type="PackedScene" uid="uid://cq4q7bdxq67la" path="res://scenes/ShoppingObjects/ShoppingObject_keyboard_3.tscn" id="6_k7w7l"]
+[ext_resource type="PackedScene" uid="uid://taneiqk4uk7g" path="res://scenes/ShoppingObjects/ShoppingObject_keyboard_2.tscn" id="7_1lf73"]
+[ext_resource type="PackedScene" uid="uid://cep365pdjo1j4" path="res://scenes/ShoppingObjects/ShoppingObject_monitor_3.tscn" id="8_fxtk7"]
+[ext_resource type="PackedScene" uid="uid://c8p2ttytbwbhd" path="res://scenes/ShoppingObjects/ShoppingObject_tv_1.tscn" id="9_rmqrg"]
+[ext_resource type="PackedScene" uid="uid://k2wgmcm78xnh" path="res://scenes/ShoppingObjects/ShoppingObject_tv_2.tscn" id="10_6cpkp"]
+[ext_resource type="PackedScene" uid="uid://tq3030bvvgbf" path="res://scenes/ShoppingObjects/ShoppingObject_tv_3.tscn" id="11_rspfb"]
+[ext_resource type="PackedScene" uid="uid://blk3akrxkxwc6" path="res://scenes/ShoppingObjects/ShoppingObject_PCTower_1.tscn" id="12_xlenn"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_f3jeo"]
+size = Vector2(10, 10)
+
+[node name="LevelTile" type="Node3D" node_paths=PackedStringArray("npcSpawnMarkerParent")]
+script = ExtResource("1_ktx88")
+npcSpawnMarkerParent = NodePath("NPCSpawnMarkerParent")
+ordinaryNPCPackedScene = ExtResource("2_6ayvn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("3_j24om")
+mesh = SubResource("PlaneMesh_f3jeo")
+
+[node name="NPCSpawnMarkerParent" type="Node3D" parent="."]
+
+[node name="AisleBlock" parent="." instance=ExtResource("3_g8k3d")]
+transform = Transform3D(0.68879753, 0, -0.7249538, 0, 1, 0, 0.7249538, 0, 0.68879753, -2.7065845, 0, 2.3700771)
+mediumItemsPackedScenes = Array[PackedScene]([ExtResource("4_j24om"), ExtResource("5_yyw3u"), ExtResource("6_k7w7l"), ExtResource("7_1lf73")])
+largeItemsPackedScenes = Array[PackedScene]([ExtResource("8_fxtk7"), ExtResource("9_rmqrg"), ExtResource("10_6cpkp"), ExtResource("11_rspfb"), ExtResource("12_xlenn")])
+
+[node name="AisleBlock2" parent="." instance=ExtResource("3_g8k3d")]
+transform = Transform3D(0.68879753, 0, -0.7249538, 0, 1, 0, 0.7249538, 0, 0.68879753, 2.2847095, 2.3841858e-07, -0.31278253)
+mediumItemsPackedScenes = Array[PackedScene]([ExtResource("4_j24om"), ExtResource("5_yyw3u"), ExtResource("6_k7w7l"), ExtResource("7_1lf73")])
+largeItemsPackedScenes = Array[PackedScene]([ExtResource("8_fxtk7"), ExtResource("9_rmqrg"), ExtResource("10_6cpkp"), ExtResource("11_rspfb"), ExtResource("12_xlenn")])

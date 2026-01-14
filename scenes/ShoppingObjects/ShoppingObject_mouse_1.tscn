@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://tex4184syqqy"]
+
+[ext_resource type="Script" uid="uid://n31b4ilrm78c" path="res://scripts/shopping_object.gd" id="1_uns0q"]
+[ext_resource type="PackedScene" uid="uid://b61juwytylv4e" path="res://meshes/psx_mega_pack_models/Electronics & Misc/pc_mouse_mp_1.glb" id="2_7mjhp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7mjhp"]
+size = Vector3(0.07859802, 0.027770996, 0.13861084)
+
+[node name="ShoppingObject" type="RigidBody3D" node_paths=PackedStringArray("collisionShape")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_uns0q")
+attractionForceMagnitude = 2.0
+collisionShape = NodePath("")
+
+[node name="pc_mouse_mp_12" parent="." instance=ExtResource("2_7mjhp")]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0011520386, 0.013153076, -0.0027770996)
+shape = SubResource("BoxShape3D_7mjhp")
+
+[editable path="pc_mouse_mp_12"]

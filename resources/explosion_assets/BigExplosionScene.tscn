@@ -1,0 +1,94 @@
+[gd_scene load_steps=16 format=3 uid="uid://goh3vkv8vodf"]
+
+[ext_resource type="Material" uid="uid://d31y0b4ehqsxs" path="res://resources/explosion_assets/ExplosionMaterial.tres" id="1_an4hs"]
+[ext_resource type="Shader" uid="uid://d2ul82nlks5nu" path="res://resources/explosion_assets/ExplosionShader.tres" id="2_fwiln"]
+[ext_resource type="Texture2D" uid="uid://ca1ukqpnv6pw7" path="res://resources/explosion_assets/normal-.png" id="3_61h6d"]
+[ext_resource type="Texture2D" uid="uid://db287wikmd07m" path="res://resources/explosion_assets/smokesprite.png" id="4_vrdhl"]
+[ext_resource type="Texture2D" uid="uid://dfcbhgjue2vub" path="res://resources/explosion_assets/normal+.png" id="5_6lnkt"]
+
+[sub_resource type="Curve" id="Curve_qy7ne"]
+_data = [Vector2(0.015000004, 0.004837036), 0.0, 0.0, 0, 0, Vector2(0.9825001, 0.9658255), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_eg0ln"]
+curve = SubResource("Curve_qy7ne")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rva4e"]
+angle_max = 1.0
+initial_velocity_min = 0.5
+initial_velocity_max = 1.0
+angular_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -1.0
+linear_accel_max = -1.0
+color = Color(0.7137018, 0, 0.15873745, 1)
+emission_curve = SubResource("CurveTexture_eg0ln")
+
+[sub_resource type="Gradient" id="Gradient_fwiln"]
+offsets = PackedFloat32Array(0.0014388489, 0.5683453)
+colors = PackedColorArray(0, 0, 0, 1, 0.40641972, 0.40641972, 0.40641972, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_61h6d"]
+gradient = SubResource("Gradient_fwiln")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vrdhl"]
+render_priority = 0
+shader = ExtResource("2_fwiln")
+shader_parameter/particle_h_frames = 8.0
+shader_parameter/particle_v_frames = 8.0
+shader_parameter/particles_anim_loop = false
+shader_parameter/still_frame = -1.0
+shader_parameter/Soft_limit = 0.1
+shader_parameter/blend_scale = 0.1
+shader_parameter/emission_falloff_multiplier = 0.5
+shader_parameter/tex_frg_26 = SubResource("GradientTexture1D_61h6d")
+
+[sub_resource type="QuadMesh" id="QuadMesh_16uck"]
+material = SubResource("ShaderMaterial_vrdhl")
+
+[sub_resource type="Gradient" id="Gradient_yufyd"]
+offsets = PackedFloat32Array(0, 0.37697843)
+colors = PackedColorArray(13.617678, 6.2991567, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_p6qxm"]
+gradient = SubResource("Gradient_yufyd")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bw0dt"]
+render_priority = 0
+shader = ExtResource("2_fwiln")
+shader_parameter/particle_h_frames = 8.0
+shader_parameter/particle_v_frames = 8.0
+shader_parameter/particles_anim_loop = false
+shader_parameter/still_frame = -1.0
+shader_parameter/tex_frg_2 = ExtResource("4_vrdhl")
+shader_parameter/Soft_limit = 0.1
+shader_parameter/blend_scale = 0.1
+shader_parameter/emission_falloff_multiplier = 0.5
+shader_parameter/tex_frg_25 = ExtResource("5_6lnkt")
+shader_parameter/tex_frg_26 = SubResource("GradientTexture1D_p6qxm")
+shader_parameter/tex_frg_17 = ExtResource("3_61h6d")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Explosion1" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.996103, 0, 0, 0, 0.996103, 0, 0, 0, 1, -0.00112057, -0.00427759, -0.00190479)
+material_override = ExtResource("1_an4hs")
+amount = 20
+lifetime = 2.13
+explosiveness = 0.91
+randomness = 0.84
+fixed_fps = 60
+visibility_aabb = AABB(-4, -4, -4.79199, 8, 8, 8)
+process_material = SubResource("ParticleProcessMaterial_rva4e")
+draw_pass_1 = SubResource("QuadMesh_16uck")
+
+[node name="Explosion2" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.996103, 0, 0, 0, 0.996103, 0, 0, 0, 1, -0.00112057, -0.00427759, -0.00190479)
+material_override = SubResource("ShaderMaterial_bw0dt")
+amount = 5
+lifetime = 0.86
+randomness = 0.84
+fixed_fps = 60
+visibility_aabb = AABB(-4, -4, -4.79199, 8, 8, 8)
+process_material = SubResource("ParticleProcessMaterial_rva4e")
+draw_pass_1 = SubResource("QuadMesh_16uck")

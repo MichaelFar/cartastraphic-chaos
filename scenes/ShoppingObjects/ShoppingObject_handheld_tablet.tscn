@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://kul14ibphv6x"]
+
+[ext_resource type="Script" uid="uid://n31b4ilrm78c" path="res://scripts/shopping_object.gd" id="1_eavqe"]
+[ext_resource type="PackedScene" uid="uid://x2qet6nakgso" path="res://meshes/psx_mega_pack_models/Electronics & Misc/handheld_tablet_1.glb" id="2_5xy18"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5xy18"]
+size = Vector3(0.13989258, 0.041509766, 0.21343994)
+
+[node name="ShoppingObject" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_eavqe")
+weight = 1.5
+attractionForceMagnitude = 2.0
+
+[node name="handheld_tablet_12" parent="." instance=ExtResource("2_5xy18")]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0008544922, 0.020022454, -0.0055236816)
+shape = SubResource("BoxShape3D_5xy18")
+
+[editable path="handheld_tablet_12"]

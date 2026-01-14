@@ -1,0 +1,31 @@
+[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://d31y0b4ehqsxs"]
+
+[ext_resource type="Shader" uid="uid://d2ul82nlks5nu" path="res://resources/explosion_assets/ExplosionShader.tres" id="1_3lj2p"]
+[ext_resource type="Texture2D" uid="uid://db287wikmd07m" path="res://resources/explosion_assets/smokesprite.png" id="2_xpwnh"]
+[ext_resource type="Texture2D" uid="uid://dfcbhgjue2vub" path="res://resources/explosion_assets/normal+.png" id="3_qlpdj"]
+[ext_resource type="Texture2D" uid="uid://ca1ukqpnv6pw7" path="res://resources/explosion_assets/normal-.png" id="4_0v3nw"]
+
+[sub_resource type="Gradient" id="Gradient_fwiln"]
+offsets = PackedFloat32Array(0.0014388489, 0.5683453)
+colors = PackedColorArray(0, 0, 0, 1, 0.40641972, 0.40641972, 0.40641972, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3lj2p"]
+gradient = SubResource("Gradient_fwiln")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_3lj2p")
+shader_parameter/particle_h_frames = 8.0
+shader_parameter/particle_v_frames = 8.0
+shader_parameter/particles_anim_loop = false
+shader_parameter/still_frame = -1.0
+shader_parameter/tex_frg_2 = ExtResource("2_xpwnh")
+shader_parameter/tex_frg_27 = ExtResource("4_0v3nw")
+shader_parameter/tex_frg_24 = ExtResource("3_qlpdj")
+shader_parameter/Soft_limit = 0.1
+shader_parameter/blend_scale = 0.1
+shader_parameter/emission_falloff_multiplier = 0.5
+shader_parameter/tex_frg_25 = ExtResource("3_qlpdj")
+shader_parameter/tex_frg_26 = SubResource("GradientTexture1D_3lj2p")
+shader_parameter/tex_frg_16 = ExtResource("3_qlpdj")
+shader_parameter/tex_frg_17 = ExtResource("4_0v3nw")

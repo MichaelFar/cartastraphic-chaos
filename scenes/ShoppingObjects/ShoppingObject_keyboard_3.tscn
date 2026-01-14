@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cq4q7bdxq67la"]
+
+[ext_resource type="Script" uid="uid://n31b4ilrm78c" path="res://scripts/shopping_object.gd" id="1_7u265"]
+[ext_resource type="PackedScene" uid="uid://b754mc3j2l2nc" path="res://meshes/psx_mega_pack_models/Electronics & Misc/pc_keyboard_mp_3.glb" id="2_7u265"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7u265"]
+size = Vector3(0.5489502, 0.038909912, 0.18476868)
+
+[node name="ShoppingObject" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_7u265")
+weight = 2.0
+attractionForceMagnitude = 2.0
+
+[node name="pc_keyboard_mp_32" parent="." instance=ExtResource("2_7u265")]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0020141602, 0.018722534, 0.003288269)
+shape = SubResource("BoxShape3D_7u265")

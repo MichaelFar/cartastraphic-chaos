@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://0p3dqsmk7i3d"]
+
+[ext_resource type="PackedScene" uid="uid://dnl7lwlsm6pu2" path="res://scenes/TestCube.tscn" id="1_hovrg"]
+[ext_resource type="PackedScene" uid="uid://dvl2xwykeekj3" path="res://scenes/PlayerScene.tscn" id="2_3o331"]
+[ext_resource type="PackedScene" uid="uid://hls83hutlsb" path="res://scenes/LevelFloor.tscn" id="2_7pvbp"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D6" parent="." instance=ExtResource("1_hovrg")]
+transform = Transform3D(17.14363, 0, 0, 0, 10.769915, 0, 0, 0, 2.5128586, -13.108667, 5.3794575, -0.25363445)
+
+[node name="MeshInstance3D7" parent="." instance=ExtResource("1_hovrg")]
+transform = Transform3D(17.14363, 0, 0, 0, 10.769915, 0, 0, 0, 2.5128586, -13.108667, 5.3794575, -8.330787)
+
+[node name="GroundPlane" parent="." instance=ExtResource("2_7pvbp")]
+transform = Transform3D(46.728523, 0, 0, 0, 1, 0, 0, 0, 40.2273, 0, 9.536743e-07, 0)
+
+[node name="PlayerSceneParent" parent="." instance=ExtResource("2_3o331")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013902664, 0.0319556, -16.736237)

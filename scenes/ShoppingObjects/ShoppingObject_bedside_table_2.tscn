@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://doe1li2is82v6"]
+
+[ext_resource type="Script" uid="uid://n31b4ilrm78c" path="res://scripts/shopping_object.gd" id="1_lg705"]
+[ext_resource type="PackedScene" uid="uid://n8r0ky75a448" path="res://meshes/psx_mega_pack_models/Furniture/bedside_table_1_1.glb" id="2_lg705"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lg705"]
+size = Vector3(0.5506592, 0.64538574, 0.5109863)
+
+[node name="ShoppingObject" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_lg705")
+weight = 3.0
+attractionForceMagnitude = 2.0
+
+[node name="bedside_table_1_12" parent="." instance=ExtResource("2_lg705")]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0028686523, 0.32196045, -0.0018310547)
+shape = SubResource("BoxShape3D_lg705")

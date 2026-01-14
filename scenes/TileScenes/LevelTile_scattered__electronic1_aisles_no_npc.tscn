@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvellss50wxf0"]
+
+[ext_resource type="Script" uid="uid://dofgh56llm5l1" path="res://scripts/level_tile.gd" id="1_8atcd"]
+[ext_resource type="PackedScene" uid="uid://b20d0f3ct1nel" path="res://scenes/Shopper_NPC.tscn" id="2_jxrjm"]
+[ext_resource type="PackedScene" uid="uid://b66pboca0adai" path="res://scenes/aisle_electronics_block_1.tscn" id="3_jxrjm"]
+[ext_resource type="Material" uid="uid://cqc0lkhnaq841" path="res://materials/floor.tres" id="3_sc0o6"]
+[ext_resource type="PackedScene" uid="uid://d3wspkncjugsf" path="res://scenes/aisle_electronics_block_2.tscn" id="4_uwse7"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_f3jeo"]
+size = Vector2(10, 10)
+
+[node name="LevelTile" type="Node3D" node_paths=PackedStringArray("npcSpawnMarkerParent")]
+script = ExtResource("1_8atcd")
+npcSpawnMarkerParent = NodePath("NPCSpawnMarkerParent")
+ordinaryNPCPackedScene = ExtResource("2_jxrjm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("3_sc0o6")
+mesh = SubResource("PlaneMesh_f3jeo")
+
+[node name="NPCSpawnMarkerParent" type="Node3D" parent="."]
+
+[node name="AisleBlock" parent="." instance=ExtResource("3_jxrjm")]
+transform = Transform3D(0.68879753, 0, -0.7249538, 0, 1, 0, 0.7249538, 0, 0.68879753, -2.7065845, 0, 2.3700771)
+
+[node name="AisleBlock2" parent="." instance=ExtResource("4_uwse7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1529431, 0, 0.7798381)

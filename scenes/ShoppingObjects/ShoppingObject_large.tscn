@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dox7ujejs08nv"]
+
+[ext_resource type="Script" uid="uid://n31b4ilrm78c" path="res://scripts/shopping_object.gd" id="1_pey6c"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_p74w2"]
+resource_local_to_scene = true
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pey6c"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[node name="ShoppingObject" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_pey6c")
+weight = 4.0
+attractionForceMagnitude = 2.0
+itemCategory = 5
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.56926143, 0, 0, 0, 0.6206976, 0, 0, 0, 0.65497863, 0, 0, 0)
+mesh = SubResource("BoxMesh_p74w2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.56926143, 0, 0, 0, 0.6206976, 0, 0, 0, 0.65497863, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_pey6c")

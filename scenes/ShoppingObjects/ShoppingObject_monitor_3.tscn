@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cep365pdjo1j4"]
+
+[ext_resource type="Script" uid="uid://n31b4ilrm78c" path="res://scripts/shopping_object.gd" id="1_1x4mm"]
+[ext_resource type="PackedScene" uid="uid://dovr6c8ovwoow" path="res://meshes/psx_mega_pack_models/Electronics & Misc/pc_monitor_mp_1.glb" id="2_1x4mm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1x4mm"]
+size = Vector3(0.47550964, 0.42758942, 0.11442566)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r0h24"]
+size = Vector3(0.47550964, 0.3144169, 0.27985668)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_86a51"]
+size = Vector3(0.47550964, 0.30637836, 0.051475525)
+
+[node name="ShoppingObject" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_1x4mm")
+weight = 5.0
+attractionForceMagnitude = 2.0
+
+[node name="pc_monitor_mp_12" parent="." instance=ExtResource("2_1x4mm")]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9962326, 0.08672106, 0, -0.08672106, 0.9962326, -0.0045700073, 0.29395112, 0.113915965)
+shape = SubResource("BoxShape3D_1x4mm")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9962326, 0.08672106, 0, -0.08672106, 0.9962326, -0.0045700073, 0.23339345, -0.07522311)
+shape = SubResource("BoxShape3D_r0h24")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.0028686523, 0.035018895, 0.010208618)
+shape = SubResource("BoxShape3D_86a51")
+
+[editable path="pc_monitor_mp_12"]

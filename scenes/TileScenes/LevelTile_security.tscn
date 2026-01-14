@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://2wutesr0w6na"]
+
+[ext_resource type="Script" uid="uid://dofgh56llm5l1" path="res://scripts/level_tile.gd" id="1_qdtyd"]
+[ext_resource type="Material" uid="uid://cqc0lkhnaq841" path="res://materials/floor.tres" id="3_aq1j7"]
+[ext_resource type="PackedScene" uid="uid://kd7rvnsdw48n" path="res://scenes/Security_NPC.tscn" id="5_aq1j7"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_f3jeo"]
+size = Vector2(10, 10)
+
+[node name="LevelTile" type="Node3D" node_paths=PackedStringArray("npcSpawnMarkerParent")]
+script = ExtResource("1_qdtyd")
+npcSpawnMarkerParent = NodePath("NPCSpawnMarkerParent")
+ordinaryNPCPackedScene = ExtResource("5_aq1j7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("3_aq1j7")
+mesh = SubResource("PlaneMesh_f3jeo")
+
+[node name="NPCSpawnMarkerParent" type="Node3D" parent="."]
+
+[node name="Marker3D4" type="Marker3D" parent="NPCSpawnMarkerParent"]

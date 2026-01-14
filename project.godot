@@ -11,17 +11,20 @@ config_version=5
 [application]
 
 config/name="Cartastraphic Chaos"
-run/main_scene="uid://bv1ls4eki6ob8"
+run/main_scene="uid://d27o2m2nfc86"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
+GlobalValues="*res://scripts/global_values.gd"
+GlobalSignalBus="*res://global_signal_bus.gd"
 ItemButtons="*res://scripts/Joy/item_buttons.gd"
 
 [display]
 
-window/size/mode=3
+window/size/viewport_width=1650
+window/size/viewport_height=960
 
 [dotnet]
 

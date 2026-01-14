@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://dl1onib8vth0i"]
+
+[ext_resource type="Script" uid="uid://dofgh56llm5l1" path="res://scripts/level_tile.gd" id="1_f3jeo"]
+[ext_resource type="PackedScene" uid="uid://dr867i86f8l4b" path="res://scenes/aisle_block.tscn" id="2_fb64i"]
+[ext_resource type="Material" uid="uid://cqc0lkhnaq841" path="res://materials/floor.tres" id="3_prdm4"]
+[ext_resource type="PackedScene" uid="uid://b20d0f3ct1nel" path="res://scenes/Shopper_NPC.tscn" id="3_um0h4"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_f3jeo"]
+material = ExtResource("3_prdm4")
+size = Vector2(10, 10)
+
+[node name="LevelTile" type="Node3D" node_paths=PackedStringArray("npcSpawnMarkerParent")]
+script = ExtResource("1_f3jeo")
+npcSpawnMarkerParent = NodePath("NPCSpawnMarkerParent")
+ordinaryNPCPackedScene = ExtResource("3_um0h4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_f3jeo")
+
+[node name="AisleBlock" parent="." instance=ExtResource("2_fb64i")]
+smallItemsSpawnLimit = 1
+mediumItemsSpawnLimit = 1
+largeItemsSpawnLimit = 1
+
+[node name="AisleBlock2" parent="." instance=ExtResource("2_fb64i")]
+transform = Transform3D(0.77232355, 0, -0.6352294, 0, 1, 0, 0.6352294, 0, 0.77232355, 2.969491, 0, -2.035389)
+smallItemsSpawnLimit = 0
+mediumItemsSpawnLimit = 2
+largeItemsSpawnLimit = 1
+
+[node name="AisleBlock3" parent="." instance=ExtResource("2_fb64i")]
+transform = Transform3D(0.4445414, 0, -0.8957584, 0, 1, 0, 0.8957584, 0, 0.4445414, -2.6483092, 0, 3.333805)
+smallItemsSpawnLimit = 3
+mediumItemsSpawnLimit = 3
+largeItemsSpawnLimit = 3
+
+[node name="NPCSpawnMarkerParent" type="Node3D" parent="."]
+
+[node name="Marker3D" type="Marker3D" parent="NPCSpawnMarkerParent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5044973, -4.7683716e-07, 2.2058287)
+
+[node name="Marker3D2" type="Marker3D" parent="NPCSpawnMarkerParent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1520708, 0, -2.023367)

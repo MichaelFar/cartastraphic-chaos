@@ -1,0 +1,222 @@
+[gd_scene load_steps=28 format=3 uid="uid://brm8jl7ufyb2h"]
+
+[ext_resource type="Script" uid="uid://54g6vwd1n444" path="res://scripts/npc_cart.gd" id="1_tw8g5"]
+[ext_resource type="PackedScene" uid="uid://bqncphdphm4nt" path="res://scenes/cart_manager.tscn" id="1_wa18g"]
+[ext_resource type="PackedScene" uid="uid://ckh7sx453mi2v" path="res://scenes/ShoppingObjects/ShoppingObject_bedside_table_1.tscn" id="2_cmp0v"]
+[ext_resource type="PackedScene" uid="uid://doe1li2is82v6" path="res://scenes/ShoppingObjects/ShoppingObject_bedside_table_2.tscn" id="3_bxfqb"]
+[ext_resource type="PackedScene" uid="uid://c8uxqpkm5mv81" path="res://scenes/ShoppingObjects/ShoppingObject_handheld_console.tscn" id="4_655mb"]
+[ext_resource type="PackedScene" uid="uid://kul14ibphv6x" path="res://scenes/ShoppingObjects/ShoppingObject_handheld_tablet.tscn" id="5_06ctc"]
+[ext_resource type="PackedScene" uid="uid://do5hinv0gpmci" path="res://scenes/ShoppingObjects/ShoppingObject_keyboard_1.tscn" id="6_m54rm"]
+[ext_resource type="PackedScene" uid="uid://taneiqk4uk7g" path="res://scenes/ShoppingObjects/ShoppingObject_keyboard_2.tscn" id="7_ki1be"]
+[ext_resource type="PackedScene" uid="uid://cq4q7bdxq67la" path="res://scenes/ShoppingObjects/ShoppingObject_keyboard_3.tscn" id="8_7ggyv"]
+[ext_resource type="PackedScene" uid="uid://g7l7txl2iuyo" path="res://scenes/ShoppingObjects/ShoppingObject_monitor_1.tscn" id="9_5ais1"]
+[ext_resource type="PackedScene" uid="uid://c0rk83lt33bos" path="res://scenes/ShoppingObjects/ShoppingObject_monitor_2.tscn" id="10_ci0cd"]
+[ext_resource type="PackedScene" uid="uid://cep365pdjo1j4" path="res://scenes/ShoppingObjects/ShoppingObject_monitor_3.tscn" id="11_xp4lh"]
+[ext_resource type="PackedScene" uid="uid://tex4184syqqy" path="res://scenes/ShoppingObjects/ShoppingObject_mouse_1.tscn" id="12_w16he"]
+[ext_resource type="PackedScene" uid="uid://blk3akrxkxwc6" path="res://scenes/ShoppingObjects/ShoppingObject_PCTower_1.tscn" id="13_we32o"]
+[ext_resource type="PackedScene" uid="uid://ph3tm5xaupp3" path="res://scenes/ShoppingObjects/ShoppingObject_phone_1.tscn" id="14_wrqcw"]
+[ext_resource type="PackedScene" uid="uid://c8p2ttytbwbhd" path="res://scenes/ShoppingObjects/ShoppingObject_tv_1.tscn" id="15_e5v15"]
+[ext_resource type="PackedScene" uid="uid://k2wgmcm78xnh" path="res://scenes/ShoppingObjects/ShoppingObject_tv_2.tscn" id="16_l3x6v"]
+[ext_resource type="PackedScene" uid="uid://tq3030bvvgbf" path="res://scenes/ShoppingObjects/ShoppingObject_tv_3.tscn" id="17_8xpgb"]
+[ext_resource type="PackedScene" uid="uid://5k21fhrdef3p" path="res://meshes/cubic-shopping-cart/source/model.gltf" id="19_bxfqb"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wa18g"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tw8g5"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6pg31"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qdb6c"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wa18g"]
+size = Vector3(0.4135208, 3.9555664, 1.1821594)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tw8g5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6pg31"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_akr2v"]
+
+[node name="NpcCartScene" type="RigidBody3D" node_paths=PackedStringArray("cartManager", "spawnPointContainer")]
+mass = 0.2
+freeze_mode = 1
+script = ExtResource("1_tw8g5")
+cartManager = NodePath("CartManager")
+possibleShoppingObjects = Array[PackedScene]([ExtResource("2_cmp0v"), ExtResource("3_bxfqb"), ExtResource("4_655mb"), ExtResource("5_06ctc"), ExtResource("6_m54rm"), ExtResource("7_ki1be"), ExtResource("8_7ggyv"), ExtResource("9_5ais1"), ExtResource("10_ci0cd"), ExtResource("11_xp4lh"), ExtResource("12_w16he"), ExtResource("13_we32o"), ExtResource("14_wrqcw"), ExtResource("15_e5v15"), ExtResource("16_l3x6v"), ExtResource("17_8xpgb")])
+numObjectsToSpawn = 10
+spawnPointContainer = NodePath("ObjectSpawnPoints")
+
+[node name="ObjectSpawnPoints" type="Node3D" parent="."]
+
+[node name="Marker3D" type="Marker3D" parent="ObjectSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8617926, 0.16149384)
+
+[node name="Marker3D2" type="Marker3D" parent="ObjectSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8617926, -0.45213634)
+
+[node name="Marker3D3" type="Marker3D" parent="ObjectSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8617926, -1.1287694)
+
+[node name="CartManager" parent="." node_paths=PackedStringArray("cartOwner") instance=ExtResource("1_wa18g")]
+cartOwner = NodePath("..")
+
+[node name="ObjectCollision" type="StaticBody3D" parent="."]
+transform = Transform3D(0.82531, 0, 0, 0, 1, 0, 0, 0, 0.89932173, 0, 0, 0)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ObjectCollision"]
+transform = Transform3D(0.21951067, 0, 0, 0, 1, 0, 0, 0, 1, 0.55475396, 0.5, 0)
+shape = SubResource("ConvexPolygonShape3D_wa18g")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="ObjectCollision"]
+transform = Transform3D(-9.595117e-09, -1, 0, 0.21951067, -4.371139e-08, 0, 0, 0, 1, 0.035316646, 0.14747652, 0)
+shape = SubResource("ConvexPolygonShape3D_wa18g")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="ObjectCollision"]
+transform = Transform3D(-9.595117e-09, -1, 0, 0.21951067, -4.371139e-08, 0, 0, 0, 1, 0.035316646, 0.14747652, -0.98640317)
+shape = SubResource("ConvexPolygonShape3D_wa18g")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="ObjectCollision"]
+transform = Transform3D(-9.595117e-09, -1, 4.371139e-08, 0, -4.371139e-08, -1, 0.21951067, -4.371139e-08, 1.9106855e-15, -0.035232604, 0.5436765, -1.5084097)
+shape = SubResource("ConvexPolygonShape3D_tw8g5")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="ObjectCollision"]
+transform = Transform3D(0.21951067, 0, 0, 0, 1, 0, 0, 0, 1, -0.5887243, 0.51238596, 0)
+shape = SubResource("ConvexPolygonShape3D_6pg31")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="ObjectCollision"]
+transform = Transform3D(0.21951067, 0, 0, 0, 1, 0, 0, 0, 1, -0.5887243, 0.51238596, -0.9598976)
+shape = SubResource("ConvexPolygonShape3D_6pg31")
+
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="ObjectCollision"]
+transform = Transform3D(0.21951067, 0, 0, 0, 1, 0, 0, 0, 1, 0.5698269, 0.51238596, -0.9598976)
+shape = SubResource("ConvexPolygonShape3D_6pg31")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="ObjectCollision"]
+transform = Transform3D(-9.595117e-09, -1, 4.371139e-08, 0, -4.371139e-08, -1, 0.21951067, -4.371139e-08, 1.9106855e-15, -0.035232604, 0.5436765, 0.5046561)
+shape = SubResource("ConvexPolygonShape3D_qdb6c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.21951067, 0, 0, 0, 1, 0, 0, 0, 1, 0.55475396, 0.5, 0)
+shape = SubResource("ConvexPolygonShape3D_wa18g")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(-9.595117e-09, -1, 0, 0.21951067, -4.371139e-08, 0, 0, 0, 1, 0.035316646, 0.14747652, 0)
+shape = SubResource("ConvexPolygonShape3D_wa18g")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="."]
+transform = Transform3D(-9.595117e-09, -1, 0, 0.21951067, -4.371139e-08, 0, 0, 0, 1, 0.035316646, 0.14747652, -0.98640317)
+shape = SubResource("ConvexPolygonShape3D_wa18g")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(-9.595117e-09, -1, 4.371139e-08, 0, -4.371139e-08, -1, 0.21951067, -4.371139e-08, 1.9106855e-15, -0.035232604, 0.5436765, -1.5084097)
+shape = SubResource("ConvexPolygonShape3D_tw8g5")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.21951067, 0, 0, 0, 1, 0, 0, 0, 1, -0.5887243, 0.51238596, 0)
+shape = SubResource("ConvexPolygonShape3D_6pg31")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.21951067, 0, 0, 0, 1, 0, 0, 0, 1, -0.5887243, 0.51238596, -0.9598976)
+shape = SubResource("ConvexPolygonShape3D_6pg31")
+
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.21951067, 0, 0, 0, 1, 0, 0, 0, 1, 0.5698269, 0.51238596, -0.9598976)
+shape = SubResource("ConvexPolygonShape3D_6pg31")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
+transform = Transform3D(-9.595117e-09, -1, 4.371139e-08, 0, -4.371139e-08, -1, 0.21951067, -4.371139e-08, 1.9106855e-15, -0.035232604, 0.5436765, 0.5046561)
+shape = SubResource("ConvexPolygonShape3D_qdb6c")
+
+[node name="ObjectContainer" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ObjectContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0016975403, 2.0221252, -0.47392273)
+shape = SubResource("BoxShape3D_wa18g")
+
+[node name="VisualMeshContainer" type="Node3D" parent="."]
+
+[node name="blockbench_export" parent="VisualMeshContainer" instance=ExtResource("19_bxfqb")]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.101089515, 0, 0, -0.6917404)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="VisualMeshContainer"]
+transform = Transform3D(0.21951067, 0, 0, 0, 1, 0, 0, 0, 1, 0.55475396, 0.5, 0)
+visible = false
+mesh = SubResource("BoxMesh_tw8g5")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="VisualMeshContainer"]
+transform = Transform3D(0.21951067, 0, 0, 0, 1, 0, 0, 0, 1, 0.55475396, 0.5, -0.97399205)
+visible = false
+mesh = SubResource("BoxMesh_tw8g5")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="VisualMeshContainer"]
+transform = Transform3D(-9.595117e-09, -1, 0, 0.21951067, -4.371139e-08, 0, 0, 0, 1, -0.035232604, 0.23403811, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_6pg31")
+mesh = SubResource("BoxMesh_tw8g5")
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="VisualMeshContainer"]
+transform = Transform3D(-9.595117e-09, -1, 0, 0.21951067, -4.371139e-08, 0, 0, 0, 1, -0.035232604, 0.23403811, -0.9313401)
+visible = false
+material_override = SubResource("StandardMaterial3D_6pg31")
+mesh = SubResource("BoxMesh_tw8g5")
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="VisualMeshContainer"]
+transform = Transform3D(-9.595117e-09, -1, 0, -9.595117e-09, 5.463399e-15, -1, 0.21951067, -4.371139e-08, -4.371139e-08, -0.035232604, 0.5436765, -1.5141951)
+visible = false
+mesh = SubResource("BoxMesh_tw8g5")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="VisualMeshContainer"]
+transform = Transform3D(0.21951067, 0, 0, 0, 1, 0, 0, 0, 1, -0.5887243, 0.51238596, 0)
+visible = false
+mesh = SubResource("BoxMesh_tw8g5")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="VisualMeshContainer"]
+transform = Transform3D(0.21951067, 0, 0, 0, 1, 0, 0, 0, 1, -0.5887243, 0.51238596, -0.96691227)
+visible = false
+mesh = SubResource("BoxMesh_tw8g5")
+skeleton = NodePath("../../..")
+
+[node name="HiddenCube" type="MeshInstance3D" parent="VisualMeshContainer"]
+transform = Transform3D(-9.595117e-09, -1, 0, -9.595117e-09, 5.463399e-15, -1, 0.21951067, -4.371139e-08, -4.371139e-08, -0.035232604, 0.5436765, 0.5046561)
+visible = false
+mesh = SubResource("BoxMesh_tw8g5")
+skeleton = NodePath("../../..")
+
+[node name="EjectPointContainer" type="Node3D" parent="."]
+transform = Transform3D(2.3852696, 0, 0, 0, 1, 0, 0, 0, 2.8681164, 0, 5.6261063, -1.9562936)
+
+[node name="Marker3D" type="Marker3D" parent="EjectPointContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.525696, 0, -2.2871318)
+
+[node name="Marker3D2" type="Marker3D" parent="EjectPointContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8654314, 0, -2.2738051)
+
+[node name="Marker3D3" type="Marker3D" parent="EjectPointContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8787565, 0, -0.017594635)
+
+[node name="Marker3D4" type="Marker3D" parent="EjectPointContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.069921, 0, -0.00845331)
+
+[node name="FrontVolume" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46202445, -2.1416368)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FrontVolume"]
+shape = SubResource("BoxShape3D_akr2v")
+
+[connection signal="body_entered" from="ObjectContainer" to="." method="_on_object_container_body_entered"]
+[connection signal="body_exited" from="ObjectContainer" to="." method="_on_object_container_body_exited"]
+[connection signal="body_entered" from="FrontVolume" to="." method="_on_front_volume_body_entered"]

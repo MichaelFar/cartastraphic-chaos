@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dryao356lw568"]
+
+[ext_resource type="Texture2D" uid="uid://cbp6slyodnp0t" path="res://meshes/psx_mega_pack_models/Furniture/chair_mp_3_2_wood_4.png" id="1_i8fpr"]
+
+[resource]
+albedo_texture = ExtResource("1_i8fpr")

@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://cufgavju88cs3"]
+
+[ext_resource type="Texture2D" uid="uid://b4f1kwd0kkn73" path="res://meshes/wallet/textures/ujnjdj_12345_Material.001_albedo.png" id="1_q6jme"]
+[ext_resource type="Texture2D" uid="uid://dagc5q23pyepl" path="res://meshes/wallet/textures/ujnjdj_12345_Material.001_metalness.png" id="2_3ojk6"]
+[ext_resource type="Texture2D" uid="uid://cx28fyuy2dfuu" path="res://meshes/wallet/textures/ujnjdj_12345_Material.001_bump.png" id="3_nnc84"]
+
+[resource]
+albedo_texture = ExtResource("1_q6jme")
+metallic = 1.0
+metallic_texture = ExtResource("2_3ojk6")
+normal_enabled = true
+normal_texture = ExtResource("3_nnc84")

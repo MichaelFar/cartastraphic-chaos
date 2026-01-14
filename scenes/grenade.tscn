@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://essu61nx3s7o"]
+
+[ext_resource type="ArrayMesh" uid="uid://ny5nfui64kgs" path="res://meshes/Grenade.obj" id="1_cvyik"]
+[ext_resource type="Script" uid="uid://dn30swtn2ia86" path="res://scripts/grenade.gd" id="1_vhiwl"]
+[ext_resource type="PackedScene" uid="uid://bgxcpu784qud5" path="res://resources/ExplosionParticle.tscn" id="2_76ndk"]
+[ext_resource type="Texture2D" uid="uid://tg58tlabn2le" path="res://textures/GrenadeTexture.png" id="2_wxtds"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wxtds"]
+bounce = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vhiwl"]
+albedo_texture = ExtResource("2_wxtds")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wxtds"]
+radius = 0.10449219
+height = 0.4765625
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_76ndk"]
+radius = 2.069779
+
+[node name="Grenade" type="RigidBody3D" node_paths=PackedStringArray("explosionArea")]
+collision_layer = 2
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_wxtds")
+script = ExtResource("1_vhiwl")
+explosionParticleScene = ExtResource("2_76ndk")
+explosionArea = NodePath("ExplosionArea")
+
+[node name="Grenade" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -0.04610791, -5.9604645e-08, -0.01898408)
+mesh = ExtResource("1_cvyik")
+surface_material_override/0 = SubResource("StandardMaterial3D_vhiwl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0009765625, 0)
+shape = SubResource("CapsuleShape3D_wxtds")
+
+[node name="ExplosionArea" type="Area3D" parent="."]
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExplosionArea"]
+shape = SubResource("SphereShape3D_76ndk")
+
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
+[connection signal="body_entered" from="ExplosionArea" to="." method="_on_explosion_area_body_entered"]

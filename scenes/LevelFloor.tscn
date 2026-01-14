@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://hls83hutlsb"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_tegua"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4n0ux"]
+albedo_color = Color(0.46229059, 0.46229059, 0.46229059, 1)
+metallic = 1.0
+metallic_specular = 0.39
+metallic_texture = SubResource("CanvasTexture_tegua")
+roughness = 0.45
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7pvbp"]
+material = SubResource("StandardMaterial3D_4n0ux")
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_hovrg"]
+
+[node name="GroundPlane" type="MeshInstance3D"]
+transform = Transform3D(-7.9267994e-07, 0, 23.895014, 0, 1, 0, -18.134403, 0, -1.0444842e-06, 0, 0, 0)
+mesh = SubResource("PlaneMesh_7pvbp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_hovrg")
