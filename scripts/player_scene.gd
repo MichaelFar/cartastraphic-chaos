@@ -68,7 +68,7 @@ func _physics_process(delta: float) -> void:
 	
 	velocity = velocity.move_toward(velocity_goal_vector, delta)
 	
-	velocity += Vector3.DOWN * 9.8
+	#velocity += Vector3.DOWN * 9.8
 	
 	isRamming = velocity.length() >= velocity_goal_vector.length() * ramSpeedThreshold && velocity_goal_vector.length() * ramSpeedThreshold != 0.0
 	

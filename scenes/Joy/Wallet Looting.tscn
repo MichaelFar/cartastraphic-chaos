@@ -1,0 +1,107 @@
+[gd_scene load_steps=12 format=3 uid="uid://uaml3ixos4wd"]
+
+[ext_resource type="Script" uid="uid://71r6crgxw3nn" path="res://scripts/Joy/walletLooting.gd" id="1_xq8nx"]
+[ext_resource type="PackedScene" uid="uid://48r35rmsjocl" path="res://scenes/Joy/Wallet Items/CreditCard.tscn" id="2_b21y8"]
+[ext_resource type="PackedScene" uid="uid://d16ns3fu8p2sa" path="res://scenes/Joy/Wallet Looting Button.tscn" id="2_rpauf"]
+[ext_resource type="PackedScene" uid="uid://dw03wnak0pk0h" path="res://scenes/Joy/Wallet Items/Cash.tscn" id="3_y4v1w"]
+[ext_resource type="PackedScene" uid="uid://bbttduvivcqrs" path="res://scenes/Joy/Wallet Items/Cupon.tscn" id="4_wb6x6"]
+[ext_resource type="PackedScene" uid="uid://dbaaljh7inmnd" path="res://scenes/Joy/Wallet Items/Junk.tscn" id="5_cmm1s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a1jyd"]
+bg_color = Color(0.23, 0.23, 0.23, 0.6627451)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_egxmw"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_rpauf"]
+viewport_path = NodePath("SubViewport2")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xeiku"]
+viewport_path = NodePath("SubViewport3")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_i3pb6"]
+viewport_path = NodePath("SubViewport4")
+
+[node name="WalletLooting" type="Control" node_paths=PackedStringArray("items")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xq8nx")
+item_pool = Array[PackedScene]([ExtResource("2_b21y8"), ExtResource("3_y4v1w"), ExtResource("4_wb6x6"), ExtResource("5_cmm1s")])
+items = [NodePath("ItemButton/SubViewport"), NodePath("ItemButton2/SubViewport2"), NodePath("ItemButton3/SubViewport3"), NodePath("ItemButton4/SubViewport4")]
+
+[node name="Background" type="Panel" parent="."]
+z_index = -5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_a1jyd")
+
+[node name="ItemButton" parent="." node_paths=PackedStringArray("menu", "viewport") instance=ExtResource("2_rpauf")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.6
+anchor_right = 0.4
+anchor_bottom = 0.8
+icon = SubResource("ViewportTexture_egxmw")
+menu = NodePath("..")
+viewport = NodePath("SubViewport")
+
+[node name="SubViewport" type="SubViewport" parent="ItemButton"]
+size = Vector2i(1197, 667)
+render_target_update_mode = 3
+
+[node name="ItemButton2" parent="." node_paths=PackedStringArray("menu", "viewport") instance=ExtResource("2_rpauf")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.3
+anchor_right = 0.25
+anchor_bottom = 0.5
+icon = SubResource("ViewportTexture_rpauf")
+menu = NodePath("..")
+viewport = NodePath("SubViewport2")
+
+[node name="SubViewport2" type="SubViewport" parent="ItemButton2"]
+size = Vector2i(1197, 667)
+render_target_update_mode = 3
+
+[node name="ItemButton3" parent="." node_paths=PackedStringArray("menu", "viewport") instance=ExtResource("2_rpauf")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6
+anchor_top = 0.6
+anchor_right = 0.8
+anchor_bottom = 0.8
+icon = SubResource("ViewportTexture_xeiku")
+menu = NodePath("..")
+viewport = NodePath("SubViewport3")
+
+[node name="SubViewport3" type="SubViewport" parent="ItemButton3"]
+size = Vector2i(1197, 667)
+render_target_update_mode = 3
+
+[node name="ItemButton4" parent="." node_paths=PackedStringArray("menu", "viewport") instance=ExtResource("2_rpauf")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75
+anchor_top = 0.3
+anchor_right = 0.95
+anchor_bottom = 0.5
+icon = SubResource("ViewportTexture_i3pb6")
+menu = NodePath("..")
+viewport = NodePath("SubViewport4")
+
+[node name="SubViewport4" type="SubViewport" parent="ItemButton4"]
+size = Vector2i(1197, 667)
+render_target_update_mode = 3
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

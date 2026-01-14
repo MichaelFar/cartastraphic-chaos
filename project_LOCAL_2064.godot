@@ -17,12 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-
 GlobalValues="*res://scripts/global_values.gd"
 GlobalSignalBus="*res://global_signal_bus.gd"
-
-ItemButtons="*res://scripts/Joy/item_buttons.gd"
-
 
 [display]
 
