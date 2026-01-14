@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+class_name NPC
 
 var currentDirection : Vector3
 
@@ -15,6 +16,8 @@ var currentDirection : Vector3
 
 @export var cartMarker : Marker3D
 
+@export var isSecurity : bool = false
+
 var timerIsRunning : bool = true
 
 var spawnedCart : NPCCart
@@ -22,12 +25,14 @@ var spawnedCart : NPCCart
 signal fallen_over
 
 func _ready() -> void:
+	
 	var timer := get_tree().create_timer(3.0)
 	timer.timeout.connect(set_timer_to_false)
 	var switch_direction_check_timer := get_tree().create_timer(5.0)
 	switch_direction_check_timer.timeout.connect(check_velocity_interval)
 	currentDirection = -basis.z
 	spawn_cart_at_random()
+	
 func _physics_process(delta: float) -> void:
 	
 	if(!timerIsRunning || spawnedCart == null):

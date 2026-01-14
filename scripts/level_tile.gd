@@ -8,8 +8,6 @@ class_name LevelTile
 
 @onready var npcSpawnMarkers := []
 
-
-
 func _ready() -> void:
 	
 	npcSpawnMarkers = npcSpawnMarkerParent.get_children()

@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgxcpu784qud5"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uoqvt"]
+lifetime_randomness = 0.25
+angle_min = -157.49998
+angle_max = 5.3000107
+direction = Vector3(0, 1, 0)
+spread = 70.714
+initial_velocity_max = 15.95
+gravity = Vector3(0, 9.8, 0)
+scale_min = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_55c6r"]
+albedo_color = Color(1, 0.5254902, 0.30980393, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gkpau"]
+material = SubResource("StandardMaterial3D_55c6r")
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="ExplosionParticle" type="GPUParticles3D"]
+emitting = false
+amount = 32
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_uoqvt")
+draw_pass_1 = SubResource("BoxMesh_gkpau")

@@ -32,6 +32,24 @@ var deltaCounter : float = 0.0
 
 var isRamming : bool = false
 
+signal player_has_won_against_npc
+
+func _camera_shake(shake_period : float = 0.3, shake_magnitude : float = 0.4):
+	var initial_transform = self.transform 
+	var elapsed_time = 0.0
+
+	while elapsed_time < shake_period:
+		var offset = Vector3(
+			randf_range(-shake_magnitude, shake_magnitude),
+			randf_range(-shake_magnitude, shake_magnitude),
+			0.0
+		)
+
+		self.transform.origin = initial_transform.origin + offset
+		elapsed_time += get_process_delta_time()
+		await get_tree().process_frame
+
+	self.transform = initial_transform
 func _ready():
 	GlobalValues.player = self
 	originalRotationRate = rotationRate
@@ -46,9 +64,15 @@ func _physics_process(delta: float) -> void:
 	
 	var velocity_goal_vector : Vector3 = -basis.z * speed * forward_back_input_strength
 	
+	
+	
 	velocity = velocity.move_toward(velocity_goal_vector, delta)
 	
+	velocity += Vector3.DOWN * 9.8
+	
 	isRamming = velocity.length() >= velocity_goal_vector.length() * ramSpeedThreshold && velocity_goal_vector.length() * ramSpeedThreshold != 0.0
+	
+	
 	
 	if(velocity.length() >= 0.0):
 		deltaCounter += delta
@@ -131,7 +155,13 @@ func _on_object_container_body_exited(body: Node3D) -> void:
 
 func _on_collision_zone_body_entered(body: Node3D) -> void:
 	if(body is NPCCart && isRamming):
-		GlobalValues.get_loser_cart(body.cartManager, cartManager).has_collided.emit()
-
+		
+		var winning_cart : CartManager = GlobalValues.get_loser_cart(body.cartManager, cartManager)
+		winning_cart.has_collided.emit()
+		if(winning_cart == cartManager):
+			player_has_won_against_npc.emit()
+		
+	if(isRamming):
+		_camera_shake(0.3, 0.1)
 func behavior_on_collision():
 	cartManager.eject_all_items()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://brm8jl7ufyb2h"]
+[gd_scene load_steps=28 format=3 uid="uid://brm8jl7ufyb2h"]
 
 [ext_resource type="Script" uid="uid://54g6vwd1n444" path="res://scripts/npc_cart.gd" id="1_tw8g5"]
 [ext_resource type="PackedScene" uid="uid://bqncphdphm4nt" path="res://scenes/cart_manager.tscn" id="1_wa18g"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://c8p2ttytbwbhd" path="res://scenes/ShoppingObjects/ShoppingObject_tv_1.tscn" id="15_e5v15"]
 [ext_resource type="PackedScene" uid="uid://k2wgmcm78xnh" path="res://scenes/ShoppingObjects/ShoppingObject_tv_2.tscn" id="16_l3x6v"]
 [ext_resource type="PackedScene" uid="uid://tq3030bvvgbf" path="res://scenes/ShoppingObjects/ShoppingObject_tv_3.tscn" id="17_8xpgb"]
+[ext_resource type="PackedScene" uid="uid://5k21fhrdef3p" path="res://meshes/cubic-shopping-cart/source/model.gltf" id="19_bxfqb"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wa18g"]
 points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
@@ -142,45 +143,56 @@ shape = SubResource("BoxShape3D_wa18g")
 
 [node name="VisualMeshContainer" type="Node3D" parent="."]
 
+[node name="blockbench_export" parent="VisualMeshContainer" instance=ExtResource("19_bxfqb")]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.101089515, 0, 0, -0.6917404)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="VisualMeshContainer"]
 transform = Transform3D(0.21951067, 0, 0, 0, 1, 0, 0, 0, 1, 0.55475396, 0.5, 0)
+visible = false
 mesh = SubResource("BoxMesh_tw8g5")
 skeleton = NodePath("../../..")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="VisualMeshContainer"]
 transform = Transform3D(0.21951067, 0, 0, 0, 1, 0, 0, 0, 1, 0.55475396, 0.5, -0.97399205)
+visible = false
 mesh = SubResource("BoxMesh_tw8g5")
 skeleton = NodePath("../../..")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="VisualMeshContainer"]
 transform = Transform3D(-9.595117e-09, -1, 0, 0.21951067, -4.371139e-08, 0, 0, 0, 1, -0.035232604, 0.23403811, 0)
+visible = false
 material_override = SubResource("StandardMaterial3D_6pg31")
 mesh = SubResource("BoxMesh_tw8g5")
 skeleton = NodePath("../../../..")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="VisualMeshContainer"]
 transform = Transform3D(-9.595117e-09, -1, 0, 0.21951067, -4.371139e-08, 0, 0, 0, 1, -0.035232604, 0.23403811, -0.9313401)
+visible = false
 material_override = SubResource("StandardMaterial3D_6pg31")
 mesh = SubResource("BoxMesh_tw8g5")
 skeleton = NodePath("../../../..")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="VisualMeshContainer"]
 transform = Transform3D(-9.595117e-09, -1, 0, -9.595117e-09, 5.463399e-15, -1, 0.21951067, -4.371139e-08, -4.371139e-08, -0.035232604, 0.5436765, -1.5141951)
+visible = false
 mesh = SubResource("BoxMesh_tw8g5")
 skeleton = NodePath("../../..")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="VisualMeshContainer"]
 transform = Transform3D(0.21951067, 0, 0, 0, 1, 0, 0, 0, 1, -0.5887243, 0.51238596, 0)
+visible = false
 mesh = SubResource("BoxMesh_tw8g5")
 skeleton = NodePath("../../..")
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="VisualMeshContainer"]
 transform = Transform3D(0.21951067, 0, 0, 0, 1, 0, 0, 0, 1, -0.5887243, 0.51238596, -0.96691227)
+visible = false
 mesh = SubResource("BoxMesh_tw8g5")
 skeleton = NodePath("../../..")
 
 [node name="HiddenCube" type="MeshInstance3D" parent="VisualMeshContainer"]
 transform = Transform3D(-9.595117e-09, -1, 0, -9.595117e-09, 5.463399e-15, -1, 0.21951067, -4.371139e-08, -4.371139e-08, -0.035232604, 0.5436765, 0.5046561)
+visible = false
 mesh = SubResource("BoxMesh_tw8g5")
 skeleton = NodePath("../../..")
 
