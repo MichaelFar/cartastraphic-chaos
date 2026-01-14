@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 func _on_security_volume_body_entered(body: Node3D) -> void:
 	if(body is Player):
 		playerInVolume = true
-		throw_grenade()
+		#throw_grenade()
 		body.player_has_won_against_npc.connect(throw_grenade)
 		
 

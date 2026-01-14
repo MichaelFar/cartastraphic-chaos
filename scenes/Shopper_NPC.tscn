@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b20d0f3ct1nel"]
+[gd_scene load_steps=9 format=3 uid="uid://b20d0f3ct1nel"]
 
 [ext_resource type="Script" uid="uid://b86cusksxuutr" path="res://scripts/NPC_Scripts/shopper_npc.gd" id="1_63nyd"]
 [ext_resource type="PackedScene" uid="uid://brm8jl7ufyb2h" path="res://scenes/NPCCartScene.tscn" id="2_tm2yo"]
+[ext_resource type="PackedScene" uid="uid://b12tyhfcfrvq1" path="res://scenes/wallet.tscn" id="3_1pc7r"]
+[ext_resource type="PackedScene" uid="uid://essu61nx3s7o" path="res://scenes/grenade.tscn" id="4_t8ddy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_63nyd"]
 
@@ -21,6 +23,8 @@ rigidBody = NodePath("RigidBody3D")
 percentChanceToSpawnCart = 100
 cartPackedScene = ExtResource("2_tm2yo")
 cartMarker = NodePath("CartMarker")
+walletPackedScene = ExtResource("3_1pc7r")
+grenadePackedScene = ExtResource("4_t8ddy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

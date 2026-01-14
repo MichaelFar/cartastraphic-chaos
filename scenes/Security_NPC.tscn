@@ -28,6 +28,8 @@ percentChanceToSpawnCart = 0
 cartPackedScene = ExtResource("2_1lx03")
 cartMarker = NodePath("CartMarker")
 isSecurity = true
+walletPackedScene = ExtResource("4_pxkf8")
+grenadePackedScene = ExtResource("4_pxkf8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

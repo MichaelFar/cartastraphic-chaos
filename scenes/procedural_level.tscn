@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d27o2m2nfc86"]
+[gd_scene load_steps=18 format=3 uid="uid://d27o2m2nfc86"]
 
 [ext_resource type="Script" uid="uid://bhtonanho1prp" path="res://scripts/base_level.gd" id="1_heori"]
 [ext_resource type="Script" uid="uid://crpjlwu456hw" path="res://scripts/level_layout_generator.gd" id="2_ca1qn"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://byyclc0mgul4x" path="res://scenes/TileScenes/LevelTile_scattered__electronic2_aisles_2_npc.tscn" id="7_dd152"]
 [ext_resource type="PackedScene" uid="uid://dvellss50wxf0" path="res://scenes/TileScenes/LevelTile_scattered__electronic1_aisles_no_npc.tscn" id="7_j4lbu"]
 [ext_resource type="PackedScene" uid="uid://2wutesr0w6na" path="res://scenes/TileScenes/LevelTile_security.tscn" id="8_dd152"]
+[ext_resource type="PackedScene" uid="uid://b12tyhfcfrvq1" path="res://scenes/wallet.tscn" id="9_dd152"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w87me"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -165,3 +166,15 @@ shape = SubResource("ConcavePolygonShape3D_abuk1")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0439867, 0, 0, 0)
 mesh = SubResource("BoxMesh_yn40h")
+
+[node name="Wallet" parent="." instance=ExtResource("9_dd152")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, 11)
+
+[node name="Wallet2" parent="." instance=ExtResource("9_dd152")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, 9)
+
+[node name="Wallet3" parent="." instance=ExtResource("9_dd152")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, 6)
+
+[node name="Wallet4" parent="." instance=ExtResource("9_dd152")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, 6)

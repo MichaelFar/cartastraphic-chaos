@@ -5,7 +5,8 @@ extends Control
 @export var items : Array[SubViewport]
 
 func _ready() -> void:
-	show()
+	pass
+	#show()
 
 func _on_visibility_changed() -> void:
 	if visible:

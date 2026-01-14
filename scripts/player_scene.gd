@@ -22,6 +22,8 @@ class_name Player
 
 @export var ramSpeedThreshold : float = 0.8
 
+@export var walletUI : Control
+
 var look_rotation : Vector2
 
 var mouse_captured : bool = false
@@ -130,7 +132,9 @@ func _on_object_collector_body_entered(body: Node3D) -> void:
 		print("Encountered shopping object")
 		var shopping_object : ShoppingObject = body
 		shopping_object.apply_force_towards_global_point(objectSpawnMarker, false, 0.1, 100)
-
+	if(body is WalletRigidBody && walletUI.visible == false):
+		walletUI.show()
+		body.queue_free()
 
 func _on_object_container_body_entered(body: Node3D) -> void:
 	

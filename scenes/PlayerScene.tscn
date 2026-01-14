@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://dvl2xwykeekj3"]
+[gd_scene load_steps=16 format=3 uid="uid://dvl2xwykeekj3"]
 
 [ext_resource type="Script" uid="uid://boy7evgyjn6g7" path="res://scripts/player_scene.gd" id="1_f302p"]
+[ext_resource type="PackedScene" uid="uid://uaml3ixos4wd" path="res://scenes/Joy/Wallet Looting.tscn" id="1_hwioa"]
 [ext_resource type="PackedScene" uid="uid://bqncphdphm4nt" path="res://scenes/cart_manager.tscn" id="2_vdp4a"]
 [ext_resource type="PackedScene" uid="uid://5k21fhrdef3p" path="res://meshes/cubic-shopping-cart/source/model.gltf" id="3_4kqly"]
 
@@ -37,6 +38,8 @@ size = Vector3(1.556221, 1, 2.591919)
 
 [node name="PlayerSceneParent" type="Node3D"]
 
+[node name="WalletLooting" parent="." instance=ExtResource("1_hwioa")]
+
 [node name="HeadContainer" type="Node3D" parent="."]
 
 [node name="Head" type="Node3D" parent="HeadContainer"]
@@ -44,7 +47,7 @@ size = Vector3(1.556221, 1, 2.591919)
 [node name="Camera3D" type="Camera3D" parent="HeadContainer/Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.44524097)
 
-[node name="PlayerScene" type="CharacterBody3D" parent="." node_paths=PackedStringArray("head", "headContainer", "headMarker", "cartMeshContainer", "cartManager", "camera", "objectSpawnMarker")]
+[node name="PlayerScene" type="CharacterBody3D" parent="." node_paths=PackedStringArray("head", "headContainer", "headMarker", "cartMeshContainer", "cartManager", "camera", "objectSpawnMarker", "walletUI")]
 script = ExtResource("1_f302p")
 rotationRate = 20.0
 head = NodePath("../HeadContainer/Head")
@@ -55,6 +58,7 @@ cartManager = NodePath("CartManager")
 camera = NodePath("../HeadContainer/Head/Camera3D")
 objectSpawnMarker = NodePath("ObjectSpawnMarker")
 ramSpeedThreshold = 0.5
+walletUI = NodePath("../WalletLooting")
 
 [node name="CartManager" parent="PlayerScene" node_paths=PackedStringArray("cartOwner") instance=ExtResource("2_vdp4a")]
 cartOwner = NodePath("..")

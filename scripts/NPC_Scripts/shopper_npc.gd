@@ -18,6 +18,10 @@ var currentDirection : Vector3
 
 @export var isSecurity : bool = false
 
+@export var walletPackedScene : PackedScene
+
+@export var grenadePackedScene : PackedScene
+
 var timerIsRunning : bool = true
 
 var spawnedCart : NPCCart
@@ -67,11 +71,13 @@ func fall_over():
 	if(spawnedCart != null):
 		spawnedCart.top_level = true
 	call_deferred("set_process_to_disabled")
+	create_item_on_knockout()
 	fallen_over.emit()
 
 func _on_collision_detection_volume_body_entered(body: Node3D) -> void:
 	if(body is Player):
 		if(body.isRamming):
+			
 			fall_over()
 	#if(body is not ShoppingObject && body != spawnedCart):
 		#switch_direction()
@@ -107,3 +113,14 @@ func check_velocity_interval():
 	switch_direction_check_timer.timeout.connect(check_velocity_interval)
 	if(velocity == Vector3.ZERO):
 		switch_direction()
+
+func create_item_on_knockout():
+	var rand_obj := RandomNumberGenerator.new()
+	var object_instance : RigidBody3D
+	if(rand_obj.randi_range(0, 100) <= 90):
+		object_instance = walletPackedScene.instantiate()
+	else:
+		object_instance = grenadePackedScene.instantiate()
+		
+	GlobalValues.currentLevel.add_child(object_instance)
+	object_instance.global_position = global_position
