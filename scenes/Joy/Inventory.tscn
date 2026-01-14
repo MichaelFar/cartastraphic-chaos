@@ -1,4 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bv8twyvc2cjfa"]
+[gd_scene load_steps=9 format=3 uid="uid://bv8twyvc2cjfa"]
+
+[ext_resource type="Script" uid="uid://cgiqlsjchfw6f" path="res://scripts/Joy/Inventory.gd" id="1_ng6ov"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_4l1yp"]
 
@@ -17,7 +19,11 @@ metallic = 1.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_aic3w"]
 
-[node name="Inventory" type="Node3D"]
+[node name="Inventory" type="Node3D" node_paths=PackedStringArray("item_slots", "shopping_list", "phone_screen")]
+script = ExtResource("1_ng6ov")
+item_slots = [NodePath("CreditCardStack"), NodePath("CashStack"), NodePath("CuponStack"), NodePath("JunkStack")]
+shopping_list = NodePath("Shopping List")
+phone_screen = NodePath("Phone/Screen/SubViewport")
 
 [node name="Plane" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.9949159, 0, 0, 0, 0.9949159, 0, 0, 0, 1.9898318, 0, 0, 0)
@@ -58,3 +64,5 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ecf4b")
 [node name="Screen" type="MeshInstance3D" parent="Phone"]
 transform = Transform3D(-1.7531388e-08, 0.078327805, 0, -0.4010714, -3.423817e-09, 0, 0, 0, 0.38182703, 0.5267809, 0.016726976, 4.417836e-08)
 mesh = SubResource("PlaneMesh_aic3w")
+
+[node name="SubViewport" type="SubViewport" parent="Phone/Screen"]
