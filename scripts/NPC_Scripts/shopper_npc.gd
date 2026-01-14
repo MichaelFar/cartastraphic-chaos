@@ -26,6 +26,8 @@ var timerIsRunning : bool = true
 
 var spawnedCart : NPCCart
 
+var canFallOver : bool = true
+
 signal fallen_over
 
 func _ready() -> void:
@@ -65,14 +67,19 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func fall_over():
-	rigidBody.freeze = false
-	
-	rigidBody.top_level = true
-	if(spawnedCart != null):
-		spawnedCart.top_level = true
-	call_deferred("set_process_to_disabled")
-	create_item_on_knockout()
-	fallen_over.emit()
+	if(canFallOver):
+		canFallOver = false
+		rigidBody.freeze = false
+		if(isSecurity):
+			GlobalValues.numSecurity -= 1
+		else:
+			GlobalValues.numShoppers -= 1
+		rigidBody.top_level = true
+		if(spawnedCart != null):
+			spawnedCart.top_level = true
+		call_deferred("set_process_to_disabled")
+		create_item_on_knockout()
+		fallen_over.emit()
 
 func _on_collision_detection_volume_body_entered(body: Node3D) -> void:
 	if(body is Player):

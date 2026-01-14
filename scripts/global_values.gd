@@ -3,6 +3,19 @@ extends Node
 var player : Player
 
 var currentLevel : Node3D
+
+var numSecurity : int = 0 :
+	set(value):
+		numSecurity = value
+		print("Setting security num to " + str(numSecurity))
+
+var numShoppers : int = 0
+
+var shopperLimit : int = 20
+
+var securityLimit : int = 5
+
+var playerMoney : float = 0.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_viewport().scaling_3d_scale
@@ -13,3 +26,11 @@ func get_loser_cart(cart1 : CartManager, cart2 : CartManager) -> CartManager:
 
 func shake_player_camera(shake_period : float = 0.3, shake_magnitude : float = 0.4):
 	player._camera_shake(shake_period, shake_magnitude)
+
+func check_security_limit() -> bool:
+	
+	return numSecurity < securityLimit
+
+func check_shopper_limit() -> bool:
+	
+	return numShoppers < shopperLimit

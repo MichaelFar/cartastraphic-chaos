@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cw6u2w8h2ttv6"]
+
+[ext_resource type="Texture2D" uid="uid://bj720vsrearlj" path="res://meshes/psx_mega_pack_models/Furniture/sofa_1_fabric_1.png" id="1_kf2sy"]
+
+[resource]
+albedo_texture = ExtResource("1_kf2sy")

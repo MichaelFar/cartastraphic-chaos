@@ -19,6 +19,7 @@ func _ready() -> void:
 
 func explode():
 	exploded.emit()
+	hide()
 	var explosion_instance : GPUParticles3D = explosionParticleScene.instantiate()
 	GlobalValues.currentLevel.add_child(explosion_instance)
 	explosion_instance.global_position = global_position
@@ -39,3 +40,4 @@ func _on_explosion_area_body_entered(body: Node3D) -> void:
 	if(body is NPC):
 		if(!body.isSecurity):
 			body.fall_over()
+			body.rigidBody.apply_central_impulse(global_position.direction_to(body.global_position) * 30)

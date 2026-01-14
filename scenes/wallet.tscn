@@ -78,3 +78,8 @@ mesh = SubResource("ArrayMesh_mwry7")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0040893555, -0.004145205, 0.0010986328)
 shape = SubResource("BoxShape3D_j07sq")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40790915, 0)
+billboard = 1
+text = "Wallet!"

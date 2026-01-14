@@ -74,7 +74,8 @@ func _physics_process(delta: float) -> void:
 	
 	isRamming = velocity.length() >= velocity_goal_vector.length() * ramSpeedThreshold && velocity_goal_vector.length() * ramSpeedThreshold != 0.0
 	
-	
+	if(global_position.y > 1):
+		velocity.y -= 9.8
 	
 	if(velocity.length() >= 0.0):
 		deltaCounter += delta
@@ -164,7 +165,8 @@ func _on_collision_zone_body_entered(body: Node3D) -> void:
 		winning_cart.has_collided.emit()
 		if(winning_cart == cartManager):
 			player_has_won_against_npc.emit()
-		
+	if(body is NPC && isRamming):
+		player_has_won_against_npc.emit()
 	if(isRamming):
 		_camera_shake(0.3, 0.1)
 func behavior_on_collision():

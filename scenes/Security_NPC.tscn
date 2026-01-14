@@ -12,18 +12,18 @@
 radius = 0.6484375
 height = 2.0756836
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_cd6dt"]
-radius = 6.491699
-
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_63nyd"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_63nyd"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pxkf8"]
+radius = 9.142714
 
 [node name="SecurityNPC" type="CharacterBody3D" node_paths=PackedStringArray("rayCast", "rigidBody", "cartMarker")]
 script = ExtResource("1_6nxuu")
 rayCast = NodePath("RayCast3D")
 speed = 2.0
-rigidBody = NodePath("SecurityCheck/RigidBody3D")
+rigidBody = NodePath("RigidBody3D")
 percentChanceToSpawnCart = 0
 cartPackedScene = ExtResource("2_1lx03")
 cartMarker = NodePath("CartMarker")
@@ -39,14 +39,35 @@ shape = SubResource("CapsuleShape3D_63nyd")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6419729, 0)
 target_position = Vector3(0, 0, -5)
 
+[node name="CartMarker" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.3721025)
+
 [node name="CollisionDetectionVolume" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionDetectionVolume"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0378418, 0)
 shape = SubResource("CapsuleShape3D_tm2yo")
 
-[node name="CartMarker" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.3721025)
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+process_mode = 3
+collision_layer = 2
+collision_mask = 2
+freeze = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1, 0)
+material_override = ExtResource("3_1lx03")
+mesh = SubResource("CapsuleMesh_63nyd")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/MeshInstance3D"]
+transform = Transform3D(0.68307865, 0, 0, 0, 0.25374228, 0, 0, 0, 0.5092426, 0.27927938, 0.45825675, 0)
+material_override = ExtResource("3_1lx03")
+mesh = SubResource("BoxMesh_63nyd")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_63nyd")
 
 [node name="SecurityCheck" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3269396, -1.2082138)
@@ -58,30 +79,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7981012, 1.3535614)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SecurityCheck/SecurityVolume"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0217941, 0)
-shape = SubResource("CylinderShape3D_cd6dt")
+shape = SubResource("SphereShape3D_pxkf8")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="SecurityCheck"]
-process_mode = 3
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3269396, 1.2082138)
-collision_layer = 2
-collision_mask = 2
-freeze = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SecurityCheck/RigidBody3D"]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1, 0)
-material_override = ExtResource("3_1lx03")
-mesh = SubResource("CapsuleMesh_63nyd")
-skeleton = NodePath("../../..")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SecurityCheck/RigidBody3D/MeshInstance3D"]
-transform = Transform3D(0.68307865, 0, 0, 0, 0.25374228, 0, 0, 0, 0.5092426, 0.27927938, 0.45825675, 0)
-material_override = ExtResource("3_1lx03")
-mesh = SubResource("BoxMesh_63nyd")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="SecurityCheck/RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_63nyd")
-
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="body_entered" from="CollisionDetectionVolume" to="." method="_on_collision_detection_volume_body_entered"]
 [connection signal="body_entered" from="SecurityCheck/SecurityVolume" to="SecurityCheck" method="_on_security_volume_body_entered"]
 [connection signal="body_exited" from="SecurityCheck/SecurityVolume" to="SecurityCheck" method="_on_security_volume_body_exited"]

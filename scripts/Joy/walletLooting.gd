@@ -16,6 +16,7 @@ func _on_visibility_changed() -> void:
 	elif hidden:
 		print("hidden")
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		degenerateItems()
 
 func generateItems() -> void:

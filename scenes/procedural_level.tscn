@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://byyclc0mgul4x" path="res://scenes/TileScenes/LevelTile_scattered__electronic2_aisles_2_npc.tscn" id="7_dd152"]
 [ext_resource type="PackedScene" uid="uid://dvellss50wxf0" path="res://scenes/TileScenes/LevelTile_scattered__electronic1_aisles_no_npc.tscn" id="7_j4lbu"]
 [ext_resource type="PackedScene" uid="uid://2wutesr0w6na" path="res://scenes/TileScenes/LevelTile_security.tscn" id="8_dd152"]
-[ext_resource type="PackedScene" uid="uid://b12tyhfcfrvq1" path="res://scenes/wallet.tscn" id="9_dd152"]
+[ext_resource type="Material" uid="uid://cw6u2w8h2ttv6" path="res://materials/wall_material.tres" id="9_dd152"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w87me"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -51,7 +51,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4768324, 0, 3.3943176)
 
 [node name="LevelLayoutGenerator" type="Node3D" parent="."]
 script = ExtResource("2_ca1qn")
-possibleTilePackedScenes = Array[PackedScene]([ExtResource("6_yn40h"), ExtResource("7_j4lbu"), ExtResource("7_7db4a"), ExtResource("7_dd152"), ExtResource("8_dd152")])
+guaranteedTilePackedScenes = Array[PackedScene]([ExtResource("8_dd152"), ExtResource("8_dd152")])
+possibleTilePackedScenes = Array[PackedScene]([ExtResource("6_yn40h"), ExtResource("7_j4lbu"), ExtResource("7_7db4a"), ExtResource("7_dd152")])
 
 [node name="Marker3D" type="Marker3D" parent="LevelLayoutGenerator"]
 
@@ -120,61 +121,55 @@ mesh = SubResource("PlaneMesh_w87me")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1.9860013, 0, 0, 0, 44.9085, 20.363094, 0.9071076, 0.38669014)
+transform = Transform3D(1, 0, 0, 0, 10.428414, 0, 0, 0, 44.9085, 15, 5.135244, 0.387)
 shape = SubResource("ConcavePolygonShape3D_abuk1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0439867, 0, 0, 0)
+material_override = ExtResource("9_dd152")
 mesh = SubResource("BoxMesh_yn40h")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1.9860013, 0, 0, 0, 44.9085, -48.31232, 0.9071076, 0.38669014)
+transform = Transform3D(1, 0, 0, 0, 10.428414, 0, 0, 0, 44.9085, -45, 5.135244, 0.387)
 shape = SubResource("ConcavePolygonShape3D_abuk1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0439867, 0, 0, 0)
+material_override = ExtResource("9_dd152")
 mesh = SubResource("BoxMesh_yn40h")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(-4.371139e-08, 0, -44.9085, 0, 1.9860013, 0, 1, 0, -1.963013e-06, 2.0139933, 0.9071076, 23.38669)
+transform = Transform3D(-4.371139e-08, 0, -44.9085, 0, 10.428414, 0, 1, 0, -1.963013e-06, 2.014, 5.135244, 15)
 shape = SubResource("ConcavePolygonShape3D_abuk1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0439867, 0, 0, 0)
+material_override = ExtResource("9_dd152")
 mesh = SubResource("BoxMesh_yn40h")
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(-4.371139e-08, 0, -44.9085, 0, 1.9860013, 0, 1, 0, -1.963013e-06, 2.0139952, 0.9071076, -22.61331)
+transform = Transform3D(-4.371139e-08, 0, -44.9085, 0, 10.428414, 0, 1, 0, -1.963013e-06, 2.014, 5.135244, -15)
 shape = SubResource("ConcavePolygonShape3D_abuk1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0439867, 0, 0, 0)
+material_override = ExtResource("9_dd152")
 mesh = SubResource("BoxMesh_yn40h")
 
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(-4.371139e-08, 0, -44.9085, 0, 1.9860013, 0, 1, 0, -1.963013e-06, -42.894505, 0.9071076, -22.613312)
+transform = Transform3D(-4.371139e-08, 0, -44.9085, 0, 10.428414, 0, 1, 0, -1.963013e-06, -42.895, 5.135244, -15)
 shape = SubResource("ConcavePolygonShape3D_abuk1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0439867, 0, 0, 0)
+material_override = ExtResource("9_dd152")
 mesh = SubResource("BoxMesh_yn40h")
 
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(-4.371139e-08, 0, -44.9085, 0, 1.9860013, 0, 1, 0, -1.963013e-06, -42.89451, 0.9071076, 23.386688)
+transform = Transform3D(-4.371139e-08, 0, -44.9085, 0, 10.428414, 0, 1, 0, -1.963013e-06, -42.895, 5.135244, 15)
 shape = SubResource("ConcavePolygonShape3D_abuk1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0439867, 0, 0, 0)
+material_override = ExtResource("9_dd152")
 mesh = SubResource("BoxMesh_yn40h")
-
-[node name="Wallet" parent="." instance=ExtResource("9_dd152")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, 11)
-
-[node name="Wallet2" parent="." instance=ExtResource("9_dd152")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, 9)
-
-[node name="Wallet3" parent="." instance=ExtResource("9_dd152")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, 6)
-
-[node name="Wallet4" parent="." instance=ExtResource("9_dd152")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, 6)

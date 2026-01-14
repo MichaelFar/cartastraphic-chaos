@@ -11,6 +11,7 @@ size = Vector2(10, 10)
 script = ExtResource("1_qdtyd")
 npcSpawnMarkerParent = NodePath("NPCSpawnMarkerParent")
 ordinaryNPCPackedScene = ExtResource("5_aq1j7")
+isSecurityTile = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = ExtResource("3_aq1j7")

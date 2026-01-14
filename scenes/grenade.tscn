@@ -16,7 +16,7 @@ radius = 0.10449219
 height = 0.4765625
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_76ndk"]
-radius = 2.069779
+radius = 5.9433255
 
 [node name="Grenade" type="RigidBody3D" node_paths=PackedStringArray("explosionArea")]
 collision_layer = 2

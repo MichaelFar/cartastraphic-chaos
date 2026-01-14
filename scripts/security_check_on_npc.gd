@@ -16,7 +16,7 @@ func _physics_process(delta: float) -> void:
 	
 	if(playerInVolume):
 		target = GlobalValues.player.global_position
-		target.y = 0
+		#target.y = 0
 		look_at(target)
 func _on_security_volume_body_entered(body: Node3D) -> void:
 	if(body is Player):
@@ -27,6 +27,8 @@ func _on_security_volume_body_entered(body: Node3D) -> void:
 
 func _on_security_volume_body_exited(body: Node3D) -> void:
 	if(body is Player):
+		if(playerInVolume != false):
+			global_basis = get_parent().global_basis
 		playerInVolume = false
 		body.player_has_won_against_npc.disconnect(throw_grenade)
 

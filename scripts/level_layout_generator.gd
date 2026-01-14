@@ -2,6 +2,8 @@ extends Node3D
 
 class_name ProceduralLevelGenerator
 
+@export var guaranteedTilePackedScenes : Array[PackedScene]
+
 @export var possibleTilePackedScenes : Array[PackedScene]
 
 var tileScenes
@@ -15,14 +17,21 @@ func _ready() -> void:
 func populate_tiles():
 	var rand_obj := RandomNumberGenerator.new()
 	
-	for i in markerChildren:
-		var rand_index := rand_obj.randi_range(0, possibleTilePackedScenes.size() - 1)
-		var tile_instance := possibleTilePackedScenes[rand_index].instantiate()
-		GlobalValues.currentLevel.add_child(tile_instance)
-		#GlobalValues.currentLevel.call_deferred("add_child",tile_instance) 
-		#set_process(false)
-		#await tile_instance.ready
-		#set_process(true)
-		tile_instance.rotation_degrees.y = rand_obj.randi_range(0, 3) * 90
-		tile_instance.global_position = i.global_position
+	
+	for i in markerChildren.size():
+		
+		if(i > guaranteedTilePackedScenes.size() - 1):
+		
+			var rand_index := rand_obj.randi_range(0, possibleTilePackedScenes.size() - 1)
+			var tile_instance := possibleTilePackedScenes[rand_index].instantiate()
+			GlobalValues.currentLevel.add_child(tile_instance)
+		
+			tile_instance.rotation_degrees.y = rand_obj.randi_range(0, 3) * 90
+			tile_instance.global_position = markerChildren[i].global_position
+		else:
+			var tile_instance := guaranteedTilePackedScenes[i].instantiate()
+			GlobalValues.currentLevel.add_child(tile_instance)
+		
+			tile_instance.rotation_degrees.y = rand_obj.randi_range(0, 3) * 90
+			tile_instance.global_position = markerChildren[i].global_position
 		
