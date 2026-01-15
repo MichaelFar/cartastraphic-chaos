@@ -12,7 +12,6 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_f24eu")
 weight = 2.0
-price = 30.0
 attractionForceMagnitude = 2.0
 itemCategory = 1
 itemName = "Cell Phone"

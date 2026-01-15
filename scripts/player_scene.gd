@@ -30,6 +30,8 @@ class_name Player
 
 @export var shoppingList : ShoppingList
 
+@export var debugMoneyLabel: Label
+
 var look_rotation : Vector2
 
 var mouse_captured : bool = false
@@ -64,6 +66,11 @@ func _ready():
 	cartManager.has_added_to_list.connect(shoppingList.subtract_then_update_list_labels)
 	cartManager.has_removed_from_list.connect(shoppingList.add_then_update_list_labels)
 	cartManager.has_collided.connect(behavior_on_collision)
+	update_debug_money_label()
+func update_debug_money_label():
+	var timer = get_tree().create_timer(3.0)
+	timer.timeout.connect(update_debug_money_label)
+	debugMoneyLabel.text = str(GlobalValues.playerMoney)
 
 func _physics_process(delta: float) -> void:
 	

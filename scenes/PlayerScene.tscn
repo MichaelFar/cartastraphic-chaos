@@ -66,7 +66,7 @@ stream = SubResource("AudioStreamMP3_hwioa")
 autoplay = true
 bus = &"Music"
 
-[node name="PlayerScene" type="CharacterBody3D" parent="." node_paths=PackedStringArray("head", "headContainer", "headMarker", "cartMeshContainer", "cartManager", "camera", "objectSpawnMarker", "walletUI", "soundEffectContainer", "ambientSoundEffectContainer", "shoppingList")]
+[node name="PlayerScene" type="CharacterBody3D" parent="." node_paths=PackedStringArray("head", "headContainer", "headMarker", "cartMeshContainer", "cartManager", "camera", "objectSpawnMarker", "walletUI", "soundEffectContainer", "ambientSoundEffectContainer", "shoppingList", "debugMoneyLabel")]
 script = ExtResource("1_f302p")
 rotationRate = 20.0
 head = NodePath("../HeadContainer/Head")
@@ -81,6 +81,7 @@ walletUI = NodePath("../WalletLooting")
 soundEffectContainer = NodePath("HitSound")
 ambientSoundEffectContainer = NodePath("AmbientCartNoises")
 shoppingList = NodePath("ShoppingListMesh")
+debugMoneyLabel = NodePath("AspectRatioContainer/Label")
 
 [node name="ShoppingListMesh" parent="PlayerScene" instance=ExtResource("7_qxfha")]
 transform = Transform3D(0.15328568, 0.98806775, 0.015020756, -0.11128274, 0.0323638, -0.9932618, -0.981896, 0.1505812, 0.114915796, -1.344919, 1.4609265, 0.8014227)

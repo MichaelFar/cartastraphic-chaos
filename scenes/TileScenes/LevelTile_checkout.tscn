@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://hvd7sph368oc"]
+
+[ext_resource type="Script" uid="uid://dofgh56llm5l1" path="res://scripts/level_tile.gd" id="1_x3jhv"]
+[ext_resource type="PackedScene" uid="uid://b20d0f3ct1nel" path="res://scenes/Shopper_NPC.tscn" id="2_qdabu"]
+[ext_resource type="Material" uid="uid://cqc0lkhnaq841" path="res://materials/floor.tres" id="3_n8b50"]
+[ext_resource type="PackedScene" uid="uid://u6n40asu0y4g" path="res://scenes/TestCube.tscn" id="4_qdabu"]
+[ext_resource type="Material" uid="uid://cw6u2w8h2ttv6" path="res://materials/wall_material.tres" id="5_n8b50"]
+[ext_resource type="Script" uid="uid://bljbouq6feib5" path="res://scripts/checkout_volume.gd" id="6_nmxtk"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_f3jeo"]
+size = Vector2(10, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n8b50"]
+size = Vector3(2.3604736, 2.3027344, 2.4858398)
+
+[node name="LevelTile" type="Node3D" node_paths=PackedStringArray("npcSpawnMarkerParent")]
+script = ExtResource("1_x3jhv")
+npcSpawnMarkerParent = NodePath("NPCSpawnMarkerParent")
+ordinaryNPCPackedScene = ExtResource("2_qdabu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("3_n8b50")
+mesh = SubResource("PlaneMesh_f3jeo")
+
+[node name="NPCSpawnMarkerParent" type="Node3D" parent="."]
+
+[node name="MeshInstance3D2" parent="." instance=ExtResource("4_qdabu")]
+transform = Transform3D(3.1758957, 0, 0, 0, 1, 0, 0, 0, 0.8413267, 0.0097032, 0.2837988, -2.4093223)
+surface_material_override/0 = ExtResource("5_n8b50")
+
+[node name="MeshInstance3D3" parent="." instance=ExtResource("4_qdabu")]
+transform = Transform3D(-1.3882281e-07, 0, 0.8413267, 0, 1, 0, -3.1758957, 0, -3.677556e-08, -1.7458769, 0.2837988, -1.1695621)
+surface_material_override/0 = ExtResource("5_n8b50")
+
+[node name="MeshInstance3D4" parent="." instance=ExtResource("4_qdabu")]
+transform = Transform3D(-1.3882281e-07, 0, 0.8413267, 0, 1, 0, -3.1758957, 0, -3.677556e-08, 1.3380011, 0.2837988, -1.0122811)
+surface_material_override/0 = ExtResource("5_n8b50")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.16147447, 3.9239733, 0)
+billboard = 1
+text = "CHECKOUT"
+font_size = 128
+outline_size = 36
+
+[node name="Label3D2" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.16147447, 3.0772622, 0)
+billboard = 1
+text = "Your Total: "
+font_size = 128
+outline_size = 36
+
+[node name="CheckoutVolume" type="Area3D" parent="." node_paths=PackedStringArray("totalLabel")]
+script = ExtResource("6_nmxtk")
+totalLabel = NodePath("../Label3D2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CheckoutVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.16204834, 1.26709, -0.7429199)
+shape = SubResource("BoxShape3D_n8b50")
+
+[connection signal="body_entered" from="CheckoutVolume" to="CheckoutVolume" method="_on_body_entered"]

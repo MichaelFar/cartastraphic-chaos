@@ -7,13 +7,12 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_bl30h"]
 size = Vector3(0.34057617, 0.047058105, 0.26831055)
 
-[node name="ShoppingObject" type="RigidBody3D" node_paths=PackedStringArray("collisionShape")]
+[node name="ShoppingObject" type="RigidBody3D"]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_5fe4m")
-price = 15.0
+price = 3.0
 attractionForceMagnitude = 2.0
-collisionShape = NodePath("")
 itemCategory = 8
 itemName = "Meat"
 

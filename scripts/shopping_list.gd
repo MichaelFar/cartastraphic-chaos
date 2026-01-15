@@ -13,6 +13,7 @@ var item_track_array : Array[String]
 
 var itemTrackerDict : Dictionary
 var originalTrackerDict : Dictionary
+var hasAllRequiredItems : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
@@ -107,3 +108,9 @@ func update_list_labels(item_name : String):
 				
 				print("Manipulation string after updating amount is " + manipulation_string)
 				j.text = manipulation_string
+	for i in itemTrackerDict:
+		if(itemTrackerDict[i] != 0):
+			hasAllRequiredItems = false
+			return
+	
+	hasAllRequiredItems = true

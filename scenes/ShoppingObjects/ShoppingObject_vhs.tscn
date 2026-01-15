@@ -7,13 +7,11 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_yopu1"]
 size = Vector3(0.16815186, 0.055664063, 0.3026123)
 
-[node name="ShoppingObject" type="RigidBody3D" node_paths=PackedStringArray("collisionShape")]
+[node name="ShoppingObject" type="RigidBody3D"]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_drrhy")
-price = 25.0
 attractionForceMagnitude = 2.0
-collisionShape = NodePath("")
 itemCategory = 2
 itemName = "Movie"
 

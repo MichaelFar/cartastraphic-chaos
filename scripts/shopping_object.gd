@@ -38,20 +38,7 @@ var isInCart : bool = false :
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GlobalValues.add_name_to_list(itemName)
-	#for i in get_children():
-		#if(i is AudioStreamPlayer3D):
-			#soundEffectPlayer = i
-		#if(i is Area3D):
-			#print("Found area")
-			#soundEffectArea = i
-		#if(i is CollisionShape3D):
-			#print("Found collision shape")
-			#collisionShape = i
-	#var area_volume = collisionShape.duplicate()
-	#area_volume.call_deferred("reparent",soundEffectArea)
-	#if(soundEffectArea != null):
-		#print("Connecting sound effect")
-		#soundEffectArea.body_entered.connect(play_sound_effect)
+	
 
 func _physics_process(delta: float) -> void:
 	
