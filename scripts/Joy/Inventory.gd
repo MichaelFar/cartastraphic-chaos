@@ -27,6 +27,7 @@ func add_to_inventory(item : Node) -> void:
 	what_item.add_child(wallet_item.instantiate())
 	var created_item = what_item.get_child(what_item.get_child_count() - 1)
 	created_item.create_card(item)
+	created_item.rotation.y = randf_range(0, 360)
 	created_item.position.y += item_heights[number] * height_variation
 	item_heights[number] += 1
 	

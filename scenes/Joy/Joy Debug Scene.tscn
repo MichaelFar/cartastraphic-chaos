@@ -48,11 +48,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.494081, -2.3841858e-07, 2.1
 [node name="Inventory" parent="." instance=ExtResource("2_qdu2k")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.033218026, 0, -0.6269126)
 
+[node name="CreditCardStack" parent="Inventory" index="2"]
+transform = Transform3D(0.12678689, 0, 0.09838858, 0, 0.99, 0, -0.05937242, 0, 0.21010397, 0.2958684, 0.03299856, 0.4423416)
+
 [node name="ItemFront" parent="Inventory/CreditCardStack/StarterCard" index="1"]
 material_override = SubResource("StandardMaterial3D_qdu2k")
 
 [node name="ItemFront2" parent="Inventory/CreditCardStack/StarterCard" index="2"]
 material_override = SubResource("StandardMaterial3D_qdu2k")
+
+[node name="CashStack" parent="Inventory" index="3"]
+transform = Transform3D(0.14331427, 0, -0.062366217, 0, 0.99491507, 0, 0.040030234, 0, 0.22328046, 0.24201602, 0.03299856, -0.25369596)
 
 [node name="WalletLooting" type="Control" parent="." node_paths=PackedStringArray("items")]
 visible = false
