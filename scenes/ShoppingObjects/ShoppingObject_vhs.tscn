@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bopx3xtu08p7p"]
+
+[ext_resource type="Script" uid="uid://n31b4ilrm78c" path="res://scripts/shopping_object.gd" id="1_drrhy"]
+[ext_resource type="PackedScene" uid="uid://c5gohqarlmokw" path="res://meshes/psx_mega_pack_models/Small Props/vhs_tape_1.glb" id="2_y3s73"]
+[ext_resource type="AudioStream" uid="uid://dc1e8y0f1jmsa" path="res://audio/sound_effects/Gunshot 7-1.wav" id="3_yopu1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yopu1"]
+size = Vector3(0.16815186, 0.055664063, 0.3026123)
+
+[node name="ShoppingObject" type="RigidBody3D" node_paths=PackedStringArray("collisionShape")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_drrhy")
+price = 25.0
+attractionForceMagnitude = 2.0
+collisionShape = NodePath("")
+itemCategory = 2
+itemName = "Movie"
+
+[node name="vhs_tape_12" parent="." instance=ExtResource("2_y3s73")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0038757324, 0.023925781, -6.1035156e-05)
+shape = SubResource("BoxShape3D_yopu1")
+
+[node name="Gunshot71" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_yopu1")
+
+[node name="Area3D" type="Area3D" parent="."]

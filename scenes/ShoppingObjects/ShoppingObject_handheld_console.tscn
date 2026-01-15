@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8uxqpkm5mv81"]
+[gd_scene load_steps=5 format=3 uid="uid://c8uxqpkm5mv81"]
 
 [ext_resource type="Script" uid="uid://n31b4ilrm78c" path="res://scripts/shopping_object.gd" id="1_24qmj"]
 [ext_resource type="PackedScene" uid="uid://yi5vb5jknvg7" path="res://meshes/psx_mega_pack_models/Electronics & Misc/handheld_game_console_1.glb" id="2_dfxti"]
+[ext_resource type="AudioStream" uid="uid://dc1e8y0f1jmsa" path="res://audio/sound_effects/Gunshot 7-1.wav" id="3_4fmin"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dfxti"]
 size = Vector3(0.13574219, 0.04144287, 0.23913574)
@@ -10,12 +11,20 @@ size = Vector3(0.13574219, 0.04144287, 0.23913574)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_24qmj")
+price = 150.0
 attractionForceMagnitude = 2.0
+itemCategory = 7
+itemName = "Game Lad"
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00048828125, 0.019989014, 0.00079345703)
 shape = SubResource("BoxShape3D_dfxti")
 
 [node name="handheld_game_console_12" parent="." instance=ExtResource("2_dfxti")]
+
+[node name="Gunshot71" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_4fmin")
+
+[node name="Area3D" type="Area3D" parent="."]
 
 [editable path="handheld_game_console_12"]

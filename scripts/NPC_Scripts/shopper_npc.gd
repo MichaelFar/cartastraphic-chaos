@@ -42,8 +42,15 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	
 	if(!timerIsRunning || spawnedCart == null):
+		
 		currentDirection.y = 0.0
+		
 		velocity = currentDirection * speed
+		
+		if(!is_on_floor()):
+		
+			velocity.y -= 9.8
+		
 		if(currentDirection != Vector3.ZERO && currentDirection.y <= 0.0):
 			
 			var target: Basis =  Basis.looking_at(currentDirection)

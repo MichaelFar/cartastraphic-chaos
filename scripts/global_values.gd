@@ -16,6 +16,10 @@ var shopperLimit : int = 20
 var securityLimit : int = 5
 
 var playerMoney : float = 0.0
+
+var shoppingObjectNameArray : Array[String] 
+
+signal updated_shopping_list_array
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_viewport().scaling_3d_scale
@@ -34,3 +38,11 @@ func check_security_limit() -> bool:
 func check_shopper_limit() -> bool:
 	
 	return numShoppers < shopperLimit
+
+func add_name_to_list(name_to_add : String):
+	if(name_to_add in shoppingObjectNameArray):
+		return
+	else:
+		shoppingObjectNameArray.append(name_to_add)
+		updated_shopping_list_array.emit()
+		

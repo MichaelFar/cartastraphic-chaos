@@ -6,3 +6,5 @@ extends Button
 
 func _on_pressed() -> void:
 	menu.hide()
+	if(viewport.get_child(0) is CreditCard):
+		viewport.get_child(0).on_selected()

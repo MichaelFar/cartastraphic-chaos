@@ -1,5 +1,7 @@
 extends Control
 
+class_name CreditCard
+
 @export var value: float
 @export var pin: int
 @export var expired: bool
@@ -40,3 +42,5 @@ func randomizeValues() -> void:
 	else:
 		expired = false
 	
+func on_selected():
+	GlobalValues.playerMoney += value

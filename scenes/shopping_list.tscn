@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://djpk4eavjawie"]
+
+[ext_resource type="Script" uid="uid://26wc4a13guw3" path="res://scripts/shopping_list.gd" id="1_7mkwh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mkwh"]
+resource_local_to_scene = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8ky88"]
+material = SubResource("StandardMaterial3D_7mkwh")
+
+[node name="ShoppingListMesh" type="MeshInstance3D" node_paths=PackedStringArray("vboxContainer", "subViewPort")]
+mesh = SubResource("PlaneMesh_8ky88")
+script = ExtResource("1_7mkwh")
+shopListAmount = 8
+vboxContainer = NodePath("SubViewport/ShoppingList/AspectRatioContainer/VBoxContainer")
+subViewPort = NodePath("SubViewport")
+collectedAllItemsColor = Color(0, 1, 0, 1)
+notYetCollectedAllItemsColor = Color(0.76361275, 3.2969565e-06, 8.663535e-07, 1)
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="ShoppingList" type="Control" parent="SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="SubViewport/ShoppingList"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/ShoppingList/AspectRatioContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SubViewport/ShoppingList/AspectRatioContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 54
+text = "Shopping List"
+
+[node name="Label2" type="Label" parent="SubViewport/ShoppingList/AspectRatioContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.76361275, 3.2969565e-06, 8.663535e-07, 1)
+text = "Red is Not Collected"
+
+[node name="Label3" type="Label" parent="SubViewport/ShoppingList/AspectRatioContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+text = "Green is Collected"

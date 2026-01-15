@@ -6,10 +6,12 @@ var playerInVolume : bool = false
 
 @export var grenadeThrowInterval : float = 1.0
 
+@export var exclamationLabel : Label3D
+
 var target : Vector3
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	exclamationLabel.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -33,7 +35,9 @@ func _on_security_volume_body_exited(body: Node3D) -> void:
 		body.player_has_won_against_npc.disconnect(throw_grenade)
 
 func throw_grenade():
+	exclamationLabel.show()
 	if(!playerInVolume):
+		exclamationLabel.hide()
 		return
 	print("Throwing grenade")
 	var timer = get_tree().create_timer(grenadeThrowInterval)

@@ -4,7 +4,7 @@ class_name Grenade
 
 @export var explosionParticleScene : PackedScene
 @export var timeToExplode : float = 5.0
-
+@export var audioStreamPlayer : AudioStreamPlayer3D
 @export var explosionArea : Area3D
 signal exploded
 # Called when the node enters the scene tree for the first time.
@@ -20,6 +20,7 @@ func _ready() -> void:
 func explode():
 	exploded.emit()
 	hide()
+	audioStreamPlayer.play()
 	var explosion_instance : GPUParticles3D = explosionParticleScene.instantiate()
 	GlobalValues.currentLevel.add_child(explosion_instance)
 	explosion_instance.global_position = global_position

@@ -11,27 +11,36 @@ var shoppingObjectList : Array[ShoppingObject]
 @export var testTimer : Timer
 
 @export var ejectPointContainer : Node3D
+
 var ejectPointList := []
 
 signal has_ejected
 
+signal has_added_to_list
+
+signal has_removed_from_list
+
 signal has_collided
 
 func _ready():
+	
 	ejectPointList = ejectPointContainer.get_children()
 
 func add_object_to_list(new_item : ShoppingObject):
 	
 	if new_item not in shoppingObjectList:
-		print("Adding object to list")
+		if(GlobalValues.player.cartManager == self):
+			print("Adding" + str(new_item.itemName)+ " object to list")
 		shoppingObjectList.append(new_item)
+		has_added_to_list.emit(new_item.itemName)
+		
 
 func pop_from_list(object_to_remove : ShoppingObject):
 	
 	if object_to_remove in shoppingObjectList:
-		print("Popping" + str(object_to_remove))
+		#print("Popping" + str(object_to_remove))
 		shoppingObjectList.pop_at(shoppingObjectList.find(object_to_remove))
-
+		has_removed_from_list.emit(object_to_remove.itemName)
 func eject_item(object_to_eject : ShoppingObject):
 	
 	if(object_to_eject != null):

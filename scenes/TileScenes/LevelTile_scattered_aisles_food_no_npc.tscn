@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://cn1k0ksdbqax"]
+
+[ext_resource type="Script" uid="uid://dofgh56llm5l1" path="res://scripts/level_tile.gd" id="1_tewqf"]
+[ext_resource type="PackedScene" uid="uid://b20d0f3ct1nel" path="res://scenes/Shopper_NPC.tscn" id="2_lreqw"]
+[ext_resource type="Material" uid="uid://cqc0lkhnaq841" path="res://materials/floor.tres" id="3_rgwwi"]
+[ext_resource type="PackedScene" uid="uid://dr867i86f8l4b" path="res://scenes/aisle_block.tscn" id="4_gm04p"]
+[ext_resource type="PackedScene" uid="uid://gk8heaegnb21" path="res://scenes/ShoppingObjects/ShoppingObject_meat.tscn" id="5_rgwwi"]
+[ext_resource type="PackedScene" uid="uid://ycs0niwv815h" path="res://scenes/ShoppingObjects/ShoppingObject_soda.tscn" id="6_gm04p"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_f3jeo"]
+material = ExtResource("3_rgwwi")
+size = Vector2(10, 10)
+
+[node name="LevelTile" type="Node3D" node_paths=PackedStringArray("npcSpawnMarkerParent")]
+script = ExtResource("1_tewqf")
+npcSpawnMarkerParent = NodePath("NPCSpawnMarkerParent")
+ordinaryNPCPackedScene = ExtResource("2_lreqw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_f3jeo")
+
+[node name="AisleBlock" parent="." instance=ExtResource("4_gm04p")]
+smallItemsPackedScenes = Array[PackedScene]([ExtResource("5_rgwwi"), ExtResource("6_gm04p")])
+mediumItemsPackedScenes = Array[PackedScene]([ExtResource("5_rgwwi"), ExtResource("6_gm04p")])
+largeItemsPackedScenes = Array[PackedScene]([ExtResource("5_rgwwi"), ExtResource("6_gm04p")])
+
+[node name="AisleBlock2" parent="." instance=ExtResource("4_gm04p")]
+transform = Transform3D(0.74157786, 0, -0.6708668, 0, 1, 0, 0.6708668, 0, 0.74157786, -2.2392797, 0, 2.9238222)
+smallItemsPackedScenes = Array[PackedScene]([ExtResource("5_rgwwi"), ExtResource("6_gm04p")])
+mediumItemsPackedScenes = Array[PackedScene]([ExtResource("5_rgwwi"), ExtResource("6_gm04p")])
+largeItemsPackedScenes = Array[PackedScene]([ExtResource("5_rgwwi"), ExtResource("6_gm04p")])
+
+[node name="AisleBlock3" parent="." instance=ExtResource("4_gm04p")]
+transform = Transform3D(0.74157786, 0, -0.6708668, 0, 1, 0, 0.6708668, 0, 0.74157786, 2.3741236, 0, -3.0325477)
+smallItemsPackedScenes = Array[PackedScene]([ExtResource("5_rgwwi"), ExtResource("6_gm04p")])
+mediumItemsPackedScenes = Array[PackedScene]([ExtResource("5_rgwwi"), ExtResource("6_gm04p")])
+largeItemsPackedScenes = Array[PackedScene]([ExtResource("5_rgwwi"), ExtResource("6_gm04p")])
+
+[node name="NPCSpawnMarkerParent" type="Node3D" parent="."]

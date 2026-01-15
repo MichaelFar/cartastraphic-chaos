@@ -10,7 +10,14 @@ class_name ShoppingObject
 @export var collisionShape : CollisionShape3D
 @export var freezeThreshold : float = 0.1
 
-@export_flags("Technology", "Entertainment", "Kids", "Food") var itemCategory
+@export var soundEffectPlayer : AudioStreamPlayer3D
+
+@export_flags("Technology", "Entertainment", "Kids", "Food", "Furniture") var itemCategory
+
+@export var itemName : String
+
+
+var soundEffectArea : Area3D
 
 var cartParent : Node3D
 
@@ -30,7 +37,21 @@ var isInCart : bool = false :
 		return isInCart
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	GlobalValues.add_name_to_list(itemName)
+	#for i in get_children():
+		#if(i is AudioStreamPlayer3D):
+			#soundEffectPlayer = i
+		#if(i is Area3D):
+			#print("Found area")
+			#soundEffectArea = i
+		#if(i is CollisionShape3D):
+			#print("Found collision shape")
+			#collisionShape = i
+	#var area_volume = collisionShape.duplicate()
+	#area_volume.call_deferred("reparent",soundEffectArea)
+	#if(soundEffectArea != null):
+		#print("Connecting sound effect")
+		#soundEffectArea.body_entered.connect(play_sound_effect)
 
 func _physics_process(delta: float) -> void:
 	
@@ -85,3 +106,7 @@ func instance_target_node():
 	cartParent.add_child(target_node)
 	target_node.global_transform = global_transform
 	targetNode = target_node
+
+func play_sound_effect():
+	print("Playing sound effect")
+	soundEffectPlayer.play()

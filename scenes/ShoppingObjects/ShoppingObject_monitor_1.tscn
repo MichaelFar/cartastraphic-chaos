@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://g7l7txl2iuyo"]
+[gd_scene load_steps=6 format=3 uid="uid://g7l7txl2iuyo"]
 
 [ext_resource type="Script" uid="uid://n31b4ilrm78c" path="res://scripts/shopping_object.gd" id="1_p7ptg"]
 [ext_resource type="PackedScene" uid="uid://dftyh7s6vb21i" path="res://meshes/psx_mega_pack_models/Electronics & Misc/monitoring_screen_mp_1.glb" id="2_dfnkn"]
+[ext_resource type="AudioStream" uid="uid://dc1e8y0f1jmsa" path="res://audio/sound_effects/Gunshot 7-1.wav" id="3_ulsc5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dfnkn"]
 size = Vector3(0.49075317, 0.067222595, 0.3975258)
@@ -15,7 +16,10 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_p7ptg")
 weight = 4.0
+price = 100.0
 attractionForceMagnitude = 2.0
+itemCategory = 1
+itemName = "Wall Mounted Monitor"
 
 [node name="monitoring_screen_mp_12" parent="." instance=ExtResource("2_dfnkn")]
 
@@ -29,5 +33,10 @@ shape = SubResource("BoxShape3D_dfnkn")
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
 transform = Transform3D(-4.371139e-08, -0.49999997, -0.86602545, 1, -2.1855694e-08, -3.7855173e-08, 0, -0.86602545, 0.49999997, 0.0442218, -2.6585301e-05, 0.118378505)
 shape = SubResource("CapsuleShape3D_dfnkn")
+
+[node name="Gunshot71" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_ulsc5")
+
+[node name="Area3D" type="Area3D" parent="."]
 
 [editable path="monitoring_screen_mp_12"]

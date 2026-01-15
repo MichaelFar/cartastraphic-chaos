@@ -69,10 +69,11 @@ mesh = SubResource("BoxMesh_63nyd")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_63nyd")
 
-[node name="SecurityCheck" type="Node3D" parent="."]
+[node name="SecurityCheck" type="Node3D" parent="." node_paths=PackedStringArray("exclamationLabel")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3269396, -1.2082138)
 script = ExtResource("4_cd6dt")
 grenadeScene = ExtResource("4_pxkf8")
+exclamationLabel = NodePath("../Label3D")
 
 [node name="SecurityVolume" type="Area3D" parent="SecurityCheck"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7981012, 1.3535614)
@@ -80,6 +81,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7981012, 1.3535614)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SecurityCheck/SecurityVolume"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0217941, 0)
 shape = SubResource("SphereShape3D_pxkf8")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.647822, 0)
+billboard = 1
+text = "!"
+font_size = 256
+outline_size = 32
 
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="body_entered" from="CollisionDetectionVolume" to="." method="_on_collision_detection_volume_body_entered"]

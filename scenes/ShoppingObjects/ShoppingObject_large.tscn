@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dox7ujejs08nv"]
+[gd_scene load_steps=5 format=3 uid="uid://dox7ujejs08nv"]
 
 [ext_resource type="Script" uid="uid://n31b4ilrm78c" path="res://scripts/shopping_object.gd" id="1_pey6c"]
+[ext_resource type="AudioStream" uid="uid://dc1e8y0f1jmsa" path="res://audio/sound_effects/Gunshot 7-1.wav" id="2_5i8wd"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_p74w2"]
 resource_local_to_scene = true
@@ -23,3 +24,8 @@ mesh = SubResource("BoxMesh_p74w2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.56926143, 0, 0, 0, 0.6206976, 0, 0, 0, 0.65497863, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_pey6c")
+
+[node name="Gunshot71" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_5i8wd")
+
+[node name="Area3D" type="Area3D" parent="."]

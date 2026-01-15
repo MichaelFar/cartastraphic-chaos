@@ -1,13 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://d27o2m2nfc86"]
+[gd_scene load_steps=19 format=3 uid="uid://d27o2m2nfc86"]
 
 [ext_resource type="Script" uid="uid://bhtonanho1prp" path="res://scripts/base_level.gd" id="1_heori"]
 [ext_resource type="Script" uid="uid://crpjlwu456hw" path="res://scripts/level_layout_generator.gd" id="2_ca1qn"]
-[ext_resource type="PackedScene" uid="uid://dvl2xwykeekj3" path="res://scenes/PlayerScene.tscn" id="4_w87me"]
+[ext_resource type="PackedScene" uid="uid://l21bokjvoyqf" path="res://scenes/TileScenes/LevelTile_player_spawn.tscn" id="4_dd152"]
 [ext_resource type="PackedScene" uid="uid://b27pe7r8dx4qw" path="res://scenes/TileScenes/LevelTile_blank.tscn" id="6_yn40h"]
-[ext_resource type="PackedScene" uid="uid://dttjj5us257jr" path="res://scenes/TileScenes/LevelTile_scattered__electronic2_aisles_no_npc.tscn" id="7_7db4a"]
 [ext_resource type="PackedScene" uid="uid://byyclc0mgul4x" path="res://scenes/TileScenes/LevelTile_scattered__electronic2_aisles_2_npc.tscn" id="7_dd152"]
 [ext_resource type="PackedScene" uid="uid://dvellss50wxf0" path="res://scenes/TileScenes/LevelTile_scattered__electronic1_aisles_no_npc.tscn" id="7_j4lbu"]
 [ext_resource type="PackedScene" uid="uid://2wutesr0w6na" path="res://scenes/TileScenes/LevelTile_security.tscn" id="8_dd152"]
+[ext_resource type="PackedScene" uid="uid://cn1k0ksdbqax" path="res://scenes/TileScenes/LevelTile_scattered_aisles_food_no_npc.tscn" id="9_1ulos"]
 [ext_resource type="Material" uid="uid://cw6u2w8h2ttv6" path="res://materials/wall_material.tres" id="9_dd152"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w87me"]
@@ -36,6 +36,9 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 
 [sub_resource type="BoxMesh" id="BoxMesh_yn40h"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_1ulos"]
+size = Vector3(75.257324, 1, 48.820557)
+
 [node name="ProceduralLevel" type="Node3D"]
 script = ExtResource("1_heori")
 
@@ -46,13 +49,10 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yn40h")
 
-[node name="PlayerSceneParent" parent="." instance=ExtResource("4_w87me")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4768324, 0, 3.3943176)
-
 [node name="LevelLayoutGenerator" type="Node3D" parent="."]
 script = ExtResource("2_ca1qn")
-guaranteedTilePackedScenes = Array[PackedScene]([ExtResource("8_dd152"), ExtResource("8_dd152")])
-possibleTilePackedScenes = Array[PackedScene]([ExtResource("6_yn40h"), ExtResource("7_j4lbu"), ExtResource("7_7db4a"), ExtResource("7_dd152")])
+guaranteedTilePackedScenes = Array[PackedScene]([ExtResource("8_dd152"), ExtResource("8_dd152"), ExtResource("4_dd152")])
+possibleTilePackedScenes = Array[PackedScene]([ExtResource("6_yn40h"), ExtResource("7_j4lbu"), ExtResource("7_dd152"), ExtResource("9_1ulos"), ExtResource("7_dd152")])
 
 [node name="Marker3D" type="Marker3D" parent="LevelLayoutGenerator"]
 
@@ -173,3 +173,7 @@ shape = SubResource("ConcavePolygonShape3D_abuk1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0439867, 0, 0, 0)
 material_override = ExtResource("9_dd152")
 mesh = SubResource("BoxMesh_yn40h")
+
+[node name="Roof" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.103271, 9.386158, -4.3218994)
+shape = SubResource("BoxShape3D_1ulos")

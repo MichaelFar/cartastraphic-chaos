@@ -1,18 +1,24 @@
-[gd_scene load_steps=15 format=3 uid="uid://byyclc0mgul4x"]
+[gd_scene load_steps=21 format=3 uid="uid://byyclc0mgul4x"]
 
 [ext_resource type="Script" uid="uid://dofgh56llm5l1" path="res://scripts/level_tile.gd" id="1_gi7gg"]
 [ext_resource type="PackedScene" uid="uid://b20d0f3ct1nel" path="res://scenes/Shopper_NPC.tscn" id="2_xav0l"]
 [ext_resource type="PackedScene" uid="uid://b66pboca0adai" path="res://scenes/aisle_electronics_block_1.tscn" id="3_1nbm8"]
 [ext_resource type="Material" uid="uid://cqc0lkhnaq841" path="res://materials/floor.tres" id="3_xav0l"]
 [ext_resource type="PackedScene" uid="uid://g7l7txl2iuyo" path="res://scenes/ShoppingObjects/ShoppingObject_monitor_1.tscn" id="4_v2tq0"]
+[ext_resource type="PackedScene" uid="uid://do5hinv0gpmci" path="res://scenes/ShoppingObjects/ShoppingObject_keyboard_1.tscn" id="5_2vcl4"]
 [ext_resource type="PackedScene" uid="uid://c0rk83lt33bos" path="res://scenes/ShoppingObjects/ShoppingObject_monitor_2.tscn" id="5_ivhkw"]
 [ext_resource type="PackedScene" uid="uid://cq4q7bdxq67la" path="res://scenes/ShoppingObjects/ShoppingObject_keyboard_3.tscn" id="6_2vcl4"]
+[ext_resource type="PackedScene" uid="uid://ph3tm5xaupp3" path="res://scenes/ShoppingObjects/ShoppingObject_phone_1.tscn" id="6_gt65a"]
+[ext_resource type="PackedScene" uid="uid://bopx3xtu08p7p" path="res://scenes/ShoppingObjects/ShoppingObject_vhs.tscn" id="7_3uc6m"]
 [ext_resource type="PackedScene" uid="uid://taneiqk4uk7g" path="res://scenes/ShoppingObjects/ShoppingObject_keyboard_2.tscn" id="7_gt65a"]
 [ext_resource type="PackedScene" uid="uid://cep365pdjo1j4" path="res://scenes/ShoppingObjects/ShoppingObject_monitor_3.tscn" id="8_3uc6m"]
 [ext_resource type="PackedScene" uid="uid://c8p2ttytbwbhd" path="res://scenes/ShoppingObjects/ShoppingObject_tv_1.tscn" id="9_84bqq"]
 [ext_resource type="PackedScene" uid="uid://k2wgmcm78xnh" path="res://scenes/ShoppingObjects/ShoppingObject_tv_2.tscn" id="10_k08la"]
 [ext_resource type="PackedScene" uid="uid://tq3030bvvgbf" path="res://scenes/ShoppingObjects/ShoppingObject_tv_3.tscn" id="11_fluf1"]
 [ext_resource type="PackedScene" uid="uid://blk3akrxkxwc6" path="res://scenes/ShoppingObjects/ShoppingObject_PCTower_1.tscn" id="12_la4ps"]
+[ext_resource type="PackedScene" uid="uid://tex4184syqqy" path="res://scenes/ShoppingObjects/ShoppingObject_mouse_1.tscn" id="17_3uc6m"]
+[ext_resource type="PackedScene" uid="uid://c8uxqpkm5mv81" path="res://scenes/ShoppingObjects/ShoppingObject_handheld_console.tscn" id="18_84bqq"]
+[ext_resource type="PackedScene" uid="uid://kul14ibphv6x" path="res://scenes/ShoppingObjects/ShoppingObject_handheld_tablet.tscn" id="19_k08la"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_f3jeo"]
 size = Vector2(10, 10)
@@ -36,10 +42,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9459279, 0, -2.114687)
 
 [node name="AisleBlock" parent="." instance=ExtResource("3_1nbm8")]
 transform = Transform3D(0.68879753, 0, -0.7249538, 0, 1, 0, 0.7249538, 0, 0.68879753, -2.7065845, 0, 2.3700771)
+smallItemsPackedScenes = Array[PackedScene]([ExtResource("5_2vcl4"), ExtResource("6_gt65a"), ExtResource("7_3uc6m")])
 mediumItemsPackedScenes = Array[PackedScene]([ExtResource("4_v2tq0"), ExtResource("5_ivhkw"), ExtResource("6_2vcl4"), ExtResource("7_gt65a")])
 largeItemsPackedScenes = Array[PackedScene]([ExtResource("8_3uc6m"), ExtResource("9_84bqq"), ExtResource("10_k08la"), ExtResource("11_fluf1"), ExtResource("12_la4ps")])
 
 [node name="AisleBlock2" parent="." instance=ExtResource("3_1nbm8")]
 transform = Transform3D(0.68879753, 0, -0.7249538, 0, 1, 0, 0.7249538, 0, 0.68879753, 2.2847095, 2.3841858e-07, -0.31278253)
-mediumItemsPackedScenes = Array[PackedScene]([ExtResource("4_v2tq0"), ExtResource("5_ivhkw"), ExtResource("6_2vcl4"), ExtResource("7_gt65a")])
+smallItemsPackedScenes = Array[PackedScene]([ExtResource("5_2vcl4"), ExtResource("17_3uc6m"), ExtResource("7_3uc6m"), ExtResource("18_84bqq"), ExtResource("19_k08la")])
+mediumItemsPackedScenes = Array[PackedScene]([ExtResource("4_v2tq0"), ExtResource("5_ivhkw"), ExtResource("6_2vcl4"), ExtResource("7_gt65a"), ExtResource("7_3uc6m"), ExtResource("6_gt65a")])
 largeItemsPackedScenes = Array[PackedScene]([ExtResource("8_3uc6m"), ExtResource("9_84bqq"), ExtResource("10_k08la"), ExtResource("11_fluf1"), ExtResource("12_la4ps")])

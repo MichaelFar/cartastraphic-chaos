@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://gk8heaegnb21"]
+
+[ext_resource type="Script" uid="uid://n31b4ilrm78c" path="res://scripts/shopping_object.gd" id="1_5fe4m"]
+[ext_resource type="PackedScene" uid="uid://b15xo6un3wpbb" path="res://meshes/psx_mega_pack_models/Items & Weapons/meat_1.glb" id="2_3vaal"]
+[ext_resource type="AudioStream" uid="uid://dc1e8y0f1jmsa" path="res://audio/sound_effects/Gunshot 7-1.wav" id="3_bl30h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bl30h"]
+size = Vector3(0.34057617, 0.047058105, 0.26831055)
+
+[node name="ShoppingObject" type="RigidBody3D" node_paths=PackedStringArray("collisionShape")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_5fe4m")
+price = 15.0
+attractionForceMagnitude = 2.0
+collisionShape = NodePath("")
+itemCategory = 8
+itemName = "Meat"
+
+[node name="meat_12" parent="." instance=ExtResource("2_3vaal")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010986328, 0.05130005, 0.0030517578)
+shape = SubResource("BoxShape3D_bl30h")
+
+[node name="Gunshot71" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_bl30h")
+
+[node name="Area3D" type="Area3D" parent="."]

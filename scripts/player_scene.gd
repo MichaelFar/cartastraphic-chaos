@@ -24,6 +24,12 @@ class_name Player
 
 @export var walletUI : Control
 
+@export var soundEffectContainer : AudioStreamPlayer3D
+
+@export var ambientSoundEffectContainer : AudioStreamPlayer3D
+
+@export var shoppingList : ShoppingList
+
 var look_rotation : Vector2
 
 var mouse_captured : bool = false
@@ -55,7 +61,8 @@ func _camera_shake(shake_period : float = 0.3, shake_magnitude : float = 0.4):
 func _ready():
 	GlobalValues.player = self
 	originalRotationRate = rotationRate
-	
+	cartManager.has_added_to_list.connect(shoppingList.subtract_then_update_list_labels)
+	cartManager.has_removed_from_list.connect(shoppingList.add_then_update_list_labels)
 	cartManager.has_collided.connect(behavior_on_collision)
 
 func _physics_process(delta: float) -> void:
@@ -64,7 +71,7 @@ func _physics_process(delta: float) -> void:
 	deltaCounter = clampf(deltaCounter, 0.0, 1.0)
 	var forward_back_input_strength = Input.get_action_strength("forward") - Input.get_action_strength("back")
 	
-	var velocity_goal_vector : Vector3 = -basis.z * speed * forward_back_input_strength
+	var velocity_goal_vector : Vector3 = -global_basis.z * speed * forward_back_input_strength
 	
 	
 	
@@ -78,8 +85,10 @@ func _physics_process(delta: float) -> void:
 		velocity.y -= 9.8
 	
 	if(velocity.length() >= 0.0):
+		ambientSoundEffectContainer.playing = true
 		deltaCounter += delta
 	else:
+		ambientSoundEffectContainer.playing = false
 		deltaCounter = 0.0
 	
 	if(velocity.length() <= (velocity_goal_vector).length() / 4.0):
@@ -165,9 +174,16 @@ func _on_collision_zone_body_entered(body: Node3D) -> void:
 		winning_cart.has_collided.emit()
 		if(winning_cart == cartManager):
 			player_has_won_against_npc.emit()
+	
 	if(body is NPC && isRamming):
+	
 		player_has_won_against_npc.emit()
+	
 	if(isRamming):
+	
+		soundEffectContainer.play()
+	
 		_camera_shake(0.3, 0.1)
+
 func behavior_on_collision():
 	cartManager.eject_all_items()

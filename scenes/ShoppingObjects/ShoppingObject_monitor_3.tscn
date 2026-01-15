@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cep365pdjo1j4"]
+[gd_scene load_steps=7 format=3 uid="uid://cep365pdjo1j4"]
 
 [ext_resource type="Script" uid="uid://n31b4ilrm78c" path="res://scripts/shopping_object.gd" id="1_1x4mm"]
 [ext_resource type="PackedScene" uid="uid://dovr6c8ovwoow" path="res://meshes/psx_mega_pack_models/Electronics & Misc/pc_monitor_mp_1.glb" id="2_1x4mm"]
+[ext_resource type="AudioStream" uid="uid://dc1e8y0f1jmsa" path="res://audio/sound_effects/Gunshot 7-1.wav" id="3_r0h24"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1x4mm"]
 size = Vector3(0.47550964, 0.42758942, 0.11442566)
@@ -17,7 +18,10 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_1x4mm")
 weight = 5.0
+price = 130.0
 attractionForceMagnitude = 2.0
+itemCategory = 1
+itemName = "Desktop Monitor"
 
 [node name="pc_monitor_mp_12" parent="." instance=ExtResource("2_1x4mm")]
 
@@ -32,5 +36,10 @@ shape = SubResource("BoxShape3D_r0h24")
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.0028686523, 0.035018895, 0.010208618)
 shape = SubResource("BoxShape3D_86a51")
+
+[node name="Gunshot71" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_r0h24")
+
+[node name="Area3D" type="Area3D" parent="."]
 
 [editable path="pc_monitor_mp_12"]

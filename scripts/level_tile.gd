@@ -16,7 +16,7 @@ func _ready() -> void:
 	
 	npcSpawnMarkers = npcSpawnMarkerParent.get_children()
 	npc_respawn_loop()
-	
+	security_spawn_loop()
 	
 	
 func spawn_npcs():
@@ -39,7 +39,13 @@ func spawn_security():
 			npc_instance.global_position = i.global_position
 
 func npc_respawn_loop():
-	spawn_security()
+	
 	spawn_npcs()
-	var timer = get_tree().create_timer(20)
+	var timer = get_tree().create_timer(10)
 	timer.timeout.connect(npc_respawn_loop)
+
+func security_spawn_loop():
+	spawn_security()
+	
+	var timer = get_tree().create_timer(30)
+	timer.timeout.connect(security_spawn_loop)
