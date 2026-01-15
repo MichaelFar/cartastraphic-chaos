@@ -10,7 +10,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if value != 0 and pin != 0:
+	if value == 0 and pin == 0:
 		randomizeValues()
 		randomizeAppearance()
 		tooltip_text = item_name + "\n" + item_description
