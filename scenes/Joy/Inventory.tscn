@@ -1,6 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bv8twyvc2cjfa"]
+[gd_scene load_steps=12 format=3 uid="uid://bv8twyvc2cjfa"]
 
 [ext_resource type="Script" uid="uid://cgiqlsjchfw6f" path="res://scripts/Joy/Inventory.gd" id="1_ng6ov"]
+[ext_resource type="PackedScene" uid="uid://dh778osy8ievl" path="res://scenes/Joy/Wallet Items/WalletItem.tscn" id="2_ecf4b"]
+[ext_resource type="PackedScene" uid="uid://48r35rmsjocl" path="res://scenes/Joy/Wallet Items/CreditCard.tscn" id="3_aic3w"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_4l1yp"]
 
@@ -8,6 +10,11 @@
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ecf4b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yenhd"]
+resource_local_to_scene = true
+metallic = 0.62
+roughness = 0.6
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4l1yp"]
 albedo_color = Color(0.06879827, 0.06879828, 0.06879828, 1)
@@ -22,8 +29,10 @@ metallic = 1.0
 [node name="Inventory" type="Node3D" node_paths=PackedStringArray("item_slots", "shopping_list", "phone_screen")]
 script = ExtResource("1_ng6ov")
 item_slots = [NodePath("CreditCardStack"), NodePath("CashStack"), NodePath("CuponStack"), NodePath("JunkStack")]
+height_variation = 0.1
 shopping_list = NodePath("Shopping List")
 phone_screen = NodePath("Phone/Screen/SubViewport")
+wallet_item = ExtResource("2_ecf4b")
 
 [node name="Plane" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.9949159, 0, 0, 0, 0.9949159, 0, 0, 0, 1.9898318, 0, 0, 0)
@@ -39,6 +48,19 @@ skeleton = NodePath("../Plane")
 transform = Transform3D(0.13475622, 0, 0.09831519, 0, 0.99491507, 0, -0.063104354, 0, 0.20994723, 0.2958684, 0.03299856, 0.4423416)
 mesh = SubResource("PlaneMesh_ecf4b")
 skeleton = NodePath("../Plane")
+
+[node name="StarterCard" parent="CreditCardStack" instance=ExtResource("2_ecf4b")]
+transform = Transform3D(0.57751584, 0, 0, 0, -3.185797e-08, 0.075760245, 0, -0.72882533, -3.3115855e-09, 0, 0, 0)
+
+[node name="CreditCard" parent="CreditCardStack/StarterCard/Item Viewport" index="0" instance=ExtResource("3_aic3w")]
+value = 10.0
+pin = 1234
+
+[node name="ItemFront" parent="CreditCardStack/StarterCard" index="1"]
+material_override = SubResource("StandardMaterial3D_yenhd")
+
+[node name="ItemFront2" parent="CreditCardStack/StarterCard" index="2"]
+material_override = SubResource("StandardMaterial3D_yenhd")
 
 [node name="CashStack" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.14331427, 0, -0.062366247, 0, 0.99491507, 0, 0.04003024, 0, 0.22328046, 0.24201602, 0.03299856, -0.25369596)
@@ -66,3 +88,5 @@ transform = Transform3D(-1.7531388e-08, 0.078327805, 0, -0.4010714, -3.423817e-0
 mesh = SubResource("PlaneMesh_aic3w")
 
 [node name="SubViewport" type="SubViewport" parent="Phone/Screen"]
+
+[editable path="CreditCardStack/StarterCard"]

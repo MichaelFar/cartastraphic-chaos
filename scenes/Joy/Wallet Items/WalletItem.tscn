@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dh778osy8ievl"]
+[gd_scene load_steps=6 format=3 uid="uid://dh778osy8ievl"]
 
-[ext_resource type="Script" uid="uid://covuqvlchlqd" path="res://scripts/Joy/card_object.gd" id="1_ejqs2"]
-[ext_resource type="Script" uid="uid://qmrjs7qllspk" path="res://scenes/Joy/Wallet Items/physical_wallet_item.gd" id="1_y6smp"]
+[ext_resource type="Script" uid="uid://qmrjs7qllspk" path="res://scripts/Joy/physical_wallet_item.gd" id="1_y6smp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kqdon"]
 resource_local_to_scene = true
@@ -10,20 +9,32 @@ roughness = 0.6
 
 [sub_resource type="QuadMesh" id="QuadMesh_rvogd"]
 
-[node name="WalletItem" type="Node3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6smp"]
+albedo_color = Color(0.26657522, 0.2665752, 0.2665752, 1)
+metallic = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_ub1po"]
+material = SubResource("StandardMaterial3D_y6smp")
+
+[node name="WalletItem" type="Node3D" node_paths=PackedStringArray("viewport", "planes")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 0.20588693, 0, -1, -8.999604e-09, 0, 0, 0)
 script = ExtResource("1_y6smp")
+viewport = NodePath("Item Viewport")
+planes = [NodePath("ItemFront"), NodePath("ItemFront2")]
 
 [node name="Item Viewport" type="SubViewport" parent="."]
 size = Vector2i(1197, 667)
 
 [node name="ItemFront" type="MeshInstance3D" parent="."]
-transform = Transform3D(3.9999735, -0.009497116, -0.001798727, 0.012677443, 2.9999788, 0.0020325566, 0.007169112, -0.0061147367, 0.9999963, 0, 0, 0)
+transform = Transform3D(3.9999735, -0.009497116, -0.001798727, 0.012677443, 2.9999788, 0.0020325566, 0.007169112, -0.0061147367, 0.9999963, 0, 0, 0.1)
 material_override = SubResource("StandardMaterial3D_kqdon")
 mesh = SubResource("QuadMesh_rvogd")
-script = ExtResource("1_ejqs2")
 
 [node name="ItemFront2" type="MeshInstance3D" parent="."]
-transform = Transform3D(-3.9999733, 0.009497114, 0.0017988145, 0.012677443, 2.9999788, 0.0020325566, -0.0071694613, 0.0061147376, -0.9999963, 0, 0, 0)
+transform = Transform3D(-3.9999733, 0.009497114, 0.0017988145, 0.012677443, 2.9999788, 0.0020325566, -0.0071694613, 0.0061147376, -0.9999963, 0, 0, -0.1)
 material_override = SubResource("StandardMaterial3D_kqdon")
 mesh = SubResource("QuadMesh_rvogd")
-script = ExtResource("1_ejqs2")
+
+[node name="Square" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.1, 0, 0, 0, 3.1, 0, 0, 0, 0.18, 0, 0, 0)
+mesh = SubResource("BoxMesh_ub1po")

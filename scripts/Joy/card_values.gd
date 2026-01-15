@@ -1,8 +1,8 @@
 extends Control
 
-var value: float
-var pin: int
-var expired: bool
+@export var value: float
+@export var pin: int
+@export var expired: bool
 
 @onready var item_name : String = "Credit Card" 
 @onready var item_description : String = "  Some schmuck's credit card."
