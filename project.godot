@@ -25,7 +25,6 @@ GlobalSignalBus="*res://global_signal_bus.gd"
 
 window/size/viewport_width=1650
 window/size/viewport_height=960
-window/size/mode=3
 
 [dotnet]
 

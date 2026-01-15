@@ -26,6 +26,6 @@ func update_label_loop():
 func _on_body_entered(body: Node3D) -> void:
 	if(body is Player):
 		if(body.shoppingList.hasAllRequiredItems && GlobalValues.playerMoney >= GlobalValues.player.cartManager.get_total_price()):
-			print("You friggin win baby")
+			body.winScreen.show()
 		else:
 			print("Get back out there shopper!")

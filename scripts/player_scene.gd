@@ -32,6 +32,8 @@ class_name Player
 
 @export var debugMoneyLabel: Label
 
+@export var winScreen : Control
+
 var look_rotation : Vector2
 
 var mouse_captured : bool = false
@@ -61,6 +63,7 @@ func _camera_shake(shake_period : float = 0.3, shake_magnitude : float = 0.4):
 
 	self.transform = initial_transform
 func _ready():
+	winScreen.hide()
 	GlobalValues.player = self
 	originalRotationRate = rotationRate
 	cartManager.has_added_to_list.connect(shoppingList.subtract_then_update_list_labels)

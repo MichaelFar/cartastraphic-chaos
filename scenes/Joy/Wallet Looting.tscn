@@ -32,7 +32,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xq8nx")
 item_pool = Array[PackedScene]([ExtResource("2_b21y8"), ExtResource("3_y4v1w"), ExtResource("4_wb6x6"), ExtResource("5_cmm1s")])
-items = [NodePath("ItemButton/SubViewport"), NodePath("ItemButton2/SubViewport2"), NodePath("ItemButton3/SubViewport3"), NodePath("ItemButton4/SubViewport4")]
+items = [NodePath("SubViewport"), NodePath("SubViewport2"), NodePath("SubViewport3"), NodePath("SubViewport4")]
 
 [node name="Background" type="Panel" parent="."]
 z_index = -5
@@ -44,6 +44,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_a1jyd")
 
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(1197, 667)
+render_target_update_mode = 3
+
 [node name="ItemButton" parent="." node_paths=PackedStringArray("menu", "viewport") instance=ExtResource("2_rpauf")]
 layout_mode = 1
 anchors_preset = -1
@@ -53,9 +57,9 @@ anchor_right = 0.4
 anchor_bottom = 0.8
 icon = SubResource("ViewportTexture_egxmw")
 menu = NodePath("..")
-viewport = NodePath("SubViewport")
+viewport = NodePath("../SubViewport")
 
-[node name="SubViewport" type="SubViewport" parent="ItemButton"]
+[node name="SubViewport2" type="SubViewport" parent="."]
 size = Vector2i(1197, 667)
 render_target_update_mode = 3
 
@@ -68,9 +72,9 @@ anchor_right = 0.25
 anchor_bottom = 0.5
 icon = SubResource("ViewportTexture_rpauf")
 menu = NodePath("..")
-viewport = NodePath("SubViewport2")
+viewport = NodePath("../SubViewport2")
 
-[node name="SubViewport2" type="SubViewport" parent="ItemButton2"]
+[node name="SubViewport3" type="SubViewport" parent="."]
 size = Vector2i(1197, 667)
 render_target_update_mode = 3
 
@@ -83,9 +87,9 @@ anchor_right = 0.8
 anchor_bottom = 0.8
 icon = SubResource("ViewportTexture_xeiku")
 menu = NodePath("..")
-viewport = NodePath("SubViewport3")
+viewport = NodePath("../SubViewport3")
 
-[node name="SubViewport3" type="SubViewport" parent="ItemButton3"]
+[node name="SubViewport4" type="SubViewport" parent="."]
 size = Vector2i(1197, 667)
 render_target_update_mode = 3
 
@@ -98,10 +102,6 @@ anchor_right = 0.95
 anchor_bottom = 0.5
 icon = SubResource("ViewportTexture_i3pb6")
 menu = NodePath("..")
-viewport = NodePath("SubViewport4")
-
-[node name="SubViewport4" type="SubViewport" parent="ItemButton4"]
-size = Vector2i(1197, 667)
-render_target_update_mode = 3
+viewport = NodePath("../SubViewport4")
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

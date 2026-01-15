@@ -12,7 +12,7 @@ class_name CreditCard
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if value != 0 and pin != 0:
+	if value == 0 and pin == 0:
 		randomizeValues()
 		randomizeAppearance()
 		tooltip_text = item_name + "\n" + item_description
@@ -57,4 +57,3 @@ func setCard() -> void:
 	$Background.texture = ImageTexture.create_from_image(Image.load_from_file("res://scenes/Joy/Visuals/CreditCard/bg_hex2.png"))
 	$Background.modulate = Color(randf(), randf(), randf())
 	$"Card Number".text = str(randi_range(0, 9999)) + " " +str(randi_range(0, 9999)) + " " + str(randi_range(0, 9999)) + " " + str(randi_range(0, 9999))
-
