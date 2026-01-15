@@ -23,7 +23,7 @@ func _ready() -> void:
 	mesh.material.albedo_texture = subViewPort.get_texture()
 	
 func populate_list():
-	
+	print("Populating shopping list")
 	var rand_obj := RandomNumberGenerator.new()
 	for i in shopListAmount:
 		
@@ -65,15 +65,18 @@ func populate_list():
 		var key : String = i.text
 		key = key.replace(" x " + str(i.text.to_int()), "")
 		itemTrackerDict.get_or_add(key, i.text.to_int())
+		#originalTrackerDict = itemTrackerDict
+	
+	originalTrackerDict = itemTrackerDict.duplicate()
 	
 	print("Dictionary is " + str(itemTrackerDict))
-	originalTrackerDict = itemTrackerDict
+	print("Original Dictionary is " + str(originalTrackerDict))
 
 func subtract_then_update_list_labels(item_name : String):
 	
 	
 	if(itemTrackerDict.has(item_name)):
-		itemTrackerDict[item_name] -= 1#clampi(itemTrackerDict[item_name] - 1, 0, individualItemLimit)
+		itemTrackerDict[item_name] = clampi(itemTrackerDict[item_name] - 1, 0, originalTrackerDict[item_name])
 		
 		update_list_labels(item_name)
 
@@ -81,7 +84,10 @@ func add_then_update_list_labels(item_name : String):
 	
 	
 	if(itemTrackerDict.has(item_name)):
-		itemTrackerDict[item_name] = clampi(itemTrackerDict[item_name] + 1, 0, individualItemLimit)
+		itemTrackerDict[item_name] = clampi(itemTrackerDict[item_name] + 1, 0, originalTrackerDict[item_name])
+		
+		print("Item: " + item_name + " is now " + str(itemTrackerDict[item_name]))
+		print("Item: dictionary " + str(originalTrackerDict))
 		
 		update_list_labels(item_name)
 
@@ -91,6 +97,13 @@ func update_list_labels(item_name : String):
 				var manipulation_string : String = j.text
 				print("Manipulation string before updating amount is " + manipulation_string)
 				print("Replacing item " + item_name+ ": amount " + str(" x " + str(j.text.to_int())) + " with " + str(" x " + str(itemTrackerDict[item_name])))
+				
 				manipulation_string = manipulation_string.replace(" x " + str(j.text.to_int()), " x " + str(itemTrackerDict[item_name]))
+				
+				if(!manipulation_string.contains(" x 0")):
+					j.set("theme_override_colors/font_color",notYetCollectedAllItemsColor)
+				else:
+					j.set("theme_override_colors/font_color",collectedAllItemsColor)
+				
 				print("Manipulation string after updating amount is " + manipulation_string)
 				j.text = manipulation_string

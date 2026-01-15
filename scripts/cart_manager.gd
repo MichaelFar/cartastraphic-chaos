@@ -38,9 +38,11 @@ func add_object_to_list(new_item : ShoppingObject):
 func pop_from_list(object_to_remove : ShoppingObject):
 	
 	if object_to_remove in shoppingObjectList:
-		#print("Popping" + str(object_to_remove))
-		shoppingObjectList.pop_at(shoppingObjectList.find(object_to_remove))
+		if(GlobalValues.player.cartManager == self):
+			print("Popping" + str(object_to_remove.itemName))
 		has_removed_from_list.emit(object_to_remove.itemName)
+		shoppingObjectList.pop_at(shoppingObjectList.find(object_to_remove))
+		
 func eject_item(object_to_eject : ShoppingObject):
 	
 	if(object_to_eject != null):

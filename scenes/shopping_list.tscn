@@ -11,7 +11,8 @@ material = SubResource("StandardMaterial3D_7mkwh")
 [node name="ShoppingListMesh" type="MeshInstance3D" node_paths=PackedStringArray("vboxContainer", "subViewPort")]
 mesh = SubResource("PlaneMesh_8ky88")
 script = ExtResource("1_7mkwh")
-shopListAmount = 8
+shopListAmount = 2
+individualItemLimit = 1
 vboxContainer = NodePath("SubViewport/ShoppingList/AspectRatioContainer/VBoxContainer")
 subViewPort = NodePath("SubViewport")
 collectedAllItemsColor = Color(0, 1, 0, 1)
