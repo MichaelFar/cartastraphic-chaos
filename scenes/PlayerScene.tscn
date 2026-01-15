@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://boy7evgyjn6g7" path="res://scripts/player_scene.gd" id="1_f302p"]
 [ext_resource type="PackedScene" uid="uid://uaml3ixos4wd" path="res://scenes/Joy/Wallet Looting.tscn" id="1_hwioa"]
-[ext_resource type="PackedScene" uid="uid://bqncphdphm4nt" path="res://scenes/cart_manager.tscn" id="2_vdp4a"]
+[ext_resource type="PackedScene" path="res://scenes/cart_manager.tscn" id="2_vdp4a"]
 [ext_resource type="AudioStream" uid="uid://dcoaiw0pqbik4" path="res://audio/sound_effects/Shield Metal Impact 1-3.wav" id="3_3lb1s"]
 [ext_resource type="PackedScene" uid="uid://5k21fhrdef3p" path="res://meshes/cubic-shopping-cart/source/model.gltf" id="3_4kqly"]
 [ext_resource type="AudioStream" uid="uid://cosya18mxhq7p" path="res://audio/sound_effects/shopping-cart-2-64553.wav" id="3_b4xdg"]
