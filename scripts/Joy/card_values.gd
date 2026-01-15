@@ -12,9 +12,12 @@ class_name CreditCard
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	randomizeValues()
-	randomizeAppearance()
-	tooltip_text = item_name + "\n" + item_description
+	if value != 0 and pin != 0:
+		randomizeValues()
+		randomizeAppearance()
+		tooltip_text = item_name + "\n" + item_description
+	else:
+		setCard()
 
 # Randomizes the background, 
 func randomizeAppearance() -> void:
@@ -42,5 +45,16 @@ func randomizeValues() -> void:
 	else:
 		expired = false
 	
+
 func on_selected():
 	GlobalValues.playerMoney += value
+
+
+func setCard() -> void:
+	$"Money Left".text = "Money Left:\n" + str(value)
+	$Pin.text = str(pin)
+	$"Card holder name".text = "Me!"
+	$Background.texture = ImageTexture.create_from_image(Image.load_from_file("res://scenes/Joy/Visuals/CreditCard/bg_hex2.png"))
+	$Background.modulate = Color(randf(), randf(), randf())
+	$"Card Number".text = str(randi_range(0, 9999)) + " " +str(randi_range(0, 9999)) + " " + str(randi_range(0, 9999)) + " " + str(randi_range(0, 9999))
+

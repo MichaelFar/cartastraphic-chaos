@@ -17,14 +17,15 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+ItemButtons="*res://scripts/Joy/item_buttons.gd"
 GlobalValues="*res://scripts/global_values.gd"
 GlobalSignalBus="*res://global_signal_bus.gd"
-ItemButtons="*res://scripts/Joy/item_buttons.gd"
 
 [display]
 
 window/size/viewport_width=1650
 window/size/viewport_height=960
+window/size/mode=3
 
 [dotnet]
 
